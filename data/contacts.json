@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1759657396750",
+    "name": "Lucas",
+    "email": "lucas_kramer@t-online.de",
+    "message": "Ich würde gerne mit euch arbeiten",
+    "subject": "Keine Betreff",
+    "phone": "+491284748191",
+    "company": "AI",
+    "services": [],
+    "date": "2025-10-05T09:43:16.750Z",
+    "status": "unread",
+    "createdAt": "5.10.2025, 11:43:16"
+  },
+  {
+    "id": "1757933692879",
+    "name": "olaf",
+    "email": "oj@galerie-jaeschke.de",
+    "message": "Hallo ich möchte ein projekt",
+    "subject": "Projektanfrage: ai (Budget: 5k-15k)",
+    "phone": "0123456789",
+    "company": "Printzz GmbH",
+    "services": [],
+    "date": "2025-09-15T10:54:52.879Z",
+    "status": "unread",
+    "createdAt": "15.9.2025, 12:54:52"
+  },
+  {
+    "id": "1757582664083",
+    "name": "Lucas Kramer",
+    "email": "lucas_kramer@t-online.de",
+    "message": "Neues Projekt",
+    "subject": "Projektanfrage: ai (Budget: 5k-15k)",
+    "phone": "+491621660237",
+    "company": "Printzz GmbH",
+    "services": [],
+    "date": "2025-09-11T09:24:24.083Z",
+    "status": "unread",
+    "createdAt": "11.9.2025, 11:24:24"
+  },
+  {
+    "id": "1757582215446",
+    "name": "Lucas Kramer",
+    "email": "lucas_kramer@t-online.de",
+    "message": "hi",
+    "subject": "Projektanfrage: website (Budget: 5k-15k)",
+    "phone": "+491621660237",
+    "company": "Printzz GmbH",
+    "services": [],
+    "date": "2025-09-11T09:16:55.446Z",
+    "status": "unread",
+    "createdAt": "11.9.2025, 11:16:55"
+  },
+  {
+    "id": "1755348235723",
+    "name": "ai analysis",
+    "email": "hi@gmail.com",
+    "message": "hallo",
+    "subject": "Projektanfrage: website (Budget: 5k-15k)",
+    "phone": "123",
+    "date": "2025-08-16T12:43:55.723Z",
+    "status": "unread",
+    "createdAt": "16.8.2025, 14:43:55"
+  }
+]
