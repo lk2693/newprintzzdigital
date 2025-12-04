@@ -88,32 +88,32 @@ export default function FullScreenServices() {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="py-12 sm:py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-12 lg:mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight max-w-2xl">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight max-w-2xl">
             Features für Ihre{' '}
             <span className="text-yellow-500">digitale Reise</span>
           </h2>
-          <p className="text-gray-600 max-w-md text-lg">
+          <p className="text-gray-600 max-w-md text-base sm:text-lg">
             PrintzzDigital ist darauf ausgelegt, Ihr Unternehmen zu unterstützen und fundierte Entscheidungen für nachhaltiges Wachstum zu treffen.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
           {/* Card 1 - Chat */}
-          <div className="bg-gray-50 rounded-3xl p-6 lg:p-8 min-h-[400px]">
+          <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 min-h-[350px] sm:min-h-[400px]">
             <div className="mb-4">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{features[0].title}</h3>
-              <p className="text-gray-500 text-sm">{features[0].subtitle}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{features[0].title}</h3>
+              <p className="text-gray-500 text-xs sm:text-sm">{features[0].subtitle}</p>
             </div>
             
             {/* Interactive Chat Interface */}
-            <div className="bg-white rounded-2xl p-4 shadow-sm mt-6 h-[280px] flex flex-col">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-sm mt-4 sm:mt-6 h-[240px] sm:h-[280px] flex flex-col">
               {/* Messages Area */}
-              <div className="flex-1 space-y-3 overflow-y-auto">
+              <div className="flex-1 space-y-2 sm:space-y-3 overflow-y-auto">
                 {allMessages.slice(0, visibleMessages).map((msg, index) => (
                   <div 
                     key={index} 
@@ -145,16 +145,16 @@ export default function FullScreenServices() {
               </div>
               
               {/* Input Area */}
-              <div className="flex items-center gap-2 pt-3 border-t border-gray-100 mt-3">
+              <div className="flex items-center gap-2 pt-2 sm:pt-3 border-t border-gray-100 mt-2 sm:mt-3">
                 <input
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   placeholder="Schreiben Sie eine Nachricht..."
-                  className="flex-1 text-sm text-gray-600 bg-transparent outline-none placeholder:text-gray-400"
+                  className="flex-1 text-xs sm:text-sm text-gray-600 bg-transparent outline-none placeholder:text-gray-400"
                 />
-                <button className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                  <svg className="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button className="w-7 h-7 sm:w-8 sm:h-8 bg-yellow-500 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors flex-shrink-0">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                   </svg>
                 </button>
@@ -163,14 +163,14 @@ export default function FullScreenServices() {
           </div>
 
           {/* Card 2 - Video Call */}
-          <div className="bg-gray-50 rounded-3xl p-6 lg:p-8 min-h-[400px]">
+          <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 min-h-[350px] sm:min-h-[400px]">
             <div className="mb-4">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{features[1].title}</h3>
-              <p className="text-gray-500 text-sm">{features[1].subtitle}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{features[1].title}</h3>
+              <p className="text-gray-500 text-xs sm:text-sm">{features[1].subtitle}</p>
             </div>
             
             {/* Video Interface */}
-            <div className="relative rounded-2xl overflow-hidden mt-6 bg-gray-200 aspect-video">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden mt-4 sm:mt-6 bg-gray-200 aspect-video">
               {features[1].image && (
                 <Image
                   src={features[1].image}
@@ -217,25 +217,25 @@ export default function FullScreenServices() {
           </div>
 
           {/* Card 3 - Profile & Report */}
-          <div className="bg-gray-50 rounded-3xl p-6 lg:p-8 min-h-[400px]">
+          <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 min-h-[350px] sm:min-h-[400px]">
             <div className="mb-4">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{features[2].title}</h3>
-              <p className="text-gray-500 text-sm">{features[2].subtitle}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{features[2].title}</h3>
+              <p className="text-gray-500 text-xs sm:text-sm">{features[2].subtitle}</p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
               {/* Profile Card */}
-              <div className="bg-white rounded-2xl p-4 shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-white font-bold">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-sm">
+                <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">
                     MM
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 text-sm">{features[2].profile?.name}</h4>
-                    <p className="text-xs text-gray-500">{features[2].profile?.company}</p>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-gray-900 text-xs sm:text-sm truncate">{features[2].profile?.name}</h4>
+                    <p className="text-[10px] sm:text-xs text-gray-500 truncate">{features[2].profile?.company}</p>
                   </div>
-                  <button className="ml-auto text-gray-400 hover:text-gray-600">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <button className="ml-auto text-gray-400 hover:text-gray-600 flex-shrink-0">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                   </button>
@@ -280,8 +280,8 @@ export default function FullScreenServices() {
                   ))}
                 </div>
                 
-                <button className="w-full mt-4 bg-gray-100 text-gray-700 font-medium py-2 rounded-xl text-sm hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button className="w-full mt-3 sm:mt-4 bg-gray-100 text-gray-700 font-medium py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
                   Report herunterladen
@@ -291,29 +291,29 @@ export default function FullScreenServices() {
           </div>
 
           {/* Card 4 - Calendar */}
-          <div className="bg-gray-50 rounded-3xl p-6 lg:p-8 min-h-[400px]">
+          <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 min-h-[350px] sm:min-h-[400px]">
             <div className="mb-4">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{features[3].title}</h3>
-              <p className="text-gray-500 text-sm">{features[3].subtitle}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{features[3].title}</h3>
+              <p className="text-gray-500 text-xs sm:text-sm">{features[3].subtitle}</p>
             </div>
             
             {/* Calendar */}
-            <div className="bg-white rounded-2xl p-4 shadow-sm mt-6">
-              <div className="flex items-center justify-between mb-4">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-sm mt-4 sm:mt-6">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span className="font-semibold text-gray-900">Dezember 2024</span>
+                  <span className="font-semibold text-gray-900 text-sm sm:text-base">Dezember 2024</span>
                 </div>
                 <div className="flex gap-1">
-                  <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-500">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <button className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-500">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                   </button>
-                  <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-500">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <button className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-500">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </button>

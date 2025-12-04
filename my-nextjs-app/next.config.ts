@@ -71,11 +71,6 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  
-  eslint: {
-    // Disable ESLint für Performance-Build
-    ignoreDuringBuilds: true,
-  },
 };
 
 export default nextConfig;

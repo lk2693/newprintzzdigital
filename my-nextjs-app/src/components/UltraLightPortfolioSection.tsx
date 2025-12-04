@@ -6,14 +6,54 @@ import Image from 'next/image';
 // Echte Projekt-Daten
 const projects = [
   {
-    name: 'Kunstplattform E-Commerce',
+    name: 'Restaurant Website',
     priority: 'High',
     priorityColor: 'bg-green-100 text-green-700',
-    image: '/artmarket.png',
-    assigned: ['K', 'P', 'L'],
+    image: '/restaurant.png',
+    assigned: ['O', 'J'],
     link: '/portfolio',
-    description: 'E-Commerce-Lösung für die Kunstbranche',
+    description: 'Moderne Gastronomie-Website mit Speisekarte',
+    category: 'Website'
+  },
+  {
+    name: 'E-Commerce Shop',
+    priority: 'High',
+    priorityColor: 'bg-green-100 text-green-700',
+    image: '/ecommerce.png',
+    assigned: ['K', 'P'],
+    link: '/portfolio',
+    description: 'Moderner Online-Shop mit Zahlungsintegration',
     category: 'E-Commerce'
+  },
+  {
+    name: 'Fashion Store',
+    priority: 'High',
+    priorityColor: 'bg-green-100 text-green-700',
+    image: '/ecommerce2.png',
+    assigned: ['M', 'L'],
+    link: '/portfolio',
+    description: 'Eleganter Mode-Webshop',
+    category: 'E-Commerce'
+  },
+  {
+    name: 'Hotel Booking',
+    priority: 'Medium',
+    priorityColor: 'bg-yellow-100 text-yellow-700',
+    image: '/hotel.png',
+    assigned: ['A', 'K'],
+    link: '/portfolio',
+    description: 'Hotel-Website mit Buchungssystem',
+    category: 'Website'
+  },
+  {
+    name: 'Landing Page',
+    priority: 'Medium',
+    priorityColor: 'bg-yellow-100 text-yellow-700',
+    image: '/landing.png',
+    assigned: ['P', 'M'],
+    link: '/portfolio',
+    description: 'Conversion-optimierte Landing Page',
+    category: 'Marketing'
   },
   {
     name: 'Kloster & Partner',
@@ -24,50 +64,20 @@ const projects = [
     link: '/portfolio/kloster-und-partner-architekten',
     description: 'Architekturbüro-Website',
     category: 'Website'
-  },
-  {
-    name: 'AI Flow System',
-    priority: 'High',
-    priorityColor: 'bg-green-100 text-green-700',
-    image: '/aiflow.png',
-    assigned: ['K', 'P', 'L'],
-    link: '/portfolio',
-    description: 'Intelligente Automatisierung',
-    category: 'KI'
-  },
-  {
-    name: 'Online Shop',
-    priority: 'Medium',
-    priorityColor: 'bg-yellow-100 text-yellow-700',
-    image: '/onlineshop.png',
-    assigned: ['M', 'K'],
-    link: '/portfolio',
-    description: 'E-Commerce-Lösung',
-    category: 'E-Commerce'
-  },
-  {
-    name: 'Digital Marketing',
-    priority: 'Low',
-    priorityColor: 'bg-red-100 text-red-700',
-    image: null,
-    assigned: ['P', 'A', 'L'],
-    link: '/portfolio',
-    description: 'Marketing Suite',
-    category: 'Marketing'
   }
 ];
 
 export default function UltraLightPortfolioSection() {
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-100 via-yellow-50 to-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+    <section className="py-12 sm:py-16 bg-gradient-to-br from-gray-100 via-yellow-50 to-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
         
         {/* ========== SECTION 1: Projektmanagement ========== */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           {/* Left Side - Project Dashboard */}
           <div className="relative order-2 lg:order-1">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
               {/* Header */}
               <div className="bg-gradient-to-r from-blue-100 via-blue-50 to-yellow-50 px-6 py-5">
                 <h3 className="text-xl font-bold text-gray-900">Projekte</h3>
@@ -201,25 +211,25 @@ export default function UltraLightPortfolioSection() {
             <span className="text-sm font-semibold text-yellow-600 uppercase tracking-wider">
               Projektmanagement
             </span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mt-4 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-4 leading-tight">
               Jedes Projekt<br />im Blick behalten
             </h2>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 leading-relaxed">
               <span className="font-semibold text-gray-900">Planen, zuweisen und liefern</span> – alles an einem Ort. 
               Mit intelligentem Projekttracking, klaren Deadlines und Echtzeit-Fortschritt.
             </p>
-            <div className="mt-8">
+            <div className="mt-6 sm:mt-8">
               <Link href="/contact">
-                <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all shadow-lg">
+                <button className="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all shadow-lg">
                   Kostenlose Beratung
                 </button>
               </Link>
             </div>
             {/* Feature Tags */}
-            <div className="mt-10 grid grid-cols-2 gap-3">
+            <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-3">
               {['Tasks', 'Time tracking', 'Timesheets', 'Reports'].map((label, i) => (
-                <div key={i} className="flex items-center justify-center bg-white px-5 py-3.5 rounded-full border border-gray-200 shadow-sm hover:border-gray-900 hover:bg-gray-50 transition-all">
-                  <span className="text-sm font-medium text-gray-700">{label}</span>
+                <div key={i} className="flex items-center justify-center bg-white px-3 sm:px-5 py-2.5 sm:py-3.5 rounded-full border border-gray-200 shadow-sm hover:border-gray-900 hover:bg-gray-50 transition-all">
+                  <span className="text-xs sm:text-sm font-medium text-gray-700">{label}</span>
                 </div>
               ))}
             </div>
@@ -227,33 +237,33 @@ export default function UltraLightPortfolioSection() {
         </div>
 
         {/* ========== SECTION 2: Projekt Showcase ========== */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           {/* Left Side - Text Content */}
           <div>
             <span className="text-sm font-semibold text-yellow-600 uppercase tracking-wider">
               Unsere Projekte
             </span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mt-4 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-4 leading-tight">
               Von der Idee zur<br />digitalen Realität
             </h2>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 leading-relaxed">
               <span className="font-semibold text-gray-900">Erstklassige Lösungen erstellen</span>, Projekte verfolgen und 
               Ergebnisse liefern. Ob E-Commerce, KI-Integration oder Webentwicklung – 
               wir setzen Ihre Vision um.
             </p>
-            <div className="mt-8">
+            <div className="mt-6 sm:mt-8">
               <Link href="/portfolio">
-                <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all shadow-lg">
+                <button className="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all shadow-lg">
                   Alle Projekte ansehen
                 </button>
               </Link>
             </div>
             {/* Feature Tags */}
-            <div className="mt-10 grid grid-cols-2 gap-3">
+            <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-3">
               {['Webentwicklung', 'KI-Integration', 'Automatisierung', 'Design'].map((label, i) => (
-                <div key={i} className="flex items-center justify-center bg-white px-5 py-3.5 rounded-full border border-gray-200 shadow-sm hover:border-gray-900 hover:bg-gray-50 transition-all">
-                  <span className="text-sm font-medium text-gray-700">{label}</span>
+                <div key={i} className="flex items-center justify-center bg-white px-3 sm:px-5 py-2.5 sm:py-3.5 rounded-full border border-gray-200 shadow-sm hover:border-gray-900 hover:bg-gray-50 transition-all">
+                  <span className="text-xs sm:text-sm font-medium text-gray-700">{label}</span>
                 </div>
               ))}
             </div>
@@ -261,53 +271,53 @@ export default function UltraLightPortfolioSection() {
 
           {/* Right Side - Budget Dashboard */}
           <div className="relative">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 p-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-6">Projekt Budget</h3>
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-gray-100 p-4 sm:p-8">
+              <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-4 sm:mb-6">Projekt Budget</h3>
               
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-6 sm:mb-8">
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-2xl font-bold text-gray-900">€18.090</span>
+                    <span className="text-lg sm:text-2xl font-bold text-gray-900">€18.090</span>
                   </div>
-                  <span className="text-sm text-gray-500">Abrechenbar gesamt</span>
+                  <span className="text-xs sm:text-sm text-gray-500">Abrechenbar gesamt</span>
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <svg className="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
-                    <span className="text-2xl font-bold text-gray-900">€22.090</span>
+                    <span className="text-lg sm:text-2xl font-bold text-gray-900">€22.090</span>
                   </div>
-                  <span className="text-sm text-gray-500">Erwarteter Gewinn</span>
+                  <span className="text-xs sm:text-sm text-gray-500">Erwarteter Gewinn</span>
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <svg className="w-5 h-5 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                    <span className="text-2xl font-bold text-gray-900">€2.325</span>
+                    <span className="text-lg sm:text-2xl font-bold text-gray-900">€2.325</span>
                   </div>
-                  <span className="text-sm text-gray-500">Projektkosten</span>
+                  <span className="text-xs sm:text-sm text-gray-500">Projektkosten</span>
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-2xl font-bold text-gray-900">89.3</span>
+                    <span className="text-lg sm:text-2xl font-bold text-gray-900">89.3</span>
                   </div>
-                  <span className="text-sm text-gray-500">Marge %</span>
+                  <span className="text-xs sm:text-sm text-gray-500">Marge %</span>
                 </div>
               </div>
 
               {/* Analytics Chart */}
               <div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-4">Analytics</h4>
-                <div className="flex items-center gap-4 mb-4 text-sm">
+                <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4">Analytics</h4>
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-3 sm:mb-4 text-xs sm:text-sm">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-0.5 bg-green-500"></div>
                     <span className="text-gray-600">Budget verwendet</span>
@@ -370,17 +380,17 @@ export default function UltraLightPortfolioSection() {
 
         {/* ========== SECTION 3: Projekt Grid ========== */}
         <div>
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <span className="text-sm font-semibold text-yellow-600 uppercase tracking-wider">
               Portfolio
             </span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mt-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-4">
               Ausgewählte Arbeiten
             </h2>
           </div>
 
           {/* Project Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {projects.slice(0, 3).map((project, index) => (
               <Link 
                 key={index}

@@ -11,7 +11,7 @@ export const siteConfig = {
   },
   
   contact: {
-    email: "info@printzzdigital.com",
+    email: "info@printzz.de",
     phone: "+49 (0) 30 12345678",
     address: {
       street: "Musterstraße 123",

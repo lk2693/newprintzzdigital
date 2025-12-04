@@ -1,177 +1,242 @@
 'use client';
 
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, ExternalLink, Globe, Sparkles } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
+interface WebsiteShowcase {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  color: string;
+  url?: string;
+  tags: string[];
+}
+
 export default function ProblemSection() {
-  const benefits = [
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const websites: WebsiteShowcase[] = [
     {
-      title: "Maximale Effizienz durch Automatisierung",
-      description: "PrintzzDigital hilft Ihnen, wiederkehrende Aufgaben zu automatisieren und wertvolle Zeit für Ihr Kerngeschäft zu gewinnen.",
-      stat: "75%",
-      statLabel: "Zeitersparnis",
-      icon: (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      link: "/leistungen/automatisierung"
+      id: 1,
+      title: "Kloster & Partner Architekten",
+      category: "Corporate Website",
+      description: "Moderne Architektur-Website mit Portfolio-Showcase und elegantem Design.",
+      image: "/portfolio/kloster-partner.jpg",
+      color: "from-slate-900 to-slate-700",
+      url: "/portfolio/kloster-und-partner-architekten",
+      tags: ["Next.js", "Responsive", "SEO"]
     },
     {
-      title: "Steigerung Ihrer digitalen Präsenz",
-      description: "Von modernen Websites bis zu KI-Integration – wir bringen Ihr Unternehmen auf das nächste Level.",
-      tags: [
-        { label: "Webentwicklung", href: "/leistungen/webentwicklung" },
-        { label: "KI-Integration", href: "/leistungen/ki-integration" },
-        { label: "Digitaldruck", href: "/druck" },
-        { label: "Automatisierung", href: "/leistungen/automatisierung" },
-        { label: "Digital Strategy", href: "/leistungen/digital-transformation" }
-      ],
-      hasImage: true,
-      link: "/services"
+      id: 2,
+      title: "E-Commerce Platform",
+      category: "Online Shop",
+      description: "Vollständig integrierter Webshop mit Zahlungsabwicklung und Lagerverwaltung.",
+      image: "/portfolio/ecommerce-demo.jpg",
+      color: "from-yellow-500 to-orange-500",
+      tags: ["Shopify", "Payment", "Analytics"]
     },
     {
-      title: "Schnellere Reaktion auf Marktveränderungen",
-      description: "PrintzzDigital ist darauf ausgelegt, Ihr Unternehmen agil und wettbewerbsfähig zu halten.",
-      stat: "3x",
-      statLabel: "schnellere Time-to-Market",
-      icon: (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-        </svg>
-      ),
-      link: "/leistungen/digital-transformation"
+      id: 3,
+      title: "Dashboard Solution",
+      category: "Web Application",
+      description: "Interaktives Business-Dashboard mit Echtzeit-Datenvisualisierung.",
+      image: "/portfolio/dashboard-demo.jpg",
+      color: "from-blue-600 to-purple-600",
+      tags: ["React", "Charts", "API"]
+    },
+    {
+      id: 4,
+      title: "Ihr Projekt",
+      category: "Coming Soon",
+      description: "Lassen Sie uns gemeinsam Ihre Vision in die Realität umsetzen.",
+      image: "/portfolio/placeholder.jpg",
+      color: "from-black to-slate-800",
+      tags: ["Ihre Idee", "Unser Know-how"]
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % websites.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + websites.length) % websites.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
-    <section className="py-12 lg:py-16 bg-white">
+    <section className="py-20 lg:py-28 bg-slate-950 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 lg:mb-20">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Warum PrintzzDigital für Ihre{' '}
-            <span className="text-yellow-500">digitale Transformation?</span>
-          </h2>
-        </div>
-
-        {/* Benefits Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Card 1 - Left */}
-          <div className="bg-gray-50 rounded-3xl p-8 flex flex-col justify-between min-h-[400px] group hover:bg-gray-100 transition-all duration-300">
-            <div>
-              <div className="flex items-start justify-between mb-8">
-                <h3 className="text-xl font-bold text-gray-900 max-w-[200px] leading-snug">
-                  {benefits[0].title}
-                </h3>
-                <Link href={benefits[0].link}>
-                  <button className="px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-full border border-gray-200 hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all">
-                    Explore
-                  </button>
-                </Link>
-              </div>
-              
-              <div className="border-t border-gray-200 pt-6 mt-auto">
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {benefits[0].description}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between mt-8">
-              <div className="w-14 h-14 bg-black rounded-2xl flex items-center justify-center text-yellow-500">
-                {benefits[0].icon}
-              </div>
-              <span className="text-5xl font-bold text-gray-900">{benefits[0].stat}</span>
-            </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Sparkles className="w-4 h-4" />
+            Unsere Arbeit
           </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
+            Websites, die{' '}
+            <span className="text-yellow-400">begeistern</span>
+          </h2>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            Entdecken Sie unsere Projekte – von Corporate Websites bis zu komplexen Web-Applikationen.
+          </p>
+        </motion.div>
 
-          {/* Card 2 - Center (Featured with Image) */}
-          <div className="bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 rounded-3xl p-8 flex flex-col justify-between min-h-[400px] relative overflow-hidden group">
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-300/30 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-yellow-600/30 rounded-full blur-2xl"></div>
-            
-            <div className="relative z-10">
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-4 py-2 inline-block mb-4">
-                <h3 className="text-lg font-bold text-black">
-                  {benefits[1].title}
-                </h3>
-              </div>
-              
-              {/* Abstract Visual Element */}
-              <div className="my-8 flex justify-center">
-                <div className="relative">
-                  {/* DNA-like structure with code symbols */}
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-20 h-20 bg-black/10 backdrop-blur-sm rounded-full flex items-center justify-center">
-                      <svg className="w-10 h-10 text-black/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                      </svg>
+        {/* Main Showcase */}
+        <div className="relative">
+          {/* Large Preview */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative aspect-[16/10] max-w-4xl mx-auto mb-8"
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
+                className={`relative w-full h-full rounded-3xl overflow-hidden bg-gradient-to-br ${websites[currentIndex].color} shadow-2xl`}
+              >
+                {/* Placeholder Content - Replace with actual images */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <Globe className="w-12 h-12 text-white/80" />
                     </div>
-                    <div className="w-1 h-8 bg-black/20 rounded-full"></div>
-                    <div className="w-16 h-16 bg-black/10 backdrop-blur-sm rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-black/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
+                    <h3 className="text-3xl font-bold text-white mb-2">
+                      {websites[currentIndex].title}
+                    </h3>
+                    <p className="text-white/60 text-sm uppercase tracking-wider mb-4">
+                      {websites[currentIndex].category}
+                    </p>
+                    <p className="text-white/80 max-w-md mx-auto mb-6">
+                      {websites[currentIndex].description}
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-2 mb-6">
+                      {websites[currentIndex].tags.map((tag, idx) => (
+                        <span 
+                          key={idx}
+                          className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                    <div className="w-1 h-8 bg-black/20 rounded-full"></div>
-                    <div className="w-14 h-14 bg-black/10 backdrop-blur-sm rounded-full flex items-center justify-center">
-                      <svg className="w-7 h-7 text-black/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2" />
-                      </svg>
-                    </div>
+                    {websites[currentIndex].url && (
+                      <Link 
+                        href={websites[currentIndex].url}
+                        className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition-colors"
+                      >
+                        Projekt ansehen
+                        <ExternalLink className="w-4 h-4" />
+                      </Link>
+                    )}
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Tags */}
-            <div className="relative z-10 flex flex-wrap gap-2">
-              {benefits[1].tags?.map((tag, index) => (
-                <Link 
-                  key={index}
-                  href={tag.href}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
-                    index === 1 
-                      ? 'bg-black text-yellow-400 hover:bg-gray-800' 
-                      : 'bg-white/80 text-gray-800 hover:bg-black hover:text-yellow-400'
-                  }`}
-                >
-                  {tag.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/20 rounded-full blur-2xl" />
+              </motion.div>
+            </AnimatePresence>
 
-          {/* Card 3 - Right */}
-          <div className="bg-gray-50 rounded-3xl p-8 flex flex-col justify-between min-h-[400px] group hover:bg-gray-100 transition-all duration-300">
-            <div>
-              <div className="flex items-start justify-between mb-8">
-                <h3 className="text-xl font-bold text-gray-900 max-w-[200px] leading-snug">
-                  {benefits[2].title}
-                </h3>
-                <Link href={benefits[2].link}>
-                  <button className="px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-full border border-gray-200 hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all">
-                    Explore
-                  </button>
-                </Link>
-              </div>
-              
-              <div className="border-t border-gray-200 pt-6 mt-auto">
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {benefits[2].description}
-                </p>
-              </div>
-            </div>
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-yellow-400 transition-colors z-10"
+            >
+              <ChevronLeft className="w-6 h-6 text-black" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-yellow-400 transition-colors z-10"
+            >
+              <ChevronRight className="w-6 h-6 text-black" />
+            </button>
+          </motion.div>
 
-            <div className="flex items-center justify-between mt-8">
-              <div className="w-14 h-14 bg-black rounded-2xl flex items-center justify-center text-yellow-500">
-                {benefits[2].icon}
-              </div>
-              <span className="text-5xl font-bold text-gray-900">{benefits[2].stat}</span>
-            </div>
-          </div>
+          {/* Thumbnail Navigation */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex justify-center gap-4"
+          >
+            {websites.map((website, index) => (
+              <button
+                key={website.id}
+                onClick={() => goToSlide(index)}
+                className={`relative w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'ring-4 ring-yellow-400 scale-105' 
+                    : 'opacity-60 hover:opacity-100'
+                }`}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${website.color}`}>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Globe className="w-8 h-8 text-white/60" />
+                  </div>
+                </div>
+              </button>
+            ))}
+          </motion.div>
         </div>
+
+        {/* Stats Bar */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
+        >
+          {[
+            { value: "50+", label: "Projekte" },
+            { value: "100%", label: "Zufriedene Kunden" },
+            { value: "24h", label: "Express Service" },
+            { value: "∞", label: "Kreativität" }
+          ].map((stat, index) => (
+            <div key={index} className="text-center">
+              <p className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-2">{stat.value}</p>
+              <p className="text-slate-400 text-sm">{stat.label}</p>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <Link href="/portfolio">
+            <button className="inline-flex items-center gap-3 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-4 rounded-full transition-all hover:scale-105">
+              Alle Projekte entdecken
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

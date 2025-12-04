@@ -3,17 +3,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/services", label: "Leistungen" },
-    { href: "/druck", label: "Druck" },
+    { href: "/#leistungen", label: "Leistungen", isAnchor: true },
+    { href: "/digitaldruck", label: "Digitaldruck" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/about", label: "Über uns" },
     { href: "/blog", label: "Blog" },
@@ -26,6 +27,30 @@ export default function Header() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { href: string; isAnchor?: boolean }) => {
+    if (item.isAnchor) {
+      e.preventDefault();
+      closeMobileMenu();
+      
+      if (pathname === "/") {
+        // Already on homepage, just scroll
+        const element = document.getElementById("leistungen");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        // Navigate to homepage first, then scroll
+        router.push("/");
+        setTimeout(() => {
+          const element = document.getElementById("leistungen");
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      }
+    }
   };
 
   return (
@@ -50,6 +75,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item)}
               className={`text-[15px] transition-colors font-normal ${
                 pathname === item.href
                   ? "text-yellow-500"
@@ -63,9 +89,9 @@ export default function Header() {
 
         {/* CTA Button */}
         <div className="flex items-center gap-3">
-          <Link href="/contact" className="hidden sm:block">
-            <Button className="bg-black hover:bg-gray-900 text-white transition-all font-medium px-6 py-2.5 rounded-full text-sm">
-              Kostenloses Beratungsgespräch
+          <Link href="/contact" className="hidden md:block">
+            <Button className="bg-black hover:bg-gray-900 text-white transition-all font-medium px-4 lg:px-6 py-2.5 rounded-full text-xs lg:text-sm whitespace-nowrap">
+              Beratungsgespräch
             </Button>
           </Link>
           
@@ -97,7 +123,10 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              onClick={closeMobileMenu}
+              onClick={(e) => {
+                handleNavClick(e, item);
+                if (!item.isAnchor) closeMobileMenu();
+              }}
               className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
                 pathname === item.href
                   ? "text-yellow-600 bg-yellow-50"

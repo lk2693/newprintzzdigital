@@ -1,145 +1,260 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowLeft, Brain, Sparkles, Zap, TrendingUp } from "lucide-react";
+import { ArrowLeft, ArrowRight, Brain, Sparkles, Bot, MessageSquare, LineChart, Cpu } from "lucide-react";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: 'KI-Integration | Printzz Digital',
-  description: 'Intelligente KI-Lösungen für Ihr Business. Von Chatbots über Automatisierung bis zu Custom AI-Agenten.',
-};
-
 export default function KIIntegrationPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-yellow-50/30 to-gray-100">
       <Header />
 
       <main className="pt-32 pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
-          <Link 
-            href="/"
-            className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors mb-12 font-light"
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <ArrowLeft className="w-4 h-4" />
-            Zurück
-          </Link>
+            <Link 
+              href="/"
+              className="inline-flex items-center gap-2 text-gray-600 hover:text-yellow-600 transition-colors mb-12 group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              Zurück zur Startseite
+            </Link>
+          </motion.div>
 
           {/* Hero */}
-          <div className="mb-20">
-            <div className="flex items-center gap-4 mb-6">
-              <Brain className="w-12 h-12 text-slate-900" />
-              <div className="text-sm uppercase tracking-wider text-slate-600 font-light">Leistungen</div>
+          <motion.div 
+            className="mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Brain className="w-4 h-4" />
+              KI-Integration
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light mb-8 leading-tight">
-              KI-<span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Integration</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Künstliche Intelligenz für{" "}
+              <span className="text-yellow-500">Ihr Business</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl font-light leading-relaxed">
-              Nutzen Sie die Kraft künstlicher Intelligenz für Ihr Business. Von intelligenten Chatbots bis zu maßgeschneiderten AI-Lösungen.
+            <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
+              Integrieren Sie KI-Lösungen in Ihre Geschäftsprozesse. Von Chatbots über 
+              intelligente Analysen bis hin zu automatisierten Entscheidungen.
             </p>
-          </div>
+          </motion.div>
 
-          {/* AI Technologies */}
-          <div className="mb-32">
-            <div className="text-sm uppercase tracking-wider text-slate-600 mb-6 font-light">Technologie</div>
-            <h2 className="text-3xl md:text-4xl font-light text-slate-900 mb-12">
-              Modernste <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">KI-Stack</span>
-            </h2>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { name: 'OpenAI GPT-4', description: 'Large Language Models' },
-                { name: 'LangChain', description: 'AI Application Framework' },
-                { name: 'Vector DBs', description: 'Semantic Search & RAG' },
-                { name: 'Python/FastAPI', description: 'AI Backend Development' },
-              ].map((tech, index) => (
-                <div key={index} className="border border-slate-200 p-6 hover:border-slate-900 transition-all">
-                  <h3 className="text-lg font-light text-slate-900 mb-2">{tech.name}</h3>
-                  <p className="text-sm text-slate-600 font-light">{tech.description}</p>
+          {/* Bento Grid Features */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                KI-Lösungen mit{" "}
+                <span className="text-yellow-500">Smart Features</span>
+              </h2>
+            </div>
+
+            {/* Bento Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Card 1 - Chatbots */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Intelligente Chatbots</h3>
+                <p className="text-gray-600 mb-6">
+                  24/7 Kundenservice mit KI-gestützten Chatbots, die lernen und sich verbessern.
+                </p>
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  <div className="flex items-center gap-3 bg-white rounded-xl p-3 shadow-sm">
+                    <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                      <Bot className="w-5 h-5 text-yellow-600" />
+                    </div>
+                    <div>
+                      <div className="text-lg font-bold text-gray-900">24/7</div>
+                      <div className="text-sm text-gray-500">Verfügbarkeit</div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              {/* Card 2 - Predictive */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Predictive Analytics</h3>
+                <p className="text-gray-600 mb-6">
+                  Vorhersagen Sie Trends, Verkäufe und Kundenverhalten mit Machine Learning.
+                </p>
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  <div className="h-16 w-full bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 rounded-xl relative overflow-hidden">
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 60">
+                      <path d="M0,45 Q30,40 60,35 T120,25 T200,10" fill="none" stroke="white" strokeWidth="3" opacity="0.8"/>
+                      <path d="M120,25 L200,10" fill="none" stroke="white" strokeWidth="2" strokeDasharray="5,5" opacity="0.5"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3 - NLP */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Sprachverarbeitung</h3>
+                <p className="text-gray-600 mb-6">
+                  Natural Language Processing für Textanalyse, Sentiment und Automatisierung.
+                </p>
+                <div className="flex gap-2">
+                  <div className="w-12 h-16 bg-yellow-100 rounded-lg flex items-center justify-center">
+                    <MessageSquare className="w-6 h-6 text-yellow-600" />
+                  </div>
+                  <div className="flex-1 h-16 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg flex items-center justify-center px-3">
+                    <div className="text-xs text-yellow-700 font-medium">Sentiment: Positiv 😊</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 4 - Automation - Large */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 md:col-span-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">KI-gestützte Automatisierung</h3>
+                <p className="text-gray-600 mb-6">
+                  Intelligente Prozesse, die selbstständig lernen und Entscheidungen treffen.
+                </p>
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="bg-yellow-50 rounded-xl p-4 text-center">
+                    <div className="text-2xl font-bold text-yellow-600">85%</div>
+                    <div className="text-sm text-gray-600">Zeitersparnis</div>
+                  </div>
+                  <div className="bg-gray-50 rounded-xl p-4 text-center">
+                    <div className="text-2xl font-bold text-gray-700">99%</div>
+                    <div className="text-sm text-gray-600">Genauigkeit</div>
+                  </div>
+                  <div className="bg-yellow-50 rounded-xl p-4 text-center">
+                    <div className="text-2xl font-bold text-yellow-600">10x</div>
+                    <div className="text-sm text-gray-600">Schneller</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 5 - AI Score */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">KI-Readiness Score</h3>
+                <p className="text-gray-600 mb-6">
+                  Bewerten Sie Ihr KI-Potenzial.
+                </p>
+                <div className="flex items-center justify-center">
+                  <div className="relative w-32 h-20">
+                    <svg viewBox="0 0 120 60" className="w-full h-full">
+                      <path d="M10,55 A50,50 0 0,1 110,55" fill="none" stroke="#e5e7eb" strokeWidth="8" strokeLinecap="round"/>
+                      <path d="M10,55 A50,50 0 0,1 75,10" fill="none" stroke="url(#yellowGradient3)" strokeWidth="8" strokeLinecap="round"/>
+                      <defs>
+                        <linearGradient id="yellowGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#fbbf24"/>
+                          <stop offset="100%" stopColor="#f59e0b"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-3xl font-bold text-gray-900">78</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* KI Solutions */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <span className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                Lösungen
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                Unsere KI-Services
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { name: 'ChatGPT Integration', description: 'OpenAI APIs' },
+                { name: 'Custom AI Models', description: 'Maßgeschneidert' },
+                { name: 'Data Analytics', description: 'ML Insights' },
+                { name: 'Voice AI', description: 'Sprachassistenten' },
+              ].map((service, index) => (
+                <motion.div 
+                  key={index} 
+                  className="bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:border-yellow-300 hover:shadow-lg transition-all text-center"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{service.name}</h3>
+                  <p className="text-sm text-gray-500">{service.description}</p>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Use Cases */}
-          <div className="mb-32">
-            <div className="text-sm uppercase tracking-wider text-slate-600 mb-6 font-light">Anwendungsfälle</div>
-            <h2 className="text-3xl md:text-4xl font-light text-slate-900 mb-12">
-              KI für Ihr Business
-            </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <span className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                Anwendungsfälle
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                KI in <span className="text-yellow-500">Aktion</span>
+              </h2>
+            </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
-                {
-                  icon: Sparkles,
-                  title: 'Intelligente Chatbots',
-                  description: 'Automatisieren Sie Kundenservice mit KI-gestützten Chatbots. 24/7 Support mit natürlicher Sprachverarbeitung.'
-                },
-                {
-                  icon: TrendingUp,
-                  title: 'Predictive Analytics',
-                  description: 'Vorhersage von Kundenverhalten, Churn-Prediction und Demand-Forecasting mit Machine Learning.'
-                },
-                {
-                  icon: Zap,
-                  title: 'Process Automation',
-                  description: 'Automatisieren Sie repetitive Aufgaben mit KI. Document Processing, Data Entry und mehr.'
-                },
-                {
-                  icon: Brain,
-                  title: 'Custom AI-Agenten',
-                  description: 'Maßgeschneiderte AI-Lösungen für Ihre spezifischen Business-Anforderungen und Workflows.'
-                }
+                { icon: Bot, title: 'Kundenservice Chatbots', description: 'Intelligente Assistenten, die Kundenanfragen verstehen und beantworten.' },
+                { icon: LineChart, title: 'Sales Prediction', description: 'Vorhersage von Verkaufszahlen und optimale Preisgestaltung mit ML.' },
+                { icon: Sparkles, title: 'Content Generation', description: 'Automatische Erstellung von Texten, E-Mails und Marketing-Content.' },
+                { icon: Cpu, title: 'Process Mining', description: 'KI-gestützte Analyse und Optimierung von Geschäftsprozessen.' }
               ].map((useCase, index) => (
-                <div key={index} className="flex gap-6">
-                  <useCase.icon className="w-12 h-12 text-slate-900 flex-shrink-0" strokeWidth={1.5} />
+                <div key={index} className="bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:border-yellow-300 transition-all flex gap-4">
+                  <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <useCase.icon className="w-6 h-6 text-yellow-600" />
+                  </div>
                   <div>
-                    <h3 className="text-xl font-light text-slate-900 mb-3">{useCase.title}</h3>
-                    <p className="text-slate-600 font-light leading-relaxed">{useCase.description}</p>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{useCase.title}</h3>
+                    <p className="text-gray-600 text-sm">{useCase.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Process */}
-          <div className="mb-32">
-            <div className="text-sm uppercase tracking-wider text-slate-600 mb-6 font-light">Vorgehen</div>
-            <h2 className="text-3xl md:text-4xl font-light text-slate-900 mb-12">
-              Von Idee zu <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Production</span>
-            </h2>
-
-            <div className="grid md:grid-cols-4 gap-8">
-              {[
-                { step: '01', title: 'Discovery', description: 'Use-Case Analyse und ROI-Bewertung Ihrer KI-Initiative' },
-                { step: '02', title: 'Proof of Concept', description: '2-4 Wochen MVP mit echten Daten und messbaren Ergebnissen' },
-                { step: '03', title: 'Development', description: 'Production-ready AI-System mit Monitoring und Testing' },
-                { step: '04', title: 'Optimization', description: 'Kontinuierliches Training und Verbesserung der Modelle' }
-              ].map((phase, index) => (
-                <div key={index} className="bg-slate-50 border border-slate-200 p-6">
-                  <div className="text-4xl font-light text-slate-300 mb-4">{phase.step}</div>
-                  <h3 className="text-xl font-light text-slate-900 mb-3">{phase.title}</h3>
-                  <p className="text-slate-600 font-light leading-relaxed text-sm">{phase.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          </motion.div>
 
           {/* CTA */}
-          <div className="bg-slate-900 text-white p-12 md:p-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-light mb-6">
-              Bereit für <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">KI-Integration?</span>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="bg-gray-900 rounded-3xl p-12 md:p-16 text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Bereit für <span className="text-yellow-400">KI-Innovation?</span>
             </h2>
-            <p className="text-slate-300 font-light mb-8 max-w-2xl mx-auto">
-              Lassen Sie uns gemeinsam Use Cases identifizieren, die echten Business-Impact haben.
+            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+              Lassen Sie uns gemeinsam entdecken, wie KI Ihr Business transformieren kann.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-400 to-red-500 text-white hover:from-orange-500 hover:to-red-600 transition-all shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 text-gray-900 font-semibold rounded-xl hover:bg-yellow-400 transition-all shadow-lg hover:shadow-xl group"
             >
-              KI-Workshop buchen
-              <ArrowLeft className="w-5 h-5 rotate-180" />
+              KI-Beratung anfragen
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </div>
+          </motion.div>
         </div>
       </main>
 

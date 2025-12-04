@@ -81,12 +81,12 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-yellow-50/30 to-gray-100">
       <Header />
 
-      <main className="pt-32 pb-24">
+      <main className="pt-24 sm:pt-32 pb-16 sm:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <Link 
             href="/"
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-yellow-600 transition-colors mb-12 group"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-yellow-600 transition-colors mb-8 sm:mb-12 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Zurück zur Startseite
@@ -97,69 +97,69 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-20"
+            className="mb-12 sm:mb-20"
           >
-            <span className="inline-block px-4 py-2 bg-yellow-500/20 text-yellow-700 text-sm font-semibold rounded-full mb-6">
+            <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-yellow-500/20 text-yellow-700 text-xs sm:text-sm font-semibold rounded-full mb-4 sm:mb-6">
               Kontakt
             </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-gray-900">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-8 leading-tight text-gray-900">
               Lassen Sie uns{" "}
               <span className="text-yellow-500">
                 sprechen
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed">
               Erzählen Sie uns von Ihrem Projekt. Wir melden uns innerhalb von 24 Stunden bei Ihnen.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-5 gap-12">
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Contact Info - Left Side */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-2 space-y-8"
+              className="lg:col-span-2 space-y-6 sm:space-y-8"
             >
               {/* Contact Cards */}
-              <div className="space-y-4">
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-yellow-400 hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mb-4">
-                    <Mail className="w-6 h-6 text-white" />
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
+                <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-yellow-400 hover:shadow-lg transition-all">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-500 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <div className="text-sm uppercase tracking-wider text-gray-500 mb-2">E-Mail</div>
-                  <a href="mailto:info@printzzdigital.de" className="text-gray-900 font-semibold hover:text-yellow-600 transition-colors">
-                    info@printzzdigital.de
+                  <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-500 mb-1 sm:mb-2">E-Mail</div>
+                  <a href="mailto:info@printzz.de" className="text-sm sm:text-base text-gray-900 font-semibold hover:text-yellow-600 transition-colors break-all">
+                    info@printzz.de
                   </a>
                 </div>
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-yellow-400 hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mb-4">
-                    <Phone className="w-6 h-6 text-white" />
+                <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-yellow-400 hover:shadow-lg transition-all">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-500 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <div className="text-sm uppercase tracking-wider text-gray-500 mb-2">Telefon</div>
-                  <a href="tel:+4915234567890" className="text-gray-900 font-semibold hover:text-yellow-600 transition-colors">
+                  <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-500 mb-1 sm:mb-2">Telefon</div>
+                  <a href="tel:+4915234567890" className="text-sm sm:text-base text-gray-900 font-semibold hover:text-yellow-600 transition-colors">
                     +49 152 3456 7890
                   </a>
                 </div>
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-yellow-400 hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mb-4">
-                    <MapPin className="w-6 h-6 text-white" />
+                <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-yellow-400 hover:shadow-lg transition-all">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-500 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <div className="text-sm uppercase tracking-wider text-gray-500 mb-2">Standort</div>
-                  <p className="text-gray-900 font-semibold">
+                  <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-500 mb-1 sm:mb-2">Standort</div>
+                  <p className="text-sm sm:text-base text-gray-900 font-semibold">
                     Deutschland<br />
                     <span className="text-gray-600 font-normal">Braunschweig</span>
                   </p>
                 </div>
 
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-yellow-400 hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mb-4">
-                    <Clock className="w-6 h-6 text-white" />
+                <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-yellow-400 hover:shadow-lg transition-all">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-500 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4">
+                    <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <div className="text-sm uppercase tracking-wider text-gray-500 mb-2">Verfügbarkeit</div>
-                  <p className="text-gray-900 font-semibold">
+                  <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-500 mb-1 sm:mb-2">Verfügbarkeit</div>
+                  <p className="text-sm sm:text-base text-gray-900 font-semibold">
                     Mo - Fr: 9:00 - 18:00<br />
                     <span className="text-gray-600 font-normal">Antwortzeit: &lt; 24h</span>
                   </p>
@@ -167,24 +167,24 @@ export default function ContactPage() {
               </div>
 
               {/* Quick Facts */}
-              <div className="bg-white border border-gray-200 rounded-2xl p-6">
-                <div className="text-sm uppercase tracking-wider text-gray-500 mb-6">Was Sie erwarten können</div>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                    <span>Antwort innerhalb von 24 Stunden</span>
+              <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 col-span-2 lg:col-span-1">
+                <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-500 mb-4 sm:mb-6">Was Sie erwarten können</div>
+                <ul className="space-y-2 sm:space-y-3 text-gray-700">
+                  <li className="flex items-start gap-2 sm:gap-3">
+                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base">Antwort innerhalb von 24 Stunden</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                    <span>Unverbindliches Erstgespräch</span>
+                  <li className="flex items-start gap-2 sm:gap-3">
+                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base">Unverbindliches Erstgespräch</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                    <span>Individuelle Projektanalyse</span>
+                  <li className="flex items-start gap-2 sm:gap-3">
+                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base">Individuelle Projektanalyse</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                    <span>Transparente Kostenschätzung</span>
+                  <li className="flex items-start gap-2 sm:gap-3">
+                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base">Transparente Kostenschätzung</span>
                   </li>
                 </ul>
               </div>
@@ -198,12 +198,12 @@ export default function ContactPage() {
               className="lg:col-span-3"
             >
               {isSubmitted ? (
-                <div className="bg-white border border-gray-200 rounded-3xl p-12 text-center shadow-xl">
-                  <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Check className="w-8 h-8 text-white" />
+                <div className="bg-white border border-gray-200 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center shadow-xl">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <Check className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Nachricht gesendet!</h3>
-                  <p className="text-gray-600 mb-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Nachricht gesendet!</h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
                     Vielen Dank für Ihre Anfrage. Wir melden uns innerhalb von 24 Stunden bei Ihnen.
                   </p>
                   <button

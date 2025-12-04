@@ -9,7 +9,7 @@ import { organizationSchema, websiteSchema, servicesSchema } from "@/lib/schemas
 
 // Critical components loaded immediately
 import ModernHero from "@/components/ModernHero";
-import ProblemSection from "@/components/ProblemSection";
+import LeistungenSection from "@/components/LeistungenSection";
 import FullScreenServices from "@/components/FullScreenServices";
 
 // Lazy loaded sections
@@ -47,8 +47,8 @@ export default function Page() {
       {/* Hero Section - Modern Style */}
       <ModernHero />
       
-      {/* Problem Statement Section */}
-      <ProblemSection />
+      {/* Leistungen Section */}
+      <LeistungenSection />
       
       {/* Full-Screen Service Sections */}
       <FullScreenServices />

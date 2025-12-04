@@ -14,7 +14,7 @@ export const organizationSchema = {
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "Customer Service",
-    "email": "info@printzzdigital.com"
+    "email": "info@printzz.de"
   },
   "address": {
     "@type": "PostalAddress",

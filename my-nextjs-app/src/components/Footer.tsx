@@ -6,10 +6,10 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-10">
           
           {/* Logo & Unternehmen */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="col-span-2 lg:col-span-2 space-y-4 sm:space-y-6">
             <Link href="/" className="flex items-center gap-4">
               <Image
                 src="/logo.png"
