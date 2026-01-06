@@ -272,11 +272,11 @@ export default function ModernHero() {
                 </div>
 
                 {/* Phone Mockup */}
-                <div className="mt-8 lg:mt-16 flex justify-center perspective-1000">
-                  <div className="relative group">
-                    {/* Animated Gradient Circles */}
-                    <div className="absolute -left-24 top-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-400 rounded-full opacity-90 blur-xl animate-pulse"></div>
-                    <div className="absolute -left-16 top-1/3 w-40 h-40 bg-gradient-to-tr from-yellow-300 to-yellow-500 rounded-full opacity-60 blur-lg animate-bounce" style={{ animationDuration: '3s' }}></div>
+                <div className="mt-8 lg:mt-16 flex justify-center perspective-1000 w-full max-w-[90vw] mx-auto">
+                  <div className="relative group w-full max-w-xs sm:max-w-sm">
+                    {/* Animated Gradient Circles - Hidden on mobile to prevent overflow */}
+                    <div className="hidden md:block absolute -left-24 top-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-400 rounded-full opacity-90 blur-xl animate-pulse"></div>
+                    <div className="hidden md:block absolute -left-16 top-1/3 w-40 h-40 bg-gradient-to-tr from-yellow-300 to-yellow-500 rounded-full opacity-60 blur-lg animate-bounce" style={{ animationDuration: '3s' }}></div>
                     
                     {/* Floating Elements - Hidden on mobile */}
                     <div className="hidden sm:flex absolute -right-8 top-20 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl items-center justify-center animate-float z-20">
@@ -295,7 +295,7 @@ export default function ModernHero() {
                     </div>
                     
                     {/* Phone Frame - iPhone 15 Pro Style */}
-                    <div className="relative z-10 w-[260px] sm:w-[300px] bg-gradient-to-b from-gray-800 via-gray-900 to-black rounded-[3rem] sm:rounded-[3.5rem] p-[3px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] group-hover:shadow-[0_50px_100px_-20px_rgba(234,179,8,0.3)] transition-all duration-500 group-hover:scale-[1.02]">
+                    <div className="relative z-10 w-full max-w-[260px] sm:max-w-[300px] mx-auto bg-gradient-to-b from-gray-800 via-gray-900 to-black rounded-[3rem] sm:rounded-[3.5rem] p-[3px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] group-hover:shadow-[0_50px_100px_-20px_rgba(234,179,8,0.3)] transition-all duration-500 group-hover:scale-[1.02]">
                       {/* Titanium Frame Effect */}
                       <div className="absolute inset-0 rounded-[3.5rem] bg-gradient-to-b from-gray-600 via-gray-800 to-gray-900 opacity-50"></div>
                       

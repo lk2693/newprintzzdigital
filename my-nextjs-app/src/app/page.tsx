@@ -27,7 +27,7 @@ const BlogPreview = dynamic(() => import("@/components/BlogPreview"), { ssr: fal
 export default function Page() {
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       {/* Structured Data for SEO */}
       <Script
         id="organization-schema"
