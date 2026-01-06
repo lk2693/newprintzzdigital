@@ -2,52 +2,41 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Code, Cog, Brain, Rocket, ArrowRight, Home, Users, FolderOpen, Clock, FileText, Settings, BarChart3, TrendingUp, TrendingDown, Play, Search, Bell } from "lucide-react";
+import { Code, Cog, Brain, Rocket, ArrowRight, Home, Users, FolderOpen, Clock, FileText, Settings, BarChart3, TrendingUp, Play, Search, Bell } from "lucide-react";
 import { useState } from "react";
 
 const leistungen = [
   {
     number: "01",
-    title: "Webentwicklung",
-    description: "Blitzschnelle, responsive Websites mit modernstem Tech-Stack. Performance und User Experience an erster Stelle.",
+    title: "Moderne Webentwicklung",
+    description: "Schnelle, skalierbare Websites für Conversion & Performance.",
     href: "/leistungen/webentwicklung",
     icon: Code,
     stats: [
-      { value: "0.8s", label: "Ladezeit" },
-      { value: "95+", label: "Lighthouse" },
+      { value: "<1s", label: "Ladezeit" },
+      { value: "SEO", label: "& Lighthouse optimiert" },
     ],
   },
   {
     number: "02",
-    title: "Automatisierung",
-    description: "Manuelle Prozesse kosten Zeit und Geld. Wir automatisieren Ihre Workflows und sparen bis zu 20 Stunden pro Woche.",
-    href: "/leistungen/automatisierung",
-    icon: Cog,
+    title: "KI-Integration",
+    description: "Intelligente Systeme, die Arbeit automatisieren & analysieren.",
+    href: "/leistungen/ki-integration",
+    icon: Brain,
     stats: [
-      { value: "20h", label: "Ersparnis/Woche" },
-      { value: "85%", label: "Effizienz" },
+      { value: "24/7", label: "verfügbar" },
+      { value: "Predictive", label: "& Chatbots" },
     ],
   },
   {
     number: "03",
-    title: "KI-Integration",
-    description: "Intelligente Chatbots, Predictive Analytics und NLP-Lösungen. KI, die echte Business-Probleme löst.",
-    href: "/leistungen/ki-integration",
-    icon: Brain,
-    stats: [
-      { value: "24/7", label: "Verfügbarkeit" },
-      { value: "95%", label: "Genauigkeit" },
-    ],
-  },
-  {
-    number: "04",
     title: "Digitale Transformation",
-    description: "Vom Audit bis zur Umsetzung. Wir begleiten Sie auf dem Weg zur digitalen Exzellenz.",
+    description: "Von Analyse bis Umsetzung – strategisch & messbar.",
     href: "/leistungen/digital-transformation",
     icon: Rocket,
     stats: [
-      { value: "3x", label: "Schneller" },
       { value: "+40%", label: "Produktivität" },
+      { value: "Klarer", label: "Digital-Fahrplan" },
     ],
   },
 ];
@@ -857,7 +846,6 @@ export default function LeistungenSection() {
 
   const dashboards = [
     <WebDashboard key="web" />,
-    <AutomationDashboard key="auto" />,
     <KIDashboard key="ki" />,
     <TransformationDashboard key="transform" />,
   ];
@@ -960,21 +948,36 @@ export default function LeistungenSection() {
           </motion.div>
         </div>
 
-        {/* Bottom CTA */}
+        {/* CTA Box - Not Sure What Fits? */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-16 text-center"
+          className="mt-20 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl border border-gray-200 p-8 md:p-12 text-center"
         >
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-full font-semibold transition-colors"
-          >
-            Jetzt beraten lassen
-            <ArrowRight className="w-5 h-5" />
-          </Link>
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+            NICHT SICHER, WAS FÜR SIE PASST?
+          </h3>
+          <p className="text-lg text-gray-600 mb-8">
+            Wir analysieren Ihre Prozesse kostenlos.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold transition-colors shadow-lg shadow-yellow-500/20"
+            >
+              Kostenloses Beratungsgespräch
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-full font-semibold transition-colors border border-gray-200"
+            >
+              Referenzprojekt ansehen
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>

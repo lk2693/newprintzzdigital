@@ -6,31 +6,31 @@ import { ArrowRight } from "lucide-react";
 // Statische Blog-Posts für die Vorschau (nimmt die ersten 3)
 const staticBlogPosts = [
   {
-    _id: "1",
-    title: "Moderne Webentwicklung 2025: Trends und Best Practices",
-    excerpt: "Entdecken Sie die neuesten Trends in der Webentwicklung und wie Next.js 14 die Art und Weise verändert, wie wir moderne Webanwendungen erstellen.",
+    _id: "10",
+    title: "Predictive Analytics: Bessere Entscheidungen durch Datenvorhersage",
+    excerpt: "Wie Sie mit Predictive Analytics Trends vorhersagen, Risiken minimieren und Ihr Business proaktiv steuern können.",
     author: "Printzz Digital",
-    publishedAt: "2025-10-01",
-    slug: { current: "moderne-webentwicklung-2025" },
-    tags: ["Webentwicklung", "Next.js", "Performance"]
+    publishedAt: "2025-10-10",
+    slug: { current: "predictive-analytics-geschaeftsentscheidungen" },
+    tags: ["KI & Automation", "Data Analytics", "Business Intelligence"]
   },
   {
-    _id: "2", 
-    title: "KI-Integration in bestehende Geschäftsprozesse",
-    excerpt: "Wie kleine und mittlere Unternehmen von KI-Automatisierung profitieren können, ohne massive Investitionen tätigen zu müssen.",
+    _id: "9",
+    title: "Digitale Transformation: Ein Schritt-für-Schritt Fahrplan",
+    excerpt: "Digitalisierung klingt überwältigend? Mit diesem klaren Fahrplan bringen Sie Ihr Unternehmen sicher in die digitale Zukunft.",
     author: "Printzz Digital",
-    publishedAt: "2025-09-28",
-    slug: { current: "ki-integration-geschaeftsprozesse" },
-    tags: ["KI & Automation", "Business", "Digitalisierung"]
+    publishedAt: "2025-10-08",
+    slug: { current: "digitale-transformation-schritt-fuer-schritt" },
+    tags: ["Digitale Transformation", "Strategie", "Business"]
   },
   {
-    _id: "3",
-    title: "Performance-Optimierung: Lighthouse Score 100 erreichen",
-    excerpt: "Eine Schritt-für-Schritt Anleitung, wie Sie perfekte Lighthouse Scores erreichen und damit Ihre Website-Performance maximieren.",
+    _id: "8",
+    title: "Chatbots im Kundenservice: 24/7 Support ohne Mehrkosten",
+    excerpt: "Wie intelligente Chatbots Ihren Kundenservice revolutionieren und dabei Kosten senken statt erhöhen.",
     author: "Printzz Digital",
-    publishedAt: "2025-09-25",
-    slug: { current: "lighthouse-score-100" },
-    tags: ["Performance", "SEO", "Webentwicklung"]
+    publishedAt: "2025-10-05",
+    slug: { current: "chatbots-kundenservice" },
+    tags: ["KI & Automation", "Kundenservice", "Chatbots"]
   }
 ];
 

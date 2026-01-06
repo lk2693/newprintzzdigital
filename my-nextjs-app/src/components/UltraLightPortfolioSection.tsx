@@ -228,8 +228,8 @@ export default function UltraLightPortfolioSection() {
             {/* Feature Tags */}
             <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-3">
               {['Tasks', 'Time tracking', 'Timesheets', 'Reports'].map((label, i) => (
-                <div key={i} className="flex items-center justify-center bg-white px-3 sm:px-5 py-2.5 sm:py-3.5 rounded-full border border-gray-200 shadow-sm hover:border-gray-900 hover:bg-gray-50 transition-all">
-                  <span className="text-xs sm:text-sm font-medium text-gray-700">{label}</span>
+                <div key={i} className="flex items-center justify-center bg-white px-3 sm:px-5 py-2.5 sm:py-3.5 rounded-full border border-gray-200 shadow-sm opacity-60">
+                  <span className="text-xs sm:text-sm font-medium text-gray-600">{label}</span>
                 </div>
               ))}
             </div>
@@ -262,8 +262,8 @@ export default function UltraLightPortfolioSection() {
             {/* Feature Tags */}
             <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-3">
               {['Webentwicklung', 'KI-Integration', 'Automatisierung', 'Design'].map((label, i) => (
-                <div key={i} className="flex items-center justify-center bg-white px-3 sm:px-5 py-2.5 sm:py-3.5 rounded-full border border-gray-200 shadow-sm hover:border-gray-900 hover:bg-gray-50 transition-all">
-                  <span className="text-xs sm:text-sm font-medium text-gray-700">{label}</span>
+                <div key={i} className="flex items-center justify-center bg-white px-3 sm:px-5 py-2.5 sm:py-3.5 rounded-full border border-gray-200 shadow-sm opacity-60">
+                  <span className="text-xs sm:text-sm font-medium text-gray-600">{label}</span>
                 </div>
               ))}
             </div>

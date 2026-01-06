@@ -1,26 +1,51 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "LocalBusiness",
   "name": "PrintzzDigital",
+  "image": "https://printzzdigital.com/logo.png",
   "url": "https://printzzdigital.com",
-  "logo": "https://printzzdigital.com/logo.svg",
-  "description": "Digitalagentur für moderne Webentwicklung, KI-Integration und Marketing-Automatisierung",
-  "sameAs": [
-    // Füge hier später deine Social Media Profile ein
-    // "https://www.linkedin.com/company/printzzdigital",
-    // "https://twitter.com/printzzdigital",
-    // "https://github.com/printzzdigital"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "Customer Service",
-    "email": "info@printzz.de"
-  },
+  "logo": "https://printzzdigital.com/logo.png",
+  "description": "Digitalagentur in Braunschweig für moderne Webentwicklung, KI-Integration und digitale Transformation",
+  "telephone": "+49-531-123456", // TODO: Echte Nummer eintragen
+  "email": "info@printzz.de",
+  "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "DE",
-    "addressLocality": "Deutschland"
-  }
+    "streetAddress": "Rischbleek 6",
+    "addressLocality": "Braunschweig-Rautheim",
+    "postalCode": "38122",
+    "addressRegion": "Niedersachsen",
+    "addressCountry": "DE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "52.2177",
+    "longitude": "10.5668"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    // TODO: Füge hier deine Social Media Profile ein
+    // "https://www.linkedin.com/company/printzzdigital",
+    // "https://www.facebook.com/printzzdigital",
+    // "https://www.instagram.com/printzzdigital"
+  ],
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Braunschweig"
+    },
+    {
+      "@type": "State",
+      "name": "Niedersachsen"
+    }
+  ]
 };
 
 export const websiteSchema = {
@@ -42,23 +67,45 @@ export const websiteSchema = {
 export const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "PrintzzDigital",
-  "description": "Digitalagentur für Webentwicklung, KI-Integration und Marketing-Automatisierung",
+  "name": "PrintzzDigital - Digitalagentur Braunschweig",
+  "description": "Digitalagentur für Webentwicklung, KI-Integration und digitale Transformation in Braunschweig und Umgebung",
   "url": "https://printzzdigital.com",
   "priceRange": "$$",
+  "telephone": "+49-531-123456", // TODO: Echte Nummer eintragen
+  "email": "info@printzz.de",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Braunschweig",
+    "addressRegion": "Niedersachsen",
+    "addressCountry": "DE"
+  },
   "serviceType": [
-    "Webentwicklung",
+    "Webentwicklung Braunschweig",
     "KI-Integration", 
-    "Digital Marketing",
-    "CRM-Systeme",
+    "Digitale Transformation",
+    "Website erstellen",
     "E-Commerce Lösungen",
-    "Marketing-Automatisierung",
-    "Data & AI Consulting"
+    "SEO Optimierung",
+    "Performance-Optimierung"
   ],
-  "areaServed": {
-    "@type": "Country",
-    "name": "Deutschland"
-  }
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Braunschweig"
+    },
+    {
+      "@type": "City",
+      "name": "Wolfsburg"
+    },
+    {
+      "@type": "City",
+      "name": "Salzgitter"
+    },
+    {
+      "@type": "State",
+      "name": "Niedersachsen"
+    }
+  ]
 };
 
 export const breadcrumbSchema = (items: Array<{ name: string; url: string }>) => ({

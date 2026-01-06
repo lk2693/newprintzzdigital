@@ -19,6 +19,42 @@ export const metadata: Metadata = {
 // Statische Blog-Posts - kannst du später durch ein CMS ersetzen
 const blogPosts = [
   {
+    _id: '10',
+    title: 'Predictive Analytics: Bessere Entscheidungen durch Datenvorhersage',
+    slug: { current: 'predictive-analytics-geschaeftsentscheidungen' },
+    author: 'Printzz Digital',
+    publishedAt: '2025-10-10',
+    excerpt: 'Wie Sie mit Predictive Analytics Trends vorhersagen, Risiken minimieren und Ihr Business proaktiv steuern können.',
+    tags: ['KI & Automation', 'Data Analytics', 'Business Intelligence']
+  },
+  {
+    _id: '9',
+    title: 'Digitale Transformation: Ein Schritt-für-Schritt Fahrplan',
+    slug: { current: 'digitale-transformation-schritt-fuer-schritt' },
+    author: 'Printzz Digital',
+    publishedAt: '2025-10-08',
+    excerpt: 'Digitalisierung klingt überwältigend? Mit diesem klaren Fahrplan bringen Sie Ihr Unternehmen sicher in die digitale Zukunft.',
+    tags: ['Digitale Transformation', 'Strategie', 'Business']
+  },
+  {
+    _id: '8',
+    title: 'Chatbots im Kundenservice: 24/7 Support ohne Mehrkosten',
+    slug: { current: 'chatbots-kundenservice' },
+    author: 'Printzz Digital',
+    publishedAt: '2025-10-05',
+    excerpt: 'Wie intelligente Chatbots Ihren Kundenservice revolutionieren und dabei Kosten senken statt erhöhen.',
+    tags: ['KI & Automation', 'Kundenservice', 'Chatbots']
+  },
+  {
+    _id: '7',
+    title: 'Individuelle Webseite vs. Baukasten: Was ist die richtige Wahl?',
+    slug: { current: 'individuelle-webseite-vs-baukasten' },
+    author: 'Printzz Digital',
+    publishedAt: '2025-10-03',
+    excerpt: 'Website-Baukästen versprechen schnelle Lösungen, aber sind sie wirklich die bessere Wahl? Ein ehrlicher Vergleich mit individueller Entwicklung.',
+    tags: ['Webentwicklung', 'Business', 'Strategie']
+  },
+  {
     _id: '1',
     title: 'Moderne Webentwicklung 2025: Trends und Best Practices',
     slug: { current: 'moderne-webentwicklung-2025' },
@@ -71,24 +107,6 @@ const blogPosts = [
     publishedAt: '2025-09-10',
     excerpt: 'Die wichtigsten SEO-Faktoren haben sich verändert. Erfahren Sie, worauf Sie jetzt fokussieren sollten für maximale Sichtbarkeit.',
     tags: ['SEO', 'Marketing', 'Content']
-  },
-  {
-    _id: '7',
-    title: 'Individuelle Webseite vs. Baukasten: Was ist die richtige Wahl?',
-    slug: { current: 'individuelle-webseite-vs-baukasten' },
-    author: 'Printzz Digital',
-    publishedAt: '2025-10-03',
-    excerpt: 'Website-Baukästen versprechen schnelle Lösungen, aber sind sie wirklich die bessere Wahl? Ein ehrlicher Vergleich mit individueller Entwicklung.',
-    tags: ['Webentwicklung', 'Business', 'Strategie']
-  },
-  {
-    _id: '8',
-    title: 'WCAG & EAA: Warum viele Websites ab 2025 nicht mehr rechtskonform sind',
-    slug: { current: 'wcag-eaa-barrierefreiheit-pflicht' },
-    author: 'Printzz Digital',
-    publishedAt: '2025-10-04',
-    excerpt: 'Der European Accessibility Act macht digitale Barrierefreiheit zur Pflicht. Ist Ihre Website rechtskonform? Was Sie jetzt wissen müssen.',
-    tags: ['Recht', 'Accessibility', 'WCAG']
   }
 ];
 

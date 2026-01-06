@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "leaflet/dist/leaflet.css";
 import CookieBanner from "@/components/CookieBanner";
 
 const geistSans = Geist({
@@ -16,23 +17,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://printzzdigital.com'),
   title: {
-    default: "PrintzzDigital - Digitale Transformation & KI-Integration für Unternehmen",
-    template: "%s | PrintzzDigital"
+    default: "PrintzzDigital Braunschweig - Webentwicklung, KI-Integration & Digitale Transformation",
+    template: "%s | PrintzzDigital Braunschweig"
   },
-  description: "Digitalagentur für moderne Webentwicklung, KI-Integration und Marketing-Automatisierung. Wir helfen Unternehmen mit Next.js, CRM-Systemen und datengetriebenen Lösungen. Bis zu 60% bessere Conversion.",
-  keywords: ["Webentwicklung", "KI-Integration", "Digital Marketing", "CRM-Systeme", "E-Commerce", "Next.js", "Marketing-Automatisierung", "Data & AI", "Digitale Transformation"],
+  description: "Digitalagentur in Braunschweig: Schnelle Websites (<1s), KI-Integration & digitale Transformation. Ihre Experten für Webentwicklung in Braunschweig. Kostenlose Beratung vor Ort.",
+  keywords: ["Webentwicklung Braunschweig", "Digitalagentur Braunschweig", "KI-Integration Braunschweig", "Website erstellen Braunschweig", "SEO Braunschweig", "Webdesign Braunschweig", "Digitale Transformation", "Chatbots", "Performance-Optimierung", "Moderne Webentwicklung"],
   authors: [{ name: "PrintzzDigital" }],
   creator: "PrintzzDigital",
   publisher: "PrintzzDigital",
   icons: {
     icon: [
-      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
     apple: [
-      { url: '/logo.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
-    shortcut: '/logo.png',
+    shortcut: '/favicon.ico',
   },
   formatDetection: {
     email: false,
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "PrintzzDigital - Digitale Transformation für Unternehmen",
-    description: "Digitalagentur für Webentwicklung, KI-Integration und Marketing-Automatisierung. 60% bessere Conversion, 4:1 ROAS, 40% mehr Leads.",
+    description: "Schnelle Websites (<1s), intelligente KI-Systeme (24/7) und strategische Transformation (+40% Produktivität). Kostenlose Beratung.",
     url: "https://printzzdigital.com",
     siteName: "PrintzzDigital",
     type: "website",
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "PrintzzDigital - Digitale Transformation für Unternehmen",
-    description: "Digitalagentur für Webentwicklung, KI-Integration und Marketing-Automatisierung",
+    description: "Moderne Webentwicklung, KI-Integration und Digitale Transformation für Unternehmen. Kostenlose Beratung.",
     images: ["/logo.svg"],
   },
   robots: {

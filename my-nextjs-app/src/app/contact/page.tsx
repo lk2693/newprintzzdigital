@@ -2,10 +2,21 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ArrowLeft, Mail, Phone, MapPin, Clock, Send, Check } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+
+// Dynamischer Import von LocationMap (nur Client-Side)
+const LocationMap = dynamic(() => import('@/components/LocationMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full bg-gray-100 rounded-2xl flex items-center justify-center">
+      <p className="text-gray-500">Karte wird geladen...</p>
+    </div>
+  ),
+});
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -187,6 +198,23 @@ export default function ContactPage() {
                     <span className="text-sm sm:text-base">Transparente Kostenschätzung</span>
                   </li>
                 </ul>
+              </div>
+
+              {/* Location Map */}
+              <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 col-span-2 lg:col-span-1">
+                <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-500 mb-4">Unser Standort</div>
+                <div className="mb-4">
+                  <p className="text-sm sm:text-base font-semibold text-gray-900">PrintzzDigital</p>
+                  <p className="text-sm text-gray-600">Rischbleek 6</p>
+                  <p className="text-sm text-gray-600">38122 Braunschweig-Rautheim</p>
+                </div>
+                <div className="w-full h-64 sm:h-80 rounded-xl overflow-hidden">
+                  <LocationMap
+                    lat={52.2177}
+                    lng={10.5668}
+                    address="Rischbleek 6, 38122 Braunschweig-Rautheim"
+                  />
+                </div>
               </div>
             </motion.div>
 

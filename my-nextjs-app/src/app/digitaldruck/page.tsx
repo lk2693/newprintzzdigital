@@ -1,11 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Printer, Package, FileText, Image, Palette, CheckCircle2, Star, ArrowRight, Layers, Zap, ShieldCheck, Sparkles, Award, Truck } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Printer, Package, FileText, ImageIcon, Palette, CheckCircle2, Star, ArrowRight, Layers, Zap, ShieldCheck, Sparkles, Award, Truck, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useState, useEffect } from "react";
 
 const products = [
   {
@@ -30,7 +32,7 @@ const products = [
     highlight: null
   },
   {
-    icon: Image,
+    icon: ImageIcon,
     title: "Poster & Plakate",
     description: "Großformatdruck für maximale Wirkung. Indoor und Outdoor.",
     features: ["Bis DIN A0", "Wetterfest möglich", "Fotorealistisch"],
@@ -59,117 +61,185 @@ const stats = [
   { value: "100%", label: "Qualitätsgarantie" }
 ];
 
-// Visual Print Preview Component
+const sliderItems = [
+  {
+    image: "/flyer.png",
+    title: "Flyer & Folder",
+    description: "Perfekt für Events, Aktionen und Kampagnen",
+    features: ["Ab 100 Stück", "DIN A4 bis A7", "Express möglich"],
+    badge: "Bestseller"
+  },
+  {
+    image: "/Assmann.png",
+    title: "Kataloge & Broschüren",
+    description: "Hochwertige Produktkataloge für Ihr Business",
+    features: ["Klebebindung", "8-200+ Seiten", "Premium Papier"],
+    badge: "Premium"
+  },
+  {
+    image: "/plakat.png",
+    title: "Poster & Plakate",
+    description: "Großformatdruck für maximale Wirkung",
+    features: ["Bis DIN A0", "Indoor & Outdoor", "Wetterfest"],
+    badge: "Beliebt"
+  },
+  {
+    image: "/fahnen.png",
+    title: "Fahnen & Banner",
+    description: "Professionelle Werbung für Messen und Events",
+    features: ["Individuelle Größen", "Wetterfest", "Inklusive Zubehör"],
+    badge: "Event"
+  }
+];
+
+// Visual Print Slider Component
 function PrintShowcase() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrentSlide((prev) => (prev + 1) % sliderItems.length);
+    }, 5000);
+    
+    return () => clearInterval(timer);
+  }, []);
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    })
+  };
+
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentSlide((prev) => {
+      const next = prev + newDirection;
+      if (next < 0) return sliderItems.length - 1;
+      if (next >= sliderItems.length) return 0;
+      return next;
+    });
+  };
+
+  const currentItem = sliderItems[currentSlide];
+
   return (
-    <div className="relative w-full h-full min-h-[400px] lg:min-h-[500px]">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-500 rounded-3xl" />
+    <div className="relative w-full h-full min-h-[400px] lg:min-h-[600px] flex items-center justify-center overflow-hidden">
+      {/* Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-yellow-50/30 to-gray-100 rounded-3xl" />
       
-      {/* Decorative Dots */}
-      <div className="absolute top-6 right-6 w-20 h-20 grid grid-cols-4 gap-1.5 opacity-30">
+      {/* Decorative Elements */}
+      <div className="absolute top-8 right-8 w-20 h-20 grid grid-cols-4 gap-1.5 opacity-20">
         {Array.from({ length: 16 }).map((_, i) => (
-          <div key={i} className="w-2 h-2 bg-black rounded-full" />
+          <div key={i} className="w-2 h-2 bg-yellow-500 rounded-full" />
         ))}
       </div>
       
-      {/* Floating Print Products */}
-      <div className="absolute inset-0 p-8 flex items-center justify-center">
-        {/* Business Card Stack */}
-        <motion.div
-          initial={{ opacity: 0, y: 20, rotate: -5 }}
-          animate={{ opacity: 1, y: 0, rotate: -5 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="absolute left-[10%] top-[15%] w-40 h-24 bg-white rounded-lg shadow-2xl p-3 transform hover:scale-105 transition-transform"
-        >
-          <div className="w-full h-full border-2 border-slate-100 rounded flex flex-col justify-between p-2">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-yellow-400 rounded" />
-              <div className="flex-1 space-y-1">
-                <div className="h-1.5 bg-slate-200 rounded w-3/4" />
-                <div className="h-1 bg-slate-100 rounded w-1/2" />
+      {/* Slider Content */}
+      <div className="relative z-10 w-full h-full flex items-center justify-center">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={currentSlide}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
+            }}
+            className="absolute"
+          >
+            <div className="relative w-[280px] h-[400px] md:w-[320px] md:h-[450px] lg:w-[360px] lg:h-[500px]">
+              {/* Shadow layers for depth */}
+              <div className="absolute inset-0 bg-black/5 rounded-2xl blur-xl translate-y-4" />
+              <div className="absolute inset-0 bg-black/10 rounded-2xl blur-lg translate-y-2" />
+              
+              {/* Main product card */}
+              <div className="relative w-full h-full bg-white rounded-2xl shadow-2xl overflow-hidden group p-4">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={currentItem.image}
+                    alt={currentItem.title}
+                    fill
+                    className="object-contain transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 280px, (max-width: 1024px) 320px, 360px"
+                    priority
+                  />
+                </div>
+                
+                {/* Quality badge */}
+                <div className="absolute top-4 right-4 bg-yellow-400 text-black text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+                  <Sparkles className="w-3 h-3" />
+                  {currentItem.badge}
+                </div>
+
+                {/* Info overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <div className="text-white">
+                    <h3 className="text-xl font-bold mb-2">{currentItem.title}</h3>
+                    <p className="text-sm mb-3 text-white/90">{currentItem.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {currentItem.features.map((feature, idx) => (
+                        <span key={idx} className="text-xs bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="space-y-1">
-              <div className="h-1 bg-slate-100 rounded w-full" />
-              <div className="h-1 bg-slate-100 rounded w-2/3" />
-            </div>
-          </div>
-          <div className="absolute -bottom-2 -right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-0.5 rounded-full">
-            Visitenkarten
-          </div>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
 
-        {/* Flyer */}
-        <motion.div
-          initial={{ opacity: 0, y: 20, rotate: 3 }}
-          animate={{ opacity: 1, y: 0, rotate: 3 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="absolute right-[10%] top-[20%] w-32 h-44 bg-white rounded-lg shadow-2xl overflow-hidden transform hover:scale-105 transition-transform"
+        {/* Navigation Buttons */}
+        <button
+          onClick={() => paginate(-1)}
+          className="absolute left-4 z-20 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-colors"
         >
-          <div className="h-1/2 bg-gradient-to-br from-slate-800 to-slate-900" />
-          <div className="h-1/2 p-3 space-y-2">
-            <div className="h-2 bg-yellow-400 rounded w-3/4" />
-            <div className="h-1.5 bg-slate-200 rounded w-full" />
-            <div className="h-1.5 bg-slate-200 rounded w-2/3" />
-            <div className="h-1 bg-slate-100 rounded w-1/2" />
-          </div>
-          <div className="absolute -bottom-2 -left-2 bg-black text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-            Flyer
-          </div>
-        </motion.div>
-
-        {/* Brochure */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="absolute left-[20%] bottom-[15%] w-36 h-48 bg-white rounded-lg shadow-2xl overflow-hidden transform hover:scale-105 transition-transform"
+          <ChevronLeft className="w-5 h-5 text-gray-900" />
+        </button>
+        <button
+          onClick={() => paginate(1)}
+          className="absolute right-4 z-20 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-colors"
         >
-          <div className="h-2/3 bg-gradient-to-br from-yellow-400 to-orange-400 flex items-center justify-center">
-            <div className="w-16 h-16 bg-white/30 rounded-full" />
-          </div>
-          <div className="h-1/3 p-3 space-y-1.5">
-            <div className="h-2 bg-slate-800 rounded w-2/3" />
-            <div className="h-1.5 bg-slate-200 rounded w-full" />
-            <div className="h-1.5 bg-slate-200 rounded w-3/4" />
-          </div>
-          <div className="absolute -top-2 -right-2 bg-black text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-            Broschüre
-          </div>
-        </motion.div>
-
-        {/* Poster */}
-        <motion.div
-          initial={{ opacity: 0, y: -20, rotate: -2 }}
-          animate={{ opacity: 1, y: 0, rotate: -2 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="absolute right-[15%] bottom-[20%] w-28 h-40 bg-slate-900 rounded-lg shadow-2xl overflow-hidden transform hover:scale-105 transition-transform"
-        >
-          <div className="w-full h-full flex flex-col items-center justify-center p-3 text-center">
-            <div className="w-10 h-10 bg-yellow-400 rounded-full mb-2" />
-            <div className="h-2 bg-yellow-400 rounded w-3/4 mb-1" />
-            <div className="h-1.5 bg-white/30 rounded w-full" />
-            <div className="h-1.5 bg-white/30 rounded w-2/3 mt-1" />
-          </div>
-          <div className="absolute -bottom-2 -right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-0.5 rounded-full">
-            Poster
-          </div>
-        </motion.div>
-
-        {/* Center Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-black rounded-full flex items-center justify-center shadow-2xl"
-        >
-          <div className="text-center">
-            <Printer className="w-8 h-8 text-yellow-400 mx-auto mb-1" />
-            <span className="text-white text-[10px] font-medium">Premium<br/>Druck</span>
-          </div>
-        </motion.div>
+          <ChevronRight className="w-5 h-5 text-gray-900" />
+        </button>
       </div>
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {sliderItems.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => {
+              setDirection(idx > currentSlide ? 1 : -1);
+              setCurrentSlide(idx);
+            }}
+            className={`w-2 h-2 rounded-full transition-all ${
+              idx === currentSlide ? 'bg-yellow-400 w-8' : 'bg-white/50'
+            }`}
+          />
+        ))}
+      </div>
+      
+      {/* Bottom decoration */}
+      <div className="absolute bottom-8 left-8 w-16 h-16 border-2 border-yellow-400/30 rounded-full" />
+      <div className="absolute bottom-12 left-12 w-12 h-12 border-2 border-yellow-400/20 rounded-full" />
     </div>
   );
 }
@@ -209,8 +279,8 @@ export default function DigitaldruckPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <Link href="/contact">
-                  <Button className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-6 text-lg rounded-full group w-full sm:w-auto">
-                    Jetzt Angebot anfragen
+                  <Button className="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-6 text-lg rounded-full group w-full sm:w-auto font-semibold shadow-lg hover:shadow-xl transition-all">
+                    Kostenloses Angebot anfordern
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
@@ -337,7 +407,7 @@ export default function DigitaldruckPage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{product.title}</h3>
                 <p className="text-slate-600 mb-6">{product.description}</p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-6">
                   {product.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-sm text-slate-600">
                       <CheckCircle2 className="w-4 h-4 text-yellow-500 flex-shrink-0" />
@@ -345,9 +415,57 @@ export default function DigitaldruckPage() {
                     </li>
                   ))}
                 </ul>
+                <Link href="/contact" className="block">
+                  <Button 
+                    variant="outline" 
+                    className="w-full border-slate-300 text-slate-700 hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-colors group"
+                  >
+                    Jetzt anfragen
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </motion.div>
             ))}
           </div>
+
+          {/* CTA after Product Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mt-16 text-center"
+          >
+            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-3xl p-8 md:p-12 border border-yellow-200">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                Nicht sicher, welches Produkt zu Ihnen passt?
+              </h3>
+              <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+                Unsere Experten beraten Sie kostenlos und unverbindlich zu allen Druckprodukten 
+                und finden die perfekte Lösung für Ihr Projekt.
+              </p>
+              <Link href="/contact">
+                <Button className="bg-black hover:bg-gray-800 text-white px-8 py-6 text-lg rounded-full group font-semibold shadow-lg hover:shadow-xl transition-all">
+                  Individuelle Beratung vereinbaren
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <span>100% kostenlos</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <span>Antwort in 24h</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <span>Unverbindlich</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

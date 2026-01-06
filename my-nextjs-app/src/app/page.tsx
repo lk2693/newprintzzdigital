@@ -11,6 +11,9 @@ import { organizationSchema, websiteSchema, servicesSchema } from "@/lib/schemas
 import ModernHero from "@/components/ModernHero";
 import LeistungenSection from "@/components/LeistungenSection";
 import FullScreenServices from "@/components/FullScreenServices";
+import ScrollToTop from "@/components/ScrollToTop";
+import MobileCtaBar from "@/components/MobileCtaBar";
+import AccessibilityEnhancements from "@/components/AccessibilityEnhancements";
 
 // Lazy loaded sections
 const PortfolioSection = dynamic(() => import("@/components/UltraLightPortfolioSection"), {
@@ -44,8 +47,11 @@ export default function Page() {
       
       <Header />
       
-      {/* Hero Section - Modern Style */}
-      <ModernHero />
+      <AccessibilityEnhancements />
+      
+      <main id="main-content">
+        {/* Hero Section - Modern Style */}
+        <ModernHero />
       
       {/* Leistungen Section */}
       <LeistungenSection />
@@ -70,6 +76,10 @@ export default function Page() {
       <Suspense fallback={null}>
         <ContactForm />
       </Suspense>
+      </main>
+
+      <ScrollToTop />
+      <MobileCtaBar />
 
       <Footer />
     </div>

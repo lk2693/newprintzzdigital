@@ -89,9 +89,10 @@ export default function Header() {
 
         {/* CTA Button */}
         <div className="flex items-center gap-3">
-          <Link href="/contact" className="hidden md:block">
+          <Link href="/contact" className="hidden sm:block">
             <Button className="bg-black hover:bg-gray-900 text-white transition-all font-medium px-4 lg:px-6 py-2.5 rounded-full text-xs lg:text-sm whitespace-nowrap">
-              Beratungsgespräch
+              <span className="hidden lg:inline">Kostenloses Beratungsgespräch</span>
+              <span className="lg:hidden">Beratung</span>
             </Button>
           </Link>
           
@@ -136,14 +137,6 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          
-          <div className="pt-3">
-            <Link href="/contact" onClick={closeMobileMenu} className="block">
-              <Button className="w-full bg-black hover:bg-gray-900 text-white transition-all font-medium rounded-full">
-                Kostenloses Beratungsgespräch
-              </Button>
-            </Link>
-          </div>
         </div>
       </div>
     </header>

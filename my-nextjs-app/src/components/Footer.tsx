@@ -47,7 +47,7 @@ export default function Footer() {
             <div className="space-y-4 text-sm">
               <div className="flex items-start gap-3 text-gray-400">
                 <MapPin className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span>Rischbleek 6<br/>38126 Braunschweig</span>
+                <span>Rischbleek 6<br/>38122 Braunschweig-Rautheim</span>
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <Phone className="h-5 w-5 text-yellow-500 flex-shrink-0" />
