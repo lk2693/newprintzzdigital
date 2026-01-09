@@ -288,27 +288,21 @@ export default function ModernHero() {
                       </svg>
                     </div>
                     
-                    {/* Stats Badge - Hidden on mobile */}
-                    <div className="hidden sm:block absolute -right-12 bottom-40 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-2 rounded-full shadow-lg z-20 animate-float">
-                      <span className="font-bold text-lg">{feature.stat}</span>
-                      <span className="text-xs ml-1">{feature.statLabel}</span>
-                    </div>
-                    
                     {/* Phone Frame - iPhone 15 Pro Style */}
-                    <div className="relative z-10 w-full max-w-[260px] sm:max-w-[300px] mx-auto bg-gradient-to-b from-gray-800 via-gray-900 to-black rounded-[3rem] sm:rounded-[3.5rem] p-[3px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] group-hover:shadow-[0_50px_100px_-20px_rgba(234,179,8,0.3)] transition-all duration-500 group-hover:scale-[1.02]">
+                    <div className="relative z-10 w-full max-w-[320px] sm:max-w-[360px] mx-auto bg-gradient-to-b from-gray-800 via-gray-900 to-black rounded-[3rem] sm:rounded-[3.5rem] p-[3px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] group-hover:shadow-[0_50px_100px_-20px_rgba(234,179,8,0.3)] transition-all duration-500 group-hover:scale-[1.02]">
                       {/* Titanium Frame Effect */}
                       <div className="absolute inset-0 rounded-[3.5rem] bg-gradient-to-b from-gray-600 via-gray-800 to-gray-900 opacity-50"></div>
                       
                       {/* Inner Frame */}
                       <div className="relative bg-black rounded-[3.3rem] p-[2px]">
                         {/* Dynamic Island */}
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-8 bg-black rounded-full z-30 flex items-center justify-center gap-2">
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-32 h-9 bg-black rounded-full z-30 flex items-center justify-center gap-2">
                           <div className="w-3 h-3 rounded-full bg-gray-800"></div>
                           <div className="w-2 h-2 rounded-full bg-gray-700"></div>
                         </div>
                         
                         {/* Phone Screen */}
-                        <div className="bg-gradient-to-b from-gray-50 to-white rounded-[3.2rem] overflow-hidden min-h-[580px] relative">
+                        <div className="bg-gradient-to-b from-gray-50 to-white rounded-[3.2rem] overflow-hidden min-h-[680px] relative">
                           {/* Status Bar */}
                           <div className="flex justify-between items-center px-8 pt-4 pb-2">
                             <span className="text-xs font-semibold text-gray-900">9:41</span>
@@ -345,23 +339,32 @@ export default function ModernHero() {
                               </div>
                             </div>
 
-                            {/* Feature Card */}
-                            <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-4 text-white transition-all duration-500">
-                              <div className="flex items-start justify-between mb-3">
-                                <div className="w-10 h-10 bg-yellow-500 rounded-xl flex items-center justify-center">
-                                  {feature.icon}
-                                </div>
-                                <span className="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full">Aktiv</span>
+                            {/* Real Project Screenshot */}
+                            <div className="rounded-2xl overflow-hidden shadow-lg transition-all duration-500 bg-white">
+                              <div className="relative h-56 bg-gradient-to-br from-slate-100 to-slate-200">
+                                <img 
+                                  src={
+                                    activeFeature === "ai" ? "/AiHealth.png" :
+                                    activeFeature === "webdev" ? "/landing.png" :
+                                    activeFeature === "automation" ? "/ecommerce.png" :
+                                    activeFeature === "digitaldruck" ? "/flyer.png" :
+                                    "/artmarket.png"
+                                  }
+                                  alt="Project Preview"
+                                  className={`w-full h-full object-cover ${
+                                    activeFeature === "webdev" ? "object-center" : "object-top"
+                                  }`}
+                                />
                               </div>
-                              <h3 className="font-bold text-base mb-1">{feature.title}</h3>
-                              <p className="text-xs text-gray-400 mb-3 line-clamp-2">{feature.description}</p>
-                              <div className="flex items-center justify-between">
-                                <div className="flex -space-x-2">
-                                  <div className="w-6 h-6 rounded-full bg-yellow-400 border-2 border-gray-900"></div>
-                                  <div className="w-6 h-6 rounded-full bg-gray-600 border-2 border-gray-900"></div>
-                                  <div className="w-6 h-6 rounded-full bg-yellow-500 border-2 border-gray-900"></div>
+                              <div className="p-3 bg-white">
+                                <h3 className="font-bold text-sm mb-1 text-gray-900">{feature.title}</h3>
+                                <p className="text-xs text-gray-500 line-clamp-2">{feature.description}</p>
+                                <div className="flex items-center mt-3 pt-3 border-t border-gray-100">
+                                  <div className="flex items-center gap-1">
+                                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                                    <span className="text-xs text-gray-600">Online</span>
+                                  </div>
                                 </div>
-                                <span className="text-2xl font-bold text-yellow-500">{feature.stat}</span>
                               </div>
                             </div>
 
