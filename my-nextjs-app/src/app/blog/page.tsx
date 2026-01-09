@@ -19,6 +19,60 @@ export const metadata: Metadata = {
 // Statische Blog-Posts - kannst du später durch ein CMS ersetzen
 const blogPosts = [
   {
+    _id: '16',
+    title: 'Hyper-Personalisierung: Jeder Kunde bekommt seine eigene Website',
+    slug: { current: 'hyper-personalisierung-ki' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-01-12',
+    excerpt: 'KI ermöglicht 2026 echte 1:1-Personalisierung. Wie Websites sich in Echtzeit an jeden einzelnen Besucher anpassen.',
+    tags: ['KI & Automation', 'Personalisierung', 'Conversion Optimization']
+  },
+  {
+    _id: '15',
+    title: 'Zero-Click Content: SEO-Strategie für die KI-Ära',
+    slug: { current: 'zero-click-content-strategie' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-01-10',
+    excerpt: 'Google, ChatGPT und Perplexity beantworten Fragen direkt. Wie Ihre Content-Strategie 2026 trotzdem funktioniert.',
+    tags: ['SEO', 'Content Marketing', '2026 Trends']
+  },
+  {
+    _id: '14',
+    title: 'AR im E-Commerce: Virtuell anprobieren, real kaufen',
+    slug: { current: 'augmented-reality-ecommerce' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-01-08',
+    excerpt: 'Augmented Reality ist 2026 Standard im Online-Shopping. Wie AR die Retourenquote halbiert und Conversions verdoppelt.',
+    tags: ['Augmented Reality', 'E-Commerce', 'Innovation']
+  },
+  {
+    _id: '13',
+    title: 'Web3 für Unternehmen: Blockchain jenseits des Hypes',
+    slug: { current: 'web3-blockchain-business' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-01-06',
+    excerpt: 'Krypto-Hype vorbei? Gut so! Jetzt zeigt sich, wo Blockchain und Web3 echten Business-Nutzen bringen.',
+    tags: ['Web3', 'Blockchain', 'Innovation']
+  },
+  {
+    _id: '12',
+    title: 'Green Tech 2026: Nachhaltige Digitalisierung ist kein Widerspruch',
+    slug: { current: 'nachhaltige-digitalisierung' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-01-04',
+    excerpt: 'Digitalisierung und Nachhaltigkeit vereinen? Wie Unternehmen 2026 mit Green Tech CO2 sparen und gleichzeitig effizienter werden.',
+    tags: ['Nachhaltigkeit', 'Green Tech', 'ESG']
+  },
+  {
+    _id: '11',
+    title: 'AI Agents 2026: Autonome KI-Systeme revolutionieren die Arbeitswelt',
+    slug: { current: 'ai-agents-2026' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-01-02',
+    excerpt: 'KI-Agenten arbeiten eigenständig, treffen Entscheidungen und erledigen komplexe Aufgaben. Wie Unternehmen 2026 von autonomer KI profitieren.',
+    tags: ['KI & Automation', '2026 Trends', 'Innovation']
+  },
+  {
     _id: '10',
     title: 'Predictive Analytics: Bessere Entscheidungen durch Datenvorhersage',
     slug: { current: 'predictive-analytics-geschaeftsentscheidungen' },

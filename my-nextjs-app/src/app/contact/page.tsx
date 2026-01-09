@@ -92,7 +92,45 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-yellow-50/30 to-gray-100">
       <Header />
 
-      <main className="pt-24 sm:pt-32 pb-16 sm:pb-24">
+      {/* Hero Image Section */}
+      <div className="relative h-[40vh] sm:h-[50vh] lg:h-[60vh] overflow-hidden">
+        {/* Office Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: "url('/büro.png')",
+          }}
+        >
+        </div>
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70"></div>
+        
+        {/* Hero Content */}
+        <div className="relative h-full flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
+          >
+            <span className="inline-block px-4 py-2 bg-yellow-500 text-black text-xs sm:text-sm font-bold rounded-full mb-6">
+              Kontakt
+            </span>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
+              Lassen Sie uns{" "}
+              <span className="text-yellow-400">
+                sprechen
+              </span>
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+              Erzählen Sie uns von Ihrem Projekt. Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
+      <main className="py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <Link 
@@ -102,27 +140,6 @@ export default function ContactPage() {
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Zurück zur Startseite
           </Link>
-
-          {/* Hero Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-12 sm:mb-20"
-          >
-            <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-yellow-500/20 text-yellow-700 text-xs sm:text-sm font-semibold rounded-full mb-4 sm:mb-6">
-              Kontakt
-            </span>
-            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-8 leading-tight text-gray-900">
-              Lassen Sie uns{" "}
-              <span className="text-yellow-500">
-                sprechen
-              </span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed">
-              Erzählen Sie uns von Ihrem Projekt. Wir melden uns innerhalb von 24 Stunden bei Ihnen.
-            </p>
-          </motion.div>
 
           <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Contact Info - Left Side */}

@@ -265,9 +265,16 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative py-12 sm:py-16 lg:py-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section with Real Project Background */}
+      <section className="relative py-12 sm:py-16 lg:py-24 overflow-hidden bg-slate-900">
+        {/* Background Project Image */}
+        <div 
+          className="absolute inset-0 opacity-30 bg-cover bg-center"
+          style={{ backgroundImage: "url('/artmarket.png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/80 to-black/90" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Side - Content */}
             <motion.div
@@ -275,49 +282,49 @@ export default function PortfolioPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+              <div className="inline-flex items-center gap-2 bg-yellow-400 text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-4 sm:mb-6">
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
                 Unsere Referenzen
               </div>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-white drop-shadow-2xl">
                 Projekte, die{" "}
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                <span className="text-yellow-400">
                   überzeugen
                 </span>
               </h1>
               
-              <p className="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-200 mb-6 sm:mb-8 leading-relaxed drop-shadow-lg">
                 Entdecken Sie unsere erfolgreich umgesetzten Projekte – von modernen Websites 
                 über E-Commerce-Lösungen bis hin zu KI-Integrationen. Qualität, die Ergebnisse liefert.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
                 <Link href="/contact">
-                  <Button className="bg-slate-900 hover:bg-slate-800 text-white px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full group w-full sm:w-auto">
+                  <Button className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full group w-full sm:w-auto font-bold">
                     Projekt starten
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link href="#projekte">
-                  <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-100 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full w-full sm:w-auto">
+                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full w-full sm:w-auto">
                     Projekte ansehen
                   </Button>
                 </Link>
               </div>
 
               {/* Trust Badges */}
-              <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-600">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-gray-300">
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
                   <span>100% Kundenzufriedenheit</span>
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
+                  <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
                   <span>95+ Lighthouse Score</span>
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <Award className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" />
+                  <Award className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
                   <span>15+ Projekte</span>
                 </div>
               </div>
