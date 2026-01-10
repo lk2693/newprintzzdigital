@@ -63,10 +63,18 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://ftevxoqrxpfzlsejkcxc.supabase.co/functions/v1/contact-webhook', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          project_types: formData.projectType,
+          project_start: formData.timeline,
+          message: formData.message
+        })
       });
 
       if (response.ok) {

@@ -74,8 +74,8 @@ export default function ContactForm() {
         return
       }
 
-      // Sende Daten an die API
-      const response = await fetch('/api/contact', {
+      // Sende Daten direkt an Supabase Webhook
+      const response = await fetch('https://ftevxoqrxpfzlsejkcxc.supabase.co/functions/v1/contact-webhook', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -83,12 +83,11 @@ export default function ContactForm() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          message: formData.message,
-          subject: `Projektanfrage: ${formData.project_type.join(', ')} (Start: ${formData.timeline})`,
-          phone: formData.phone,
           company: formData.company,
-          project_type: formData.project_type,
-          timeline: formData.timeline
+          phone: formData.phone,
+          project_types: formData.project_type,
+          project_start: formData.timeline,
+          message: formData.message
         }),
       })
 
