@@ -310,7 +310,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   <span className="text-black font-semibold">Der Mittelstand liegt ihm am Herzen:</span> Als 
-                  Vorsitzender des <span className="text-black font-semibold">Handelsverband Harz-Heide</span>, 
+                  Präsident des <span className="text-black font-semibold">Handelsverband Harz-Heide</span>, 
                   Vorstand im Arbeitsausschuss und <span className="text-black font-semibold">IHK Vizepräsident 
                   Braunschweig</span> setzt er sich aktiv für die Interessen kleiner und mittlerer Unternehmen ein.
                 </p>
@@ -331,7 +331,7 @@ export default function AboutPage() {
                   Geschäftsführer Galerie Jaeschke
                 </span>
                 <span className="px-3 py-1.5 bg-slate-100 text-slate-700 text-sm font-medium rounded-full">
-                  Vorsitzender Handelsverband Harz-Heide
+                  Präsident Handelsverband Harz-Heide
                 </span>
                 <span className="px-3 py-1.5 bg-slate-100 text-slate-700 text-sm font-medium rounded-full">
                   IHK Vizepräsident Braunschweig
