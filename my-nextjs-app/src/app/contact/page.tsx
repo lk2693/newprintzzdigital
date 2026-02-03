@@ -164,8 +164,8 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-500 mb-1 sm:mb-2">E-Mail</div>
-                  <a href="mailto:info@printzz.de" className="text-sm sm:text-base text-gray-900 font-semibold hover:text-yellow-600 transition-colors break-all">
-                    info@printzz.de
+                  <a href="mailto:info@printzzdigital.de" className="text-sm sm:text-base text-gray-900 font-semibold hover:text-yellow-600 transition-colors break-all">
+                    info@printzzdigital.de
                   </a>
                 </div>
 
@@ -174,8 +174,8 @@ export default function ContactPage() {
                     <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-500 mb-1 sm:mb-2">Telefon</div>
-                  <a href="tel:+4915234567890" className="text-sm sm:text-base text-gray-900 font-semibold hover:text-yellow-600 transition-colors">
-                    +49 152 3456 7890
+                  <a href="tel:+4953170201786" className="text-sm sm:text-base text-gray-900 font-semibold hover:text-yellow-600 transition-colors">
+                    0531 - 70201786
                   </a>
                 </div>
 

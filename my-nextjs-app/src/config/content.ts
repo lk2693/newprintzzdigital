@@ -11,8 +11,8 @@ export const siteConfig = {
   },
   
   contact: {
-    email: "info@printzz.de",
-    phone: "+49 (0) 30 12345678",
+    email: "info@printzzdigital.de",
+    phone: "0531-70201786",
     address: {
       street: "Musterstraße 123",
       city: "10115 Berlin",

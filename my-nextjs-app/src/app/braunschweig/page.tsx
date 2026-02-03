@@ -76,15 +76,15 @@ export default function BraunschweigPage() {
                 
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                  <a href="tel:+4953112345" className="text-gray-900 hover:text-yellow-600 transition-colors">
-                    +49 531 123456
+                  <a href="tel:+4953170201786" className="text-gray-900 hover:text-yellow-600 transition-colors">
+                    0531 - 70201786
                   </a>
                 </div>
                 
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                  <a href="mailto:info@printzz.de" className="text-gray-900 hover:text-yellow-600 transition-colors">
-                    info@printzz.de
+                  <a href="mailto:info@printzzdigital.de" className="text-gray-900 hover:text-yellow-600 transition-colors">
+                    info@printzzdigital.de
                   </a>
                 </div>
               </div>

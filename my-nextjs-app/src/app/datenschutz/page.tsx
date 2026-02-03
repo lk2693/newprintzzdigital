@@ -76,8 +76,8 @@ export default function DatenschutzPage() {
                 <p>38126 Braunschweig</p>
                 <p>Deutschland</p>
                 <br />
-                <p>Telefon: 0531 - 270 33 97</p>
-                <p>E-Mail: info@printzz.de</p>
+                <p>Telefon: 0531 - 70201786</p>
+                <p>E-Mail: info@printzzdigital.de</p>
               </div>
               <p>
                 Verantwortlicher ist die natürliche oder juristische Person, die allein oder gemeinsam 

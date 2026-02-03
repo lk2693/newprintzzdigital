@@ -95,13 +95,13 @@ export default function ImpressumPage() {
               </div>
               <div className="pl-11 space-y-1">
                 <p className="text-gray-600">
-                  <span className="font-medium">Telefon:</span> <a href="tel:+495312703397" className="text-yellow-600 hover:text-yellow-700 underline transition-colors">0531 - 270 33 97</a>
+                  <span className="font-medium">Telefon:</span> <a href="tel:+4953170201786" className="text-yellow-600 hover:text-yellow-700 underline transition-colors">0531 - 70201786</a>
                 </p>
                 <p className="text-gray-600">
                   <span className="font-medium">Telefax:</span> 0531 - 270 33 98
                 </p>
                 <p className="text-gray-600">
-                  <span className="font-medium">E-Mail:</span> <a href="mailto:info@printzz.de" className="text-yellow-600 hover:text-yellow-700 underline transition-colors">info@printzz.de</a>
+                  <span className="font-medium">E-Mail:</span> <a href="mailto:info@printzzdigital.de" className="text-yellow-600 hover:text-yellow-700 underline transition-colors">info@printzzdigital.de</a>
                 </p>
               </div>
             </section>

@@ -347,13 +347,13 @@ export default function AboutPage() {
                   <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
                     <Mail className="w-5 h-5 text-yellow-600" />
                   </div>
-                  <span>oj@printzz.de</span>
+                  <span>olaf.jaeschke@printzzdigital.de</span>
                 </div>
                 <div className="flex items-center gap-3 text-slate-600">
                   <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
                     <Phone className="w-5 h-5 text-yellow-600" />
                   </div>
-                  <span>+49 (0) 123 456 789</span>
+                  <span>0531 - 70201786</span>
                 </div>
                 <div className="flex items-center gap-3 text-slate-600">
                   <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
@@ -435,6 +435,9 @@ export default function AboutPage() {
                 <p className="text-slate-600 text-sm">
                   Über 20 Jahre Erfahrung im Druckgewerbe. Visionär und Gründer von PrintzzDigital.
                 </p>
+                <p className="text-slate-500 text-xs mt-2">
+                  olaf.jaeschke@printzzdigital.de
+                </p>
               </div>
               <div className="flex justify-center gap-2 mt-4">
                 <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">
@@ -500,10 +503,13 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="text-xl font-bold mb-1">Assistenz der Geschäftsführung</h3>
-                <p className="text-yellow-600 font-medium mb-3">Management & Förderungen</p>
+                <h3 className="text-xl font-bold mb-1">Beate Herkenhoff</h3>
+                <p className="text-yellow-600 font-medium mb-3">Assistenz der Geschäftsführung</p>
                 <p className="text-slate-600 text-sm">
                   Jahrelange Erfahrung in der Koordination von Großprojekten, Fördermittelanträgen und administrativer Unterstützung.
+                </p>
+                <p className="text-slate-500 text-xs mt-2">
+                  beate.herkenhoff@printzzdigital.de
                 </p>
               </div>
               <div className="flex flex-wrap justify-center gap-2 mt-4">

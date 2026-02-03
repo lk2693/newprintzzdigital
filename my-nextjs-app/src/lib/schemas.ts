@@ -6,8 +6,8 @@ export const organizationSchema = {
   "url": "https://printzzdigital.com",
   "logo": "https://printzzdigital.com/logo.png",
   "description": "Digitalagentur in Braunschweig für moderne Webentwicklung, KI-Integration und digitale Transformation",
-  "telephone": "+49-531-123456", // TODO: Echte Nummer eintragen
-  "email": "info@printzz.de",
+  "telephone": "+49-531-70201786",
+  "email": "info@printzzdigital.de",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -71,8 +71,8 @@ export const servicesSchema = {
   "description": "Digitalagentur für Webentwicklung, KI-Integration und digitale Transformation in Braunschweig und Umgebung",
   "url": "https://printzzdigital.com",
   "priceRange": "$$",
-  "telephone": "+49-531-123456", // TODO: Echte Nummer eintragen
-  "email": "info@printzz.de",
+  "telephone": "+49-531-70201786",
+  "email": "info@printzzdigital.de",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Braunschweig",

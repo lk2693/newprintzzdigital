@@ -375,7 +375,7 @@ export default function KarrierePage() {
                       </div>
                       <div>
                         <h4 className="font-semibold mb-1">E-Mail an uns</h4>
-                        <p className="text-slate-400 text-sm">info@printzz.de</p>
+                        <p className="text-slate-400 text-sm">info@printzzdigital.de</p>
                         <p className="text-slate-500 text-xs mt-1">Betreff: &quot;Initiativbewerbung - [Dein Bereich]&quot;</p>
                       </div>
                     </div>
@@ -407,7 +407,7 @@ export default function KarrierePage() {
 
                   <div className="mt-8 pt-6 border-t border-slate-700">
                     <a 
-                      href="mailto:info@printzz.de?subject=Initiativbewerbung"
+                      href="mailto:info@printzzdigital.de?subject=Initiativbewerbung"
                       className="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-4 rounded-full text-center transition-colors"
                     >
                       Jetzt bewerben
@@ -483,7 +483,7 @@ export default function KarrierePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
-                  href="mailto:info@printzz.de?subject=Initiativbewerbung"
+                  href="mailto:info@printzzdigital.de?subject=Initiativbewerbung"
                   className="inline-flex items-center justify-center bg-black hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-full transition-colors"
                 >
                   Jetzt bewerben

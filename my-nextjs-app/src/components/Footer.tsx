@@ -51,14 +51,14 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <Phone className="h-5 w-5 text-yellow-500 flex-shrink-0" />
-                <Link href="tel:+4953112345" className="hover:text-yellow-500 transition-colors">
-                  +49 531 123456
+                <Link href="tel:+4953170201786" className="hover:text-yellow-500 transition-colors">
+                  0531 - 70201786
                 </Link>
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <Mail className="h-5 w-5 text-yellow-500 flex-shrink-0" />
-                <Link href="mailto:info@printzz.de" className="hover:text-yellow-500 transition-colors">
-                  info@printzz.de
+                <Link href="mailto:info@printzzdigital.de" className="hover:text-yellow-500 transition-colors">
+                  info@printzzdigital.de
                 </Link>
               </div>
             </div>

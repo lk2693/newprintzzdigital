@@ -219,7 +219,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <div className="text-xs text-gray-500 uppercase tracking-wider">E-Mail</div>
-                  <div className="text-gray-900">info@printzz.de</div>
+                  <div className="text-gray-900">info@printzzdigital.de</div>
                 </div>
               </div>
               
@@ -229,7 +229,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <div className="text-xs text-gray-500 uppercase tracking-wider">Telefon</div>
-                  <div className="text-gray-900">+49 (0) 531 123456</div>
+                  <div className="text-gray-900">0531 - 70201786</div>
                 </div>
               </div>
               
