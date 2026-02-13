@@ -7,15 +7,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 1,
     },
+    // Local SEO Landing Pages - High Priority
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/braunschweig`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      changeFrequency: 'weekly',
+      priority: 0.95,
     },
+    {
+      url: `${baseUrl}/webdesign-braunschweig`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/software-entwicklung-braunschweig`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    // Services
     {
       url: `${baseUrl}/services`,
       lastModified: new Date(),
@@ -23,47 +37,62 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/services/digitalstrategie`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/services/website`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/services/digitalstrategie`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/services/marketing`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/services/crm`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/services/data-ai`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/services/commerce`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    // About & Contact
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/portfolio`,
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.8,
     },
+    // Portfolio
+    {
+      url: `${baseUrl}/portfolio`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    // Blog
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
@@ -89,17 +118,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      url: `${baseUrl}/blog/website-trends-2026-braunschweig`,
+      lastModified: new Date('2026-02-10'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/karriere`,
-      lastModified: new Date(),
+      url: `${baseUrl}/blog/webdesign-braunschweig-leitfaden`,
+      lastModified: new Date('2026-02-05'),
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.8,
     },
+    {
+      url: `${baseUrl}/blog/digitalisierung-mittelstand-braunschweig`,
+      lastModified: new Date('2026-01-28'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/lokale-seo-braunschweig-platz-1`,
+      lastModified: new Date('2026-01-20'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/ki-anwendungen-braunschweiger-unternehmen`,
+      lastModified: new Date('2026-01-15'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    // Leistungen
     {
       url: `${baseUrl}/leistungen/webentwicklung`,
       lastModified: new Date(),
@@ -124,6 +172,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    // Karriere
+    {
+      url: `${baseUrl}/karriere`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    // Legal
     {
       url: `${baseUrl}/impressum`,
       lastModified: new Date(),

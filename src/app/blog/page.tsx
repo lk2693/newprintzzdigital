@@ -6,12 +6,12 @@ import BlogContent from "@/app/blog/BlogContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog - Insights zu Webentwicklung, KI & Digital Marketing | PrintzzDigital",
-  description: "Aktuelle Artikel und Best Practices zu Webentwicklung, KI-Integration, Performance-Optimierung und digitaler Transformation. Expertenwissen von PrintzzDigital.",
-  keywords: ["Webentwicklung Blog", "KI-Integration", "Next.js", "Performance-Optimierung", "Lighthouse Score", "Digital Marketing"],
+  title: "Blog - Webdesign, Digitalisierung & KI Trends für Braunschweig | PrintzzDigital",
+  description: "Aktuelle Artikel zu Webdesign-Trends, Digitalisierung, KI-Integration und lokaler SEO für Unternehmen in Braunschweig. Expertenwissen von Ihrer Digitalagentur vor Ort.",
+  keywords: ["Webdesign Blog Braunschweig", "Digitalisierung Braunschweig", "KI-Integration", "Website Trends 2026", "lokale SEO Braunschweig", "Webentwicklung Tipps"],
   openGraph: {
-    title: "PrintzzDigital Blog - Wissen & Insights",
-    description: "Aktuelle Entwicklungen aus der Welt der digitalen Innovation",
+    title: "PrintzzDigital Blog - Wissen & Insights für Braunschweiger Unternehmen",
+    description: "Webdesign-Trends, Digitalisierung und KI-Tipps für Unternehmen in Braunschweig und der Region",
     type: "website",
   },
 };
@@ -89,6 +89,51 @@ const blogPosts = [
     publishedAt: '2025-10-04',
     excerpt: 'Der European Accessibility Act macht digitale Barrierefreiheit zur Pflicht. Ist Ihre Website rechtskonform? Was Sie jetzt wissen müssen.',
     tags: ['Recht', 'Accessibility', 'WCAG']
+  },
+  {
+    _id: '9',
+    title: 'Website-Trends 2026: Was Braunschweiger Unternehmen jetzt wissen müssen',
+    slug: { current: 'website-trends-2026-braunschweig' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-02-10',
+    excerpt: 'Die wichtigsten Website-Trends 2026 für den Mittelstand in Braunschweig: KI-Chatbots, Voice Search, Micro-Interactions und mehr. So bleiben Sie der Konkurrenz voraus.',
+    tags: ['Webentwicklung', 'Braunschweig', 'Trends']
+  },
+  {
+    _id: '10',
+    title: 'Professionelles Webdesign in Braunschweig: Der komplette Leitfaden für Unternehmer',
+    slug: { current: 'webdesign-braunschweig-leitfaden' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-02-05',
+    excerpt: 'Alles was Sie über professionelles Webdesign in Braunschweig wissen müssen: Kosten, Ablauf, Technologien und worauf es bei der Agenturwahl wirklich ankommt.',
+    tags: ['Webentwicklung', 'Braunschweig', 'Business']
+  },
+  {
+    _id: '11',
+    title: 'Digitalisierung im Mittelstand: So profitieren KMUs in Braunschweig',
+    slug: { current: 'digitalisierung-mittelstand-braunschweig' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-01-28',
+    excerpt: 'Warum Digitalisierung für den Braunschweiger Mittelstand kein Luxus mehr ist und wie Sie mit überschaubarem Budget starten können.',
+    tags: ['Digitalisierung', 'Braunschweig', 'Business']
+  },
+  {
+    _id: '12',
+    title: 'Lokale SEO für Braunschweig: So werden Sie bei Google auf Platz 1 gefunden',
+    slug: { current: 'lokale-seo-braunschweig-platz-1' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-01-20',
+    excerpt: 'Der ultimative Leitfaden für lokale Suchmaschinenoptimierung in Braunschweig. Google Business Profil, lokale Keywords und Strategien für Top-Rankings.',
+    tags: ['SEO', 'Braunschweig', 'Marketing']
+  },
+  {
+    _id: '13',
+    title: 'KI für Braunschweiger Unternehmen: Praktische Anwendungen, die sofort Mehrwert bringen',
+    slug: { current: 'ki-anwendungen-braunschweiger-unternehmen' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-01-15',
+    excerpt: 'Von automatisierter Kundenkommunikation bis zur intelligenten Datenanalyse: So nutzen Unternehmen in Braunschweig KI bereits heute erfolgreich.',
+    tags: ['KI & Automation', 'Braunschweig', 'Business']
   }
 ];
 

@@ -42,6 +42,22 @@ export const organizationSchema = {
       "name": "Braunschweig"
     },
     {
+      "@type": "City",
+      "name": "Wolfsburg"
+    },
+    {
+      "@type": "City",
+      "name": "Salzgitter"
+    },
+    {
+      "@type": "City",
+      "name": "Gifhorn"
+    },
+    {
+      "@type": "City",
+      "name": "Peine"
+    },
+    {
       "@type": "State",
       "name": "Niedersachsen"
     }
@@ -59,7 +75,7 @@ export const websiteSchema = {
     "name": "PrintzzDigital",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://printzzdigital.com/logo.svg"
+      "url": "https://printzzdigital.com/logo.png"
     }
   }
 };
@@ -132,7 +148,7 @@ export const articleSchema = (article: {
   "@type": "Article",
   "headline": article.title,
   "description": article.description,
-  "image": article.image || "https://printzzdigital.com/logo.svg",
+  "image": article.image || "https://printzzdigital.com/logo.png",
   "datePublished": article.datePublished,
   "dateModified": article.dateModified || article.datePublished,
   "author": {
@@ -144,7 +160,7 @@ export const articleSchema = (article: {
     "name": "PrintzzDigital",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://printzzdigital.com/logo.svg"
+      "url": "https://printzzdigital.com/logo.png"
     }
   },
   "mainEntityOfPage": {

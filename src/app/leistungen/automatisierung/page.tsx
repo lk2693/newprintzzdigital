@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: 'Automatisierung | Printzz Digital',
-  description: 'Business Process Automation und Workflow-Optimierung. Sparen Sie Zeit und Kosten durch intelligente Automatisierung.',
+  title: 'Automatisierung Braunschweig | Prozesse digitalisieren & optimieren',
+  description: 'Business Process Automation in Braunschweig ✓ Workflow-Optimierung ✓ Prozessautomatisierung ✓ Zeit & Kosten sparen. Ihre Prozesse effizient automatisiert.',
+  keywords: ['Automatisierung Braunschweig', 'Prozessautomatisierung', 'Workflow Automation', 'Digitalisierung Braunschweig'],
+  alternates: { canonical: 'https://printzzdigital.com/leistungen/automatisierung' },
 };
 
 export default function AutomatisierungPage() {

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     locale: "de_DE",
     images: [
       {
-        url: "/logo.svg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "PrintzzDigital Logo",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PrintzzDigital - Digitale Transformation für Unternehmen",
     description: "Moderne Webentwicklung, KI-Integration und Digitale Transformation für Unternehmen. Kostenlose Beratung.",
-    images: ["/logo.svg"],
+    images: ["/logo.png"],
   },
   robots: {
     index: true,

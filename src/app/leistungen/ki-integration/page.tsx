@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: 'KI-Integration | Printzz Digital',
-  description: 'Intelligente KI-Lösungen für Ihr Business. Von Chatbots über Automatisierung bis zu Custom AI-Agenten.',
+  title: 'KI-Integration Braunschweig | Künstliche Intelligenz für Unternehmen',
+  description: 'KI-Integration in Braunschweig ✓ ChatGPT & OpenAI ✓ Chatbots ✓ Automatisierung ✓ Custom AI-Agenten. Künstliche Intelligenz für Ihr Business.',
+  keywords: ['KI-Integration Braunschweig', 'ChatGPT Integration', 'KI Beratung Braunschweig', 'Künstliche Intelligenz Unternehmen'],
+  alternates: { canonical: 'https://printzzdigital.com/leistungen/ki-integration' },
 };
 
 export default function KIIntegrationPage() {

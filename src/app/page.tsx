@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { organizationSchema, websiteSchema, servicesSchema } from "@/lib/schemas";
+import { organizationSchema, websiteSchema, servicesSchema, localBusinessSchema } from "@/lib/schemas";
 
 // Critical components loaded immediately
 import TerminalHero from "@/components/TerminalHero";
@@ -41,6 +41,11 @@ export default function Page() {
         id="services-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       
       <Header />

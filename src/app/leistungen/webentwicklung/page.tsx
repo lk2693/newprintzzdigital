@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: 'Webentwicklung | Printzz Digital',
-  description: 'Moderne Webentwicklung mit Next.js, React und TypeScript für blitzschnelle, conversion-optimierte Websites.',
+  title: 'Webentwicklung Braunschweig | Moderne Websites mit Next.js & React',
+  description: 'Professionelle Webentwicklung in Braunschweig mit Next.js, React und TypeScript. ✓ Blitzschnelle Websites ✓ SEO-optimiert ✓ Conversion-optimiert. Jetzt beraten lassen!',
+  keywords: ['Webentwicklung Braunschweig', 'Next.js Entwicklung', 'React Entwicklung Braunschweig', 'Website Programmierung'],
+  alternates: { canonical: 'https://printzzdigital.com/leistungen/webentwicklung' },
 };
 
 export default function WebentwicklungPage() {

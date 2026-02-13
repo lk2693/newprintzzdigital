@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://printzzdigital.com'),
   title: {
-    default: "PrintzzDigital - Digitale Transformation & KI-Integration für Unternehmen",
-    template: "%s | PrintzzDigital"
+    default: "Webdesign & Digitalagentur Braunschweig | PrintzzDigital - Webentwicklung, KI & Software",
+    template: "%s | PrintzzDigital Braunschweig"
   },
-  description: "Digitalagentur für moderne Webentwicklung, KI-Integration und Marketing-Automatisierung. Wir helfen Unternehmen mit Next.js, CRM-Systemen und datengetriebenen Lösungen. Bis zu 60% bessere Conversion.",
-  keywords: ["Webentwicklung", "KI-Integration", "Digital Marketing", "CRM-Systeme", "E-Commerce", "Next.js", "Marketing-Automatisierung", "Data & AI", "Digitale Transformation"],
+  description: "Ihre Digitalagentur in Braunschweig: Professionelles Webdesign, Webentwicklung, Software-Entwicklung & KI-Integration. ✓ Persönliche Beratung ✓ Faire Preise ✓ Messbare Ergebnisse. Jetzt kostenlos beraten lassen!",
+  keywords: ["Webdesign Braunschweig", "Webagentur Braunschweig", "Webentwicklung Braunschweig", "Software Entwicklung Braunschweig", "Digitalagentur Braunschweig", "Homepage erstellen Braunschweig", "SEO Braunschweig", "App Entwicklung Braunschweig", "KI-Integration", "Website erstellen lassen Braunschweig", "Webdesigner Braunschweig", "Online Marketing Braunschweig", "IT-Dienstleistungen Braunschweig", "Webseite erstellen Braunschweig"],
   authors: [{ name: "PrintzzDigital" }],
   creator: "PrintzzDigital",
   publisher: "PrintzzDigital",
@@ -29,27 +29,39 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  icons: {
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+  },
   openGraph: {
-    title: "PrintzzDigital - Digitale Transformation für Unternehmen",
-    description: "Digitalagentur für Webentwicklung, KI-Integration und Marketing-Automatisierung. 60% bessere Conversion, 4:1 ROAS, 40% mehr Leads.",
+    title: "Webdesign & Digitalagentur Braunschweig | PrintzzDigital",
+    description: "Professionelle Webentwicklung, Software-Entwicklung & KI-Integration in Braunschweig. Persönliche Beratung vor Ort. ✓ Faire Preise ✓ Messbare Ergebnisse",
     url: "https://printzzdigital.com",
-    siteName: "PrintzzDigital",
+    siteName: "PrintzzDigital - Digitalagentur Braunschweig",
     type: "website",
     locale: "de_DE",
     images: [
       {
-        url: "/logo.svg",
-        width: 1200,
-        height: 630,
+        url: "/logo.png",
+        width: 906,
+        height: 660,
         alt: "PrintzzDigital Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PrintzzDigital - Digitale Transformation für Unternehmen",
-    description: "Digitalagentur für Webentwicklung, KI-Integration und Marketing-Automatisierung",
-    images: ["/logo.svg"],
+    title: "Webdesign & Digitalagentur Braunschweig | PrintzzDigital",
+    description: "Professionelle Webentwicklung, Software-Entwicklung & KI-Integration in Braunschweig. Jetzt kostenlos beraten lassen!",
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
@@ -77,6 +89,10 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
+        {/* Manifest for PWA & Google logo */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#f97316" />
+        
         {/* Critical image preloads for LCP optimization */}
         <link rel="preload" href="/artmarket.png" as="image" type="image/png" />
         <link rel="preload" href="/aiflow.png" as="image" type="image/png" />

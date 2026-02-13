@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: 'Digital Transformation | Printzz Digital',
-  description: 'Ganzheitliche digitale Transformation für Ihr Unternehmen. Von Strategie über Implementation bis zur Skalierung.',
+  title: 'Digitale Transformation Braunschweig | Ihr Unternehmen digitalisieren',
+  description: 'Digitale Transformation in Braunschweig ✓ Digitalisierungsstrategie ✓ Implementierung ✓ Skalierung. Wir begleiten Ihr Unternehmen in die digitale Zukunft.',
+  keywords: ['Digitale Transformation Braunschweig', 'Digitalisierung Unternehmen', 'Digital Strategie Braunschweig'],
+  alternates: { canonical: 'https://printzzdigital.com/leistungen/digital-transformation' },
 };
 
 export default function DigitalTransformationPage() {

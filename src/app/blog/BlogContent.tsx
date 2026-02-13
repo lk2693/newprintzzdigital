@@ -24,7 +24,7 @@ interface BlogContentProps {
 export default function BlogContent({ initialPosts, error }: BlogContentProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("Alle");
 
-  const categories = ["Alle", "Webentwicklung", "KI & Automation", "Design", "Marketing"];
+  const categories = ["Alle", "Webentwicklung", "KI & Automation", "Design", "Marketing", "Braunschweig", "Digitalisierung"];
   
   const filteredPosts = selectedCategory === "Alle" 
     ? initialPosts 
