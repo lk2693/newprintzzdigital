@@ -9,9 +9,13 @@ export const metadata: Metadata = {
   title: "Blog - Insights zu Webentwicklung, KI & Digital Marketing | PrintzzDigital",
   description: "Aktuelle Artikel und Best Practices zu Webentwicklung, KI-Integration, Performance-Optimierung und digitaler Transformation. Expertenwissen von PrintzzDigital.",
   keywords: ["Webentwicklung Blog", "KI-Integration", "Next.js", "Performance-Optimierung", "Lighthouse Score", "Digital Marketing"],
+  alternates: {
+    canonical: 'https://printzzdigital.com/blog',
+  },
   openGraph: {
     title: "PrintzzDigital Blog - Wissen & Insights",
     description: "Aktuelle Entwicklungen aus der Welt der digitalen Innovation",
+    url: 'https://printzzdigital.com/blog',
     type: "website",
   },
 };

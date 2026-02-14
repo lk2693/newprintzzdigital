@@ -12,8 +12,8 @@ export const organizationSchema = {
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Rischbleek 6",
-    "addressLocality": "Braunschweig-Rautheim",
-    "postalCode": "38122",
+    "addressLocality": "Braunschweig",
+    "postalCode": "38126",
     "addressRegion": "Niedersachsen",
     "addressCountry": "DE"
   },
@@ -31,10 +31,8 @@ export const organizationSchema = {
     }
   ],
   "sameAs": [
-    // TODO: Füge hier deine Social Media Profile ein
-    // "https://www.linkedin.com/company/printzzdigital",
-    // "https://www.facebook.com/printzzdigital",
-    // "https://www.instagram.com/printzzdigital"
+    "https://www.instagram.com/printzzdigital",
+    "https://www.linkedin.com/company/printzzdigital"
   ],
   "areaServed": [
     {
@@ -70,6 +68,11 @@ export const websiteSchema = {
   "name": "PrintzzDigital",
   "url": "https://printzzdigital.com",
   "description": "Digitale Transformation & KI-Integration für Unternehmen",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://printzzdigital.com/blog?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "PrintzzDigital",

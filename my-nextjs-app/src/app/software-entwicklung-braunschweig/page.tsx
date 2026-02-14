@@ -119,7 +119,7 @@ const jsonLd = {
   "@context": "https://schema.org", "@type": "Service",
   "name": "Software-Entwicklung Braunschweig",
   "description": "Individuelle Software-Entwicklung, App-Entwicklung und IT-Dienstleistungen in Braunschweig.",
-  "provider": { "@type": "LocalBusiness", "name": "PrintzzDigital", "address": { "@type": "PostalAddress", "streetAddress": "Schuhstraße 42", "addressLocality": "Braunschweig", "postalCode": "38100", "addressCountry": "DE" }, "telephone": "+49-531-70201786" },
+  "provider": { "@type": "LocalBusiness", "name": "PrintzzDigital", "address": { "@type": "PostalAddress", "streetAddress": "Rischbleek 6", "addressLocality": "Braunschweig", "postalCode": "38126", "addressCountry": "DE" }, "telephone": "+49-531-70201786" },
   "areaServed": { "@type": "City", "name": "Braunschweig" }, "serviceType": "Software-Entwicklung"
 };
 

@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: 'https://printzzdigital.com',
+  },
   openGraph: {
     title: "PrintzzDigital - Digitale Transformation für Unternehmen",
     description: "Schnelle Websites (<1s), intelligente KI-Systeme (24/7) und strategische Transformation (+40% Produktivität). Kostenlose Beratung.",
@@ -74,9 +77,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Füge hier später deine Verification Codes ein
-    // google: 'your-google-verification-code',
-    // yandex: 'your-yandex-verification-code',
+    // Google Search Console - ersetze mit deinem echten Code nach Verifizierung:
+    // google: 'YOUR_GOOGLE_VERIFICATION_CODE',
   },
 };
 

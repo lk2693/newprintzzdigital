@@ -3,6 +3,7 @@ import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import { notFound } from 'next/navigation';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 // Statische Blog-Posts
 const blogPosts: Record<string, any> = {
@@ -891,6 +892,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <main className="min-h-screen bg-white">
       <Header />
 
+      {/* Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema({
+            title: post.title,
+            description: post.excerpt || post.title,
+            datePublished: post.publishedAt,
+            author: post.author,
+            url: `https://printzzdigital.com/blog/${post.slug.current}`
+          }))
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema([
+            { name: 'Home', url: 'https://printzzdigital.com' },
+            { name: 'Blog', url: 'https://printzzdigital.com/blog' },
+            { name: post.title, url: `https://printzzdigital.com/blog/${post.slug.current}` }
+          ]))
+        }}
+      />
+
       <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-32 pb-24">
         {/* Back Button */}
         <Link 
@@ -989,6 +1014,32 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   return {
     title: `${post.title} | Printzz Digital Blog`,
     description: post.excerpt || post.title,
+    keywords: post.tags || [],
+    alternates: {
+      canonical: `https://printzzdigital.com/blog/${slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || post.title,
+      url: `https://printzzdigital.com/blog/${slug}`,
+      type: 'article',
+      locale: 'de_DE',
+      publishedTime: post.publishedAt,
+      authors: [post.author],
+      images: [
+        {
+          url: '/logo.png',
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt || post.title,
+    },
   };
 }
 

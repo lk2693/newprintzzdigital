@@ -138,7 +138,7 @@ const jsonLd = {
   "@context": "https://schema.org", "@type": "Service",
   "name": "KI-Anwendungen Braunschweig",
   "description": "Individuelle KI-Lösungen, Chatbots, Automatisierung und Datenanalyse für Unternehmen in Braunschweig.",
-  "provider": { "@type": "LocalBusiness", "name": "PrintzzDigital", "address": { "@type": "PostalAddress", "streetAddress": "Schuhstraße 42", "addressLocality": "Braunschweig", "postalCode": "38100", "addressCountry": "DE" }, "telephone": "+49-531-70201786" },
+  "provider": { "@type": "LocalBusiness", "name": "PrintzzDigital", "address": { "@type": "PostalAddress", "streetAddress": "Rischbleek 6", "addressLocality": "Braunschweig", "postalCode": "38126", "addressCountry": "DE" }, "telephone": "+49-531-70201786" },
   "areaServed": { "@type": "City", "name": "Braunschweig" }, "serviceType": "KI-Anwendungen"
 };
 

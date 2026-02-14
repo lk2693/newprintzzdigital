@@ -231,13 +231,13 @@ export default function ContactPage() {
                 <div className="mb-4">
                   <p className="text-sm sm:text-base font-semibold text-gray-900">PrintzzDigital</p>
                   <p className="text-sm text-gray-600">Rischbleek 6</p>
-                  <p className="text-sm text-gray-600">38122 Braunschweig-Rautheim</p>
+                  <p className="text-sm text-gray-600">38126 Braunschweig</p>
                 </div>
                 <div className="w-full h-64 sm:h-80 rounded-xl overflow-hidden">
                   <LocationMap
                     lat={52.2177}
                     lng={10.5668}
-                    address="Rischbleek 6, 38122 Braunschweig-Rautheim"
+                    address="Rischbleek 6, 38126 Braunschweig"
                   />
                 </div>
               </div>

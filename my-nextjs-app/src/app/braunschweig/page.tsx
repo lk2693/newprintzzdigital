@@ -60,8 +60,8 @@ const jsonLd = {
   "telephone": "+49-531-70201786",
   "email": "info@printzzdigital.de",
   "priceRange": "$$",
-  "address": { "@type": "PostalAddress", "streetAddress": "Schuhstraße 42", "addressLocality": "Braunschweig", "postalCode": "38100", "addressRegion": "Niedersachsen", "addressCountry": "DE" },
-  "geo": { "@type": "GeoCoordinates", "latitude": 52.2646, "longitude": 10.5236 },
+  "address": { "@type": "PostalAddress", "streetAddress": "Rischbleek 6", "addressLocality": "Braunschweig", "postalCode": "38126", "addressRegion": "Niedersachsen", "addressCountry": "DE" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 52.2177, "longitude": 10.5668 },
   "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
   "areaServed": [{ "@type": "City", "name": "Braunschweig" },{ "@type": "City", "name": "Wolfsburg" },{ "@type": "City", "name": "Salzgitter" },{ "@type": "City", "name": "Gifhorn" },{ "@type": "City", "name": "Peine" }]
 };
@@ -71,7 +71,7 @@ const faqItems = [
   { q: "Wie lange dauert die Erstellung einer Website?", a: "Eine professionelle Website erstellen wir in 2-4 Wochen. Komplexere Projekte können 4-8 Wochen dauern. Bei uns in Braunschweig stimmen wir uns jederzeit persönlich ab." },
   { q: "Bieten Sie auch SEO für Unternehmen in Braunschweig an?", a: "Ja! Wir optimieren jede Website für Suchmaschinen. Als lokale Digitalagentur kennen wir den regionalen Markt und setzen gezielt lokale SEO-Strategien um." },
   { q: "Welche Dienstleistungen bietet PrintzzDigital an?", a: "Webdesign, Webentwicklung mit Next.js & React, Software-Entwicklung, App-Entwicklung, KI-Integration, SEO & Online Marketing, E-Commerce und CRM-Systeme." },
-  { q: "Kann ich PrintzzDigital in Braunschweig persönlich besuchen?", a: "Unser Büro ist in der Schuhstraße 42, 38100 Braunschweig. Vereinbaren Sie einen Termin für ein kostenloses Beratungsgespräch." },
+  { q: "Kann ich PrintzzDigital in Braunschweig persönlich besuchen?", a: "Unser Büro ist in Rischbleek 6, 38126 Braunschweig. Vereinbaren Sie einen Termin für ein kostenloses Beratungsgespräch." },
 ];
 
 const faqJsonLd = {
@@ -157,8 +157,8 @@ export default function BraunschweigPage() {
                         </div>
                         <div>
                           <p className="font-semibold text-gray-900">PrintzzDigital / Printzz GmbH</p>
-                          <p className="text-gray-500">Schuhstraße 42</p>
-                          <p className="text-gray-500">38100 Braunschweig</p>
+                          <p className="text-gray-500">Rischbleek 6</p>
+                          <p className="text-gray-500">38126 Braunschweig</p>
                         </div>
                       </div>
 
