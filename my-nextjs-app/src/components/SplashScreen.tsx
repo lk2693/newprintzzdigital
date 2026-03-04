@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
+export default function SplashScreen({ onFinish, isVisible }: { onFinish: () => void; isVisible: boolean }) {
   const [phase, setPhase] = useState<"logo" | "line" | "subtitle" | "exit">("logo");
 
   useEffect(() => {
@@ -18,6 +18,8 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
       clearTimeout(t4);
     };
   }, [onFinish]);
+
+  if (!isVisible) return null;
 
   return (
     <div

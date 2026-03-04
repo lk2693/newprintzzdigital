@@ -100,23 +100,7 @@ body {
   transform: translateY(0);
 }
 
-/* Main content reveal */
-.main-hidden {
-  opacity: 0;
-}
-
-.main-visible {
-  animation: mainReveal 0.5s ease forwards;
-}
-
-@keyframes mainReveal {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+/* Main content is always visible for SSR/Lighthouse */
 
 /* ===== Priority Section Cards ===== */
 .priority-card {

@@ -31,8 +31,8 @@ export default function Page() {
 
   return (
     <>
-      {!splashDone && <SplashScreen onFinish={handleSplashFinish} />}
-    <div className={`min-h-screen bg-white text-gray-900 overflow-x-hidden ${!splashDone ? "main-hidden" : "main-visible"}`}>
+      <SplashScreen onFinish={handleSplashFinish} isVisible={!splashDone} />
+    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
       {/* Structured Data for SEO */}
       <Script
         id="organization-schema"
