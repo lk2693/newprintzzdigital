@@ -1,11 +1,12 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import SplashScreen from "@/components/SplashScreen";
 import { organizationSchema, websiteSchema, servicesSchema } from "@/lib/schemas";
 
 // Section components – critical ones loaded immediately
@@ -15,6 +16,7 @@ import ServicesGrid from "@/components/sections/ServicesGrid";
 import ProjectsShowcase from "@/components/sections/ProjectsShowcase";
 import CTASection from "@/components/sections/CTASection";
 import ProcessSection from "@/components/sections/ProcessSection";
+import PrioritySection from "@/components/sections/PrioritySection";
 
 // Lazy loaded sections (below fold)
 const TestimonialsSection = dynamic(() => import("@/components/sections/TestimonialsSection"), { ssr: false });
@@ -24,8 +26,13 @@ const FinalCTASection = dynamic(() => import("@/components/sections/FinalCTASect
 const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: false });
 
 export default function Page() {
+  const [splashDone, setSplashDone] = useState(false);
+  const handleSplashFinish = useCallback(() => setSplashDone(true), []);
+
   return (
-    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
+    <>
+      {!splashDone && <SplashScreen onFinish={handleSplashFinish} />}
+    <div className={`min-h-screen bg-white text-gray-900 overflow-x-hidden ${!splashDone ? "main-hidden" : "main-visible"}`}>
       {/* Structured Data for SEO */}
       <Script
         id="organization-schema"
@@ -64,7 +71,10 @@ export default function Page() {
         {/* 6. Prozess – 3 Schritte */}
         <ProcessSection />
 
-        {/* 7. Testimonials */}
+        {/* 7. Ihre Ziele, unsere Priorität */}
+        <PrioritySection />
+
+        {/* 8. Testimonials */}
         <Suspense fallback={null}>
           <TestimonialsSection />
         </Suspense>
@@ -93,5 +103,6 @@ export default function Page() {
       <ScrollToTop />
       <Footer />
     </div>
+    </>
   );
 }

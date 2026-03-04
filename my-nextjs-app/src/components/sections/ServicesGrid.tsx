@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
@@ -13,6 +14,7 @@ const services = [
     description:
       "Wir entwickeln schnelle, responsive Websites und Web-Apps mit React, Next.js und modernsten Technologien für maximale Performance und Conversion.",
     href: "/leistungen/webentwicklung",
+    image: "/JordanLaptop.png",
   },
   {
     number: "02",
@@ -20,6 +22,7 @@ const services = [
     description:
       "Intelligente Chatbots, automatisierte Workflows und datengetriebene Insights – wir integrieren KI nahtlos in Ihre Geschäftsprozesse.",
     href: "/leistungen/ki-integration",
+    image: "/Weg_mit_dem_digitalen_Ballast__version_1.png",
   },
   {
     number: "03",
@@ -75,28 +78,52 @@ export default function ServicesGrid() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
+              className={service.image ? "sm:col-span-2" : ""}
             >
               <Link href={service.href} className="group block h-full">
-                <div className="relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-gray-200 hover:border-yellow-400 transition-all duration-300 hover:shadow-xl h-full">
-                  {/* Number */}
-                  <span className="text-sm font-mono text-gray-400 mb-4 block">
-                    {service.number}
-                  </span>
+                <div
+                  className={`relative bg-white rounded-2xl sm:rounded-3xl border border-gray-200 hover:border-yellow-400 transition-all duration-300 hover:shadow-xl h-full overflow-hidden ${
+                    service.image ? "grid lg:grid-cols-2 gap-0" : "p-6 sm:p-8 lg:p-10"
+                  }`}
+                >
+                  {/* Image (only for featured card) */}
+                  {service.image && (
+                    <div className="relative aspect-[16/9] lg:aspect-auto bg-gray-900">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    </div>
+                  )}
 
-                  {/* Title */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 group-hover:text-yellow-600 transition-colors">
-                    {service.title}
-                  </h3>
+                  <div className={service.image ? "p-6 sm:p-8 lg:p-10 flex flex-col justify-center" : ""}>
+                    {/* Number */}
+                    <span className="text-sm font-mono text-gray-400 mb-4 block">
+                      {service.number}
+                    </span>
 
-                  {/* Description */}
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
+                    {/* Title */}
+                    <h3 className={`font-bold text-gray-900 mb-3 group-hover:text-yellow-600 transition-colors ${
+                      service.image ? "text-2xl sm:text-3xl lg:text-4xl" : "text-xl sm:text-2xl"
+                    }`}>
+                      {service.title}
+                    </h3>
 
-                  {/* Arrow */}
-                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-900 group-hover:text-yellow-600 transition-colors">
-                    Mehr erfahren
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    {/* Description */}
+                    <p className={`text-gray-600 leading-relaxed mb-6 ${
+                      service.image ? "text-base sm:text-lg" : "text-sm sm:text-base"
+                    }`}>
+                      {service.description}
+                    </p>
+
+                    {/* Arrow */}
+                    <div className="flex items-center gap-2 text-sm font-semibold text-gray-900 group-hover:text-yellow-600 transition-colors">
+                      Mehr erfahren
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </div>
               </Link>

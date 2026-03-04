@@ -80,12 +80,12 @@ export default function HeroSection() {
           </Link>
         </motion.div>
 
-        {/* Image Grid - Framer template style */}
+        {/* Image Grid */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto items-center"
         >
           {[
             { src: "/restaurant.png", alt: "Restaurant Website Projekt", rotate: "-rotate-2" },
@@ -95,13 +95,14 @@ export default function HeroSection() {
           ].map((img, i) => (
             <div
               key={i}
-              className={`relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${img.rotate}`}
+              className={`relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] bg-gray-100 ${img.rotate}`}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
-                fill
-                className="object-cover"
+                width={600}
+                height={500}
+                className="object-contain w-full h-auto"
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
