@@ -30,7 +30,7 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2 text-slate-400">
                 <MapPin className="h-4 w-4 text-orange-400" />
-                <span className="font-light">Schuhstraße 42, 38100 Braunschweig</span>
+                <span className="font-light">Rischbleek 6, 38126 Braunschweig</span>
               </div>
               <div className="flex items-center space-x-2 text-slate-400">
                 <Phone className="h-4 w-4 text-orange-400" />
@@ -78,14 +78,6 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-light text-white">Unternehmen</h3>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li>
-                <Link 
-                  href="/karriere" 
-                  className="hover:text-white transition-colors font-light"
-                >
-                  Karriere
-                </Link>
-              </li>
               <li>
                 <Link 
                   href="/about" 
@@ -145,12 +137,6 @@ export default function Footer() {
               © 2025 Printzz GmbH. Alle Rechte vorbehalten.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link 
-                href="/karriere" 
-                className="text-slate-500 hover:text-white transition-colors font-light"
-              >
-                Karriere
-              </Link>
               <Link 
                 href="/impressum" 
                 className="text-slate-500 hover:text-white transition-colors font-light"

@@ -14,8 +14,8 @@ export const siteConfig = {
     email: "info@printzzdigital.com",
     phone: "+49 (0) 30 12345678",
     address: {
-      street: "Musterstraße 123",
-      city: "10115 Berlin",
+      street: "Rischbleek 6",
+      city: "38126 Braunschweig",
       country: "Deutschland"
     },
     social: {

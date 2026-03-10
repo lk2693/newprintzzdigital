@@ -57,29 +57,16 @@ export default function ImpressumPage() {
               </div>
               <div className="pl-11 space-y-1">
                 <p className="text-gray-600">Printzz GmbH</p>
-                <p className="text-gray-600">Schuhstraße 42</p>
-                <p className="text-gray-600">38100 Braunschweig</p>
-                <p className="text-gray-600">DEUTSCHLAND</p>
-              </div>
-            </section>
-
-            {/* 3. Produktion */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">3</span>
-                <h2 className="text-xl font-bold text-gray-900">Produktion</h2>
-              </div>
-              <div className="pl-11 space-y-1">
                 <p className="text-gray-600">Rischbleek 6</p>
                 <p className="text-gray-600">38126 Braunschweig</p>
                 <p className="text-gray-600">DEUTSCHLAND</p>
               </div>
             </section>
 
-            {/* 4. Vertreten durch */}
+            {/* 3. Vertreten durch */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">4</span>
+                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">3</span>
                 <h2 className="text-xl font-bold text-gray-900">Vertreten durch</h2>
               </div>
               <div className="pl-11">
@@ -87,10 +74,10 @@ export default function ImpressumPage() {
               </div>
             </section>
 
-            {/* 5. Kontakt */}
+            {/* 4. Kontakt */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">5</span>
+                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">4</span>
                 <h2 className="text-xl font-bold text-gray-900">Kontakt</h2>
               </div>
               <div className="pl-11 space-y-1">
@@ -106,10 +93,10 @@ export default function ImpressumPage() {
               </div>
             </section>
 
-            {/* 6. Registereintrag */}
+            {/* 5. Registereintrag */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">6</span>
+                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">5</span>
                 <h2 className="text-xl font-bold text-gray-900">Registereintrag</h2>
               </div>
               <div className="pl-11 space-y-1">
@@ -119,10 +106,10 @@ export default function ImpressumPage() {
               </div>
             </section>
 
-            {/* 7. Umsatzsteuer-ID */}
+            {/* 6. Umsatzsteuer-ID */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">7</span>
+                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">6</span>
                 <h2 className="text-xl font-bold text-gray-900">Umsatzsteuer-ID</h2>
               </div>
               <div className="pl-11">
@@ -131,24 +118,24 @@ export default function ImpressumPage() {
               </div>
             </section>
 
-            {/* 8. Verantwortlich für den Inhalt */}
+            {/* 7. Verantwortlich für den Inhalt */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">8</span>
+                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">7</span>
                 <h2 className="text-xl font-bold text-gray-900">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
               </div>
               <div className="pl-11 space-y-1">
                 <p className="text-gray-700 font-semibold">Olaf Jaeschke</p>
-                <p className="text-gray-600">Schuhstraße 42</p>
-                <p className="text-gray-600">38100 Braunschweig</p>
+                <p className="text-gray-600">Rischbleek 6</p>
+                <p className="text-gray-600">38126 Braunschweig</p>
                 <p className="text-gray-600">DEUTSCHLAND</p>
               </div>
             </section>
 
-            {/* 9. EU-Streitschlichtung */}
+            {/* 8. EU-Streitschlichtung */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">9</span>
+                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">8</span>
                 <h2 className="text-xl font-bold text-gray-900">EU-Streitschlichtung</h2>
               </div>
               <div className="pl-11 space-y-2">
@@ -167,10 +154,10 @@ export default function ImpressumPage() {
               </div>
             </section>
 
-            {/* 10. Verbraucherstreitbeilegung */}
+            {/* 9. Verbraucherstreitbeilegung */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">10</span>
+                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">9</span>
                 <h2 className="text-xl font-bold text-gray-900">Verbraucherstreitbeilegung/Universalschlichtungsstelle</h2>
               </div>
               <div className="pl-11">

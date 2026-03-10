@@ -51,7 +51,7 @@ const jsonLd = {
   "@context": "https://schema.org", "@type": "Service",
   "name": "Webdesign Braunschweig",
   "description": "Professionelles Webdesign und Website-Erstellung in Braunschweig. Responsive Design, SEO-Optimierung und moderne Technologien.",
-  "provider": { "@type": "LocalBusiness", "name": "PrintzzDigital", "address": { "@type": "PostalAddress", "streetAddress": "Schuhstraße 42", "addressLocality": "Braunschweig", "postalCode": "38100", "addressCountry": "DE" }, "telephone": "+49-531-12345678" },
+  "provider": { "@type": "LocalBusiness", "name": "PrintzzDigital", "address": { "@type": "PostalAddress", "streetAddress": "Rischbleek 6", "addressLocality": "Braunschweig", "postalCode": "38126", "addressCountry": "DE" }, "telephone": "+49-531-12345678" },
   "areaServed": { "@type": "City", "name": "Braunschweig" }, "serviceType": "Webdesign"
 };
 

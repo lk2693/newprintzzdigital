@@ -172,13 +172,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    // Karriere
-    {
-      url: `${baseUrl}/karriere`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
+
     // Legal
     {
       url: `${baseUrl}/impressum`,

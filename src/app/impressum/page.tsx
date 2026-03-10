@@ -45,16 +45,6 @@ export default function ImpressumPage() {
             <h2 className="text-2xl font-bold text-white mb-4">Geschäftsadresse</h2>
             <div className="space-y-1 text-slate-300">
               <p>Printzz GmbH</p>
-              <p>Schuhstraße 42</p>
-              <p>38100 Braunschweig</p>
-              <p>DEUTSCHLAND</p>
-            </div>
-          </section>
-
-          {/* Produktion */}
-          <section>
-            <h2 className="text-2xl font-bold text-white mb-4">Produktion</h2>
-            <div className="space-y-1 text-slate-300">
               <p>Rischbleek 6</p>
               <p>38126 Braunschweig</p>
               <p>DEUTSCHLAND</p>
@@ -101,8 +91,8 @@ export default function ImpressumPage() {
             <h2 className="text-2xl font-bold text-white mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <div className="space-y-1 text-slate-300">
               <p>Olaf Jaeschke</p>
-              <p>Schuhstraße 42</p>
-              <p>38100 Braunschweig</p>
+              <p>Rischbleek 6</p>
+              <p>38126 Braunschweig</p>
               <p>DEUTSCHLAND</p>
             </div>
           </section>

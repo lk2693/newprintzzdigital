@@ -168,12 +168,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/karriere`,
-      lastModified: new Date('2025-01-01'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
+
     {
       url: `${baseUrl}/leistungen/webentwicklung`,
       lastModified: new Date('2025-01-01'),

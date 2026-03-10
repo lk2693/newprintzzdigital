@@ -65,8 +65,8 @@ export default function DatenschutzPage() {
               <div className="bg-slate-800/50 p-4 rounded-lg">
                 <p><strong>Printzz GmbH</strong></p>
                 <p>Olaf Jaeschke</p>
-                <p>Schuhstraße 42</p>
-                <p>38100 Braunschweig</p>
+                <p>Rischbleek 6</p>
+                <p>38126 Braunschweig</p>
                 <p>Deutschland</p>
                 <br />
                 <p>Telefon: 0531 - 270 33 97</p>

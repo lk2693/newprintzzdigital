@@ -22,9 +22,9 @@ export const organizationSchema = {
   ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Schuhstraße 42",
+    "streetAddress": "Rischbleek 6",
     "addressLocality": "Braunschweig",
-    "postalCode": "38100",
+    "postalCode": "38126",
     "addressRegion": "Niedersachsen",
     "addressCountry": "DE"
   },
@@ -58,9 +58,9 @@ export const localBusinessSchema = {
   "paymentAccepted": "Überweisung, Rechnung",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Schuhstraße 42",
+    "streetAddress": "Rischbleek 6",
     "addressLocality": "Braunschweig",
-    "postalCode": "38100",
+    "postalCode": "38126",
     "addressRegion": "Niedersachsen",
     "addressCountry": "DE"
   },
@@ -195,9 +195,9 @@ export const servicesSchema = {
   "telephone": "+49-531-12345678",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Schuhstraße 42",
+    "streetAddress": "Rischbleek 6",
     "addressLocality": "Braunschweig",
-    "postalCode": "38100",
+    "postalCode": "38126",
     "addressRegion": "Niedersachsen",
     "addressCountry": "DE"
   },

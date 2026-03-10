@@ -55,8 +55,8 @@
 
 ```
 PrintzzDigital
-Musterstraße 123
-38100 Braunschweig
+Rischbleek 6
+38126 Braunschweig
 +49 (0) 531 / 123 456 78
 braunschweig@printzz.de
 ```

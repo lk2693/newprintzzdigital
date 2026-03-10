@@ -31,7 +31,6 @@ export const organizationSchema = {
     }
   ],
   "sameAs": [
-    "https://www.instagram.com/printzzdigital",
     "https://www.linkedin.com/company/printzzdigital"
   ],
   "areaServed": [
