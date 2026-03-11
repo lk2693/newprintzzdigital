@@ -23,6 +23,42 @@ export const metadata: Metadata = {
 // Statische Blog-Posts - kannst du später durch ein CMS ersetzen
 const blogPosts = [
   {
+    _id: '20',
+    title: 'Website-Speed 2026: Warum jede Sekunde Ladezeit bares Geld kostet',
+    slug: { current: 'website-ladezeit-optimierung-2026' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-03-01',
+    excerpt: 'Langsame Websites verlieren Kunden – jede Sekunde kostet Sie bis zu 7% Conversion. So optimieren Sie Ihre Ladezeit und steigern Ihren Umsatz messbar.',
+    tags: ['Performance', 'SEO', 'Webentwicklung']
+  },
+  {
+    _id: '19',
+    title: 'Conversion-Optimierung: So macht Ihre Website aus Besuchern zahlende Kunden',
+    slug: { current: 'conversion-optimierung-website-2026' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-03-05',
+    excerpt: 'Ihre Website hat Traffic, aber kaum Anfragen? Mit diesen bewährten Conversion-Strategien verwandeln Sie Besucher in Kunden – ohne mehr Werbebudget.',
+    tags: ['Marketing', 'Webentwicklung', 'Business']
+  },
+  {
+    _id: '18',
+    title: 'Website-Relaunch 2026: 7 Warnsignale, dass Ihre Seite ein Redesign braucht',
+    slug: { current: 'website-relaunch-warnsignale-2026' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-03-10',
+    excerpt: 'Veraltetes Design, schlechte Performance oder sinkende Rankings? Diese 7 Zeichen verraten, dass Ihre Website dringend einen Relaunch braucht.',
+    tags: ['Webentwicklung', 'Strategie', 'Business']
+  },
+  {
+    _id: '17',
+    title: 'Mobile-First Webdesign 2026: Warum 85% Ihrer Kunden mobil kommen',
+    slug: { current: 'mobile-first-webdesign-2026' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-03-15',
+    excerpt: 'Über 85% der Nutzer surfen mobil – aber die meisten Unternehmenswebsites sind immer noch für Desktop optimiert. Der komplette Leitfaden für Mobile-First.',
+    tags: ['Webentwicklung', 'Design', '2026 Trends']
+  },
+  {
     _id: '16',
     title: 'Hyper-Personalisierung: Jeder Kunde bekommt seine eigene Website',
     slug: { current: 'hyper-personalisierung-ki' },

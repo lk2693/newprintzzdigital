@@ -147,6 +147,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/blog/mobile-first-webdesign-2026`,
+      lastModified: new Date('2026-03-15'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/website-relaunch-warnsignale-2026`,
+      lastModified: new Date('2026-03-10'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/conversion-optimierung-website-2026`,
+      lastModified: new Date('2026-03-05'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/website-ladezeit-optimierung-2026`,
+      lastModified: new Date('2026-03-01'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     // Leistungen
     {
       url: `${baseUrl}/leistungen/webentwicklung`,
