@@ -76,8 +76,21 @@ const nextConfig: NextConfig = {
       permanent: true,
     }));
 
+    // Alte Druckerei-Domains der Printzz GmbH (Website abgeschaltet) → Digitaldruck-Seite.
+    // Greift erst, wenn die Domains im Vercel-Projekt hängen und ihr DNS dorthin zeigt.
+    // Nicht pfaderhaltend, da die alten Pfade (z. B. /produkte/...) hier nicht existieren.
+    const legacyPrintRedirects = ["printzz.de", "www.printzz.de", "printzz24.de", "www.printzz24.de"].map(
+      (host) => ({
+        source: "/:path*",
+        has: [{ type: "host" as const, value: host }],
+        destination: "https://www.printzzdigital.de/digitaldruck",
+        permanent: true,
+      })
+    );
+
     return [
       ...domainRedirects,
+      ...legacyPrintRedirects,
       ...blogRedirects.map(([slug, destination]) => ({
         source: `/blog/${slug}`,
         destination,
