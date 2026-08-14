@@ -675,7 +675,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             description: post.excerpt || post.title,
             datePublished: post.publishedAt,
             author: post.author,
-            url: `https://printzzdigital.com/blog/${post.slug.current}`
+            url: `https://www.printzzdigital.de/blog/${post.slug.current}`
           }))
         }}
       />
@@ -683,9 +683,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema([
-            { name: 'Home', url: 'https://printzzdigital.com' },
-            { name: 'Blog', url: 'https://printzzdigital.com/blog' },
-            { name: post.title, url: `https://printzzdigital.com/blog/${post.slug.current}` }
+            { name: 'Home', url: 'https://www.printzzdigital.de' },
+            { name: 'Blog', url: 'https://www.printzzdigital.de/blog' },
+            { name: post.title, url: `https://www.printzzdigital.de/blog/${post.slug.current}` }
           ]))
         }}
       />
@@ -782,12 +782,12 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     description: post.excerpt || post.title,
     keywords: post.tags || [],
     alternates: {
-      canonical: `https://printzzdigital.com/blog/${slug}`,
+      canonical: `https://www.printzzdigital.de/blog/${slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt || post.title,
-      url: `https://printzzdigital.com/blog/${slug}`,
+      url: `https://www.printzzdigital.de/blog/${slug}`,
       type: 'article',
       locale: 'de_DE',
       publishedTime: post.publishedAt,

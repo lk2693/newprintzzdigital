@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: 'KI-Integration für Unternehmen: Chatbots, Automatisierung, Datenanalyse und intelligente Systeme. Maßgeschneiderte KI-Lösungen aus Braunschweig.',
   keywords: ['KI-Integration', 'Künstliche Intelligenz', 'Chatbots', 'Automatisierung', 'Machine Learning', 'KI Braunschweig'],
   alternates: {
-    canonical: 'https://printzzdigital.com/leistungen/ki-integration',
+    canonical: 'https://www.printzzdigital.de/leistungen/ki-integration',
   },
   openGraph: {
     title: 'KI-Integration - PrintzzDigital',
     description: 'Intelligente KI-Lösungen für Ihr Unternehmen. Chatbots, Automatisierung und Datenanalyse.',
-    url: 'https://printzzdigital.com/leistungen/ki-integration',
+    url: 'https://www.printzzdigital.de/leistungen/ki-integration',
     type: 'website',
     locale: 'de_DE',
   },

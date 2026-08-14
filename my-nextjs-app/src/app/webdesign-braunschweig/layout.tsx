@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Webdesign Braunschweig – Website erstellen lassen ab 1.500 €",
     description: "Handgebaute Websites aus Braunschweig: unter einer Sekunde Ladezeit, Festpreise, persönliche Betreuung vor Ort. Von der Agentur hinter „Deine City of Lions“.",
-    url: "https://printzzdigital.com/webdesign-braunschweig",
+    url: "https://www.printzzdigital.de/webdesign-braunschweig",
     type: "website",
     locale: "de_DE",
   },
   alternates: {
-    canonical: "https://printzzdigital.com/webdesign-braunschweig",
+    canonical: "https://www.printzzdigital.de/webdesign-braunschweig",
   },
 };
 

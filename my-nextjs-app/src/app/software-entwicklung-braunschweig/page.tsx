@@ -197,10 +197,10 @@ export default function SoftwareEntwicklungPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://printzzdigital.com" },
+              { name: "Home", url: "https://www.printzzdigital.de" },
               {
                 name: "Software-Entwicklung Braunschweig",
-                url: "https://printzzdigital.com/software-entwicklung-braunschweig",
+                url: "https://www.printzzdigital.de/software-entwicklung-braunschweig",
               },
             ])
           ),

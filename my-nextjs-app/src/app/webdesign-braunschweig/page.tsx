@@ -173,8 +173,8 @@ export default function WebdesignBraunschweigPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://printzzdigital.com" },
-              { name: "Webdesign Braunschweig", url: "https://printzzdigital.com/webdesign-braunschweig" },
+              { name: "Home", url: "https://www.printzzdigital.de" },
+              { name: "Webdesign Braunschweig", url: "https://www.printzzdigital.de/webdesign-braunschweig" },
             ])
           ),
         }}

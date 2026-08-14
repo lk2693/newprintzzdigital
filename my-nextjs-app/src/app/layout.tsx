@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://printzzdigital.com'),
+  metadataBase: new URL('https://www.printzzdigital.de'),
   title: {
     default: "Digitalagentur Braunschweig – Webdesign, Apps & KI | PrintzzDigital",
     template: "%s | PrintzzDigital Braunschweig"
@@ -48,12 +48,12 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: 'https://printzzdigital.com',
+    canonical: 'https://www.printzzdigital.de',
   },
   openGraph: {
     title: "PrintzzDigital - Digitale Transformation für Unternehmen",
     description: "Schnelle Websites (<1s), intelligente KI-Systeme (24/7) und strategische Transformation (+40% Produktivität). Kostenlose Beratung.",
-    url: "https://printzzdigital.com",
+    url: "https://www.printzzdigital.de",
     siteName: "PrintzzDigital",
     type: "website",
     locale: "de_DE",

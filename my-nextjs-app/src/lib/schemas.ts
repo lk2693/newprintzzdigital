@@ -2,9 +2,9 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "PrintzzDigital",
-  "image": "https://printzzdigital.com/logo.png",
-  "url": "https://printzzdigital.com",
-  "logo": "https://printzzdigital.com/logo.png",
+  "image": "https://www.printzzdigital.de/logo.png",
+  "url": "https://www.printzzdigital.de",
+  "logo": "https://www.printzzdigital.de/logo.png",
   "description": "Digitalagentur in Braunschweig für moderne Webentwicklung, KI-Integration und digitale Transformation",
   "telephone": "+49-531-70201786",
   "email": "info@printzzdigital.de",
@@ -65,11 +65,11 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "PrintzzDigital",
-  "url": "https://printzzdigital.com",
+  "url": "https://www.printzzdigital.de",
   "description": "Digitale Transformation & KI-Integration für Unternehmen",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://printzzdigital.com/blog?q={search_term_string}",
+    "target": "https://www.printzzdigital.de/blog?q={search_term_string}",
     "query-input": "required name=search_term_string"
   },
   "publisher": {
@@ -77,7 +77,7 @@ export const websiteSchema = {
     "name": "PrintzzDigital",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://printzzdigital.com/logo.png"
+      "url": "https://www.printzzdigital.de/logo.png"
     }
   }
 };
@@ -87,7 +87,7 @@ export const servicesSchema = {
   "@type": "ProfessionalService",
   "name": "PrintzzDigital - Digitalagentur Braunschweig",
   "description": "Digitalagentur für Webentwicklung, KI-Integration und digitale Transformation in Braunschweig und Umgebung",
-  "url": "https://printzzdigital.com",
+  "url": "https://www.printzzdigital.de",
   "priceRange": "$$",
   "telephone": "+49-531-70201786",
   "email": "info@printzzdigital.de",
@@ -163,7 +163,7 @@ export const articleSchema = (article: {
   "@type": "Article",
   "headline": article.title,
   "description": article.description,
-  "image": article.image || "https://printzzdigital.com/logo.png",
+  "image": article.image || "https://www.printzzdigital.de/logo.png",
   "datePublished": article.datePublished,
   "dateModified": article.dateModified || article.datePublished,
   "author": {
@@ -175,7 +175,7 @@ export const articleSchema = (article: {
     "name": "PrintzzDigital",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://printzzdigital.com/logo.png"
+      "url": "https://www.printzzdigital.de/logo.png"
     }
   },
   "mainEntityOfPage": {

@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Software-Entwicklung Braunschweig – Web-Apps & PWAs ab 5.000 €",
     description: "Von den Entwicklern der Stadt-App „Deine City of Lions“: Web-Anwendungen, Buchungssysteme und Automatisierung für Unternehmen aus Braunschweig und der Region.",
-    url: "https://printzzdigital.com/software-entwicklung-braunschweig",
+    url: "https://www.printzzdigital.de/software-entwicklung-braunschweig",
     type: "website",
     locale: "de_DE",
   },
   alternates: {
-    canonical: "https://printzzdigital.com/software-entwicklung-braunschweig",
+    canonical: "https://www.printzzdigital.de/software-entwicklung-braunschweig",
   },
 };
 

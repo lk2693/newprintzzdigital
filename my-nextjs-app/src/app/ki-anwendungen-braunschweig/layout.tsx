@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'KI-Anwendungen Braunschweig – Chatbots & Automatisierung ab 3.000 €',
     description: 'KI, die messbar Zeit spart – und ehrliche Beratung, wo sie nichts bringt. Von den Software-Entwicklern der Stadt-App „Deine City of Lions“.',
-    url: 'https://printzzdigital.com/ki-anwendungen-braunschweig',
+    url: 'https://www.printzzdigital.de/ki-anwendungen-braunschweig',
     type: 'website',
     locale: 'de_DE',
   },
   alternates: {
-    canonical: 'https://printzzdigital.com/ki-anwendungen-braunschweig',
+    canonical: 'https://www.printzzdigital.de/ki-anwendungen-braunschweig',
   },
 };
 

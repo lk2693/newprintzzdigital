@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://printzzdigital.com'
+  const baseUrl = 'https://www.printzzdigital.de'
   
   return [
     {
@@ -42,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     // Landing Pages
+    {
+      url: `${baseUrl}/website-check`,
+      lastModified: new Date('2026-08-14'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/braunschweig`,
       lastModified: new Date('2025-01-01'),

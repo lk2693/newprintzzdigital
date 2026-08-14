@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Digitalagentur Braunschweig – Webdesign, Software & KI vor Ort",
     description: "Die Agentur hinter der Stadt-App „Deine City of Lions“: Websites, Software und KI mit Festpreisen – persönlich in Braunschweig und Region.",
-    url: "https://printzzdigital.com/braunschweig",
+    url: "https://www.printzzdigital.de/braunschweig",
     type: "website",
     locale: "de_DE",
   },
   alternates: {
-    canonical: "https://printzzdigital.com/braunschweig",
+    canonical: "https://www.printzzdigital.de/braunschweig",
   },
 };
 

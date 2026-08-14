@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   description: "Praxisnahe Artikel aus der Werkstatt von PrintzzDigital Braunschweig: Was Websites wirklich kosten, wann sich ein Relaunch lohnt, wie Ladezeit und Conversion zusammenhängen – ohne Buzzwords.",
   keywords: ["Webentwicklung Blog", "Website Kosten", "Website Relaunch", "Ladezeit optimieren", "Conversion-Optimierung", "PrintzzDigital Braunschweig"],
   alternates: {
-    canonical: 'https://printzzdigital.com/blog',
+    canonical: 'https://www.printzzdigital.de/blog',
   },
   openGraph: {
     title: "Blog – Praxiswissen für Ihre Website | PrintzzDigital",
     description: "Praxisnahe Artikel aus Braunschweig: Websites, Ladezeit, Conversion und Chatbots – ohne Buzzwords.",
-    url: 'https://printzzdigital.com/blog',
+    url: 'https://www.printzzdigital.de/blog',
     type: "website",
   },
 };
@@ -94,8 +94,8 @@ export default function BlogPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://printzzdigital.com" },
-              { name: "Blog", url: "https://printzzdigital.com/blog" },
+              { name: "Home", url: "https://www.printzzdigital.de" },
+              { name: "Blog", url: "https://www.printzzdigital.de/blog" },
             ])
           ),
         }}

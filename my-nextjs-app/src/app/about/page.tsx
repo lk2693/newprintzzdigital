@@ -15,9 +15,9 @@ const personSchema = {
   "worksFor": {
     "@type": "Organization",
     "name": "Printzz GmbH",
-    "url": "https://printzzdigital.com",
+    "url": "https://www.printzzdigital.de",
   },
-  "image": "https://printzzdigital.com/oj_jaeschke.png",
+  "image": "https://www.printzzdigital.de/oj_jaeschke.png",
   "email": "olaf.jaeschke@printzzdigital.de",
   "telephone": "+49-531-70201786",
   "address": {
@@ -75,8 +75,8 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://printzzdigital.com" },
-              { name: "Über uns", url: "https://printzzdigital.com/about" },
+              { name: "Home", url: "https://www.printzzdigital.de" },
+              { name: "Über uns", url: "https://www.printzzdigital.de/about" },
             ])
           ),
         }}

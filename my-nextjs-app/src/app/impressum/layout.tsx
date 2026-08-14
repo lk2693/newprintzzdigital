@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Impressum',
   description: 'Impressum der PrintzzDigital – Angaben gemäß § 5 TMG. Rischbleek 6, 38126 Braunschweig.',
   alternates: {
-    canonical: 'https://printzzdigital.com/impressum',
+    canonical: 'https://www.printzzdigital.de/impressum',
   },
   robots: {
     index: true,

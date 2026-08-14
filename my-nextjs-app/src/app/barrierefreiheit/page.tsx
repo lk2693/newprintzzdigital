@@ -6,9 +6,9 @@ import { LegalShell, LegalSection, LegalBox } from "@/components/landing/Legal";
 export const metadata: Metadata = {
   title: "Barrierefreiheit",
   description:
-    "Erklärung zur Barrierefreiheit von printzzdigital.com: umgesetzte Maßnahmen, bekannte Einschränkungen und wie Sie uns Barrieren melden können.",
+    "Erklärung zur Barrierefreiheit von printzzdigital.de: umgesetzte Maßnahmen, bekannte Einschränkungen und wie Sie uns Barrieren melden können.",
   alternates: {
-    canonical: "https://printzzdigital.com/barrierefreiheit",
+    canonical: "https://www.printzzdigital.de/barrierefreiheit",
   },
 };
 

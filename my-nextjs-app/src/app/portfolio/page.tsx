@@ -62,11 +62,11 @@ const collectionSchema = {
   "name": "Portfolio – PrintzzDigital Braunschweig",
   "description":
     "Projekte von PrintzzDigital aus Braunschweig: die Stadt-App „Deine City of Lions“, Websites für Jordan GmbH, il Capriccio, Kloster & Partner Architekten und die Plattform des Kulturrats.",
-  "url": "https://printzzdigital.com/portfolio",
+  "url": "https://www.printzzdigital.de/portfolio",
   "publisher": {
     "@type": "Organization",
     "name": "PrintzzDigital",
-    "url": "https://printzzdigital.com",
+    "url": "https://www.printzzdigital.de",
   },
   "mainEntity": {
     "@type": "ItemList",
@@ -98,8 +98,8 @@ export default function PortfolioPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://printzzdigital.com" },
-              { name: "Portfolio", url: "https://printzzdigital.com/portfolio" },
+              { name: "Home", url: "https://www.printzzdigital.de" },
+              { name: "Portfolio", url: "https://www.printzzdigital.de/portfolio" },
             ])
           ),
         }}

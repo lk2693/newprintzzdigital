@@ -221,10 +221,10 @@ export default function KIAnwendungenPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://printzzdigital.com" },
+              { name: "Home", url: "https://www.printzzdigital.de" },
               {
                 name: "KI-Anwendungen Braunschweig",
-                url: "https://printzzdigital.com/ki-anwendungen-braunschweig",
+                url: "https://www.printzzdigital.de/ki-anwendungen-braunschweig",
               },
             ])
           ),

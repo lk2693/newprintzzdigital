@@ -149,8 +149,8 @@ export default function DigitaldruckPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://printzzdigital.com" },
-              { name: "Digitaldruck Braunschweig", url: "https://printzzdigital.com/digitaldruck" },
+              { name: "Home", url: "https://www.printzzdigital.de" },
+              { name: "Digitaldruck Braunschweig", url: "https://www.printzzdigital.de/digitaldruck" },
             ])
           ),
         }}

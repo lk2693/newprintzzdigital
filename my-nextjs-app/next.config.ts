@@ -68,11 +68,22 @@ const nextConfig: NextConfig = {
       ["zero-click-content-strategie", "/blog"],
       ["hyper-personalisierung-ki", "/ki-anwendungen-braunschweig"],
     ];
-    return blogRedirects.map(([slug, destination]) => ({
-      source: `/blog/${slug}`,
-      destination,
+    // Hauptdomain ist www.printzzdigital.de – alle .com-Aufrufe dauerhaft dorthin umleiten
+    const domainRedirects = ["printzzdigital.com", "www.printzzdigital.com"].map((host) => ({
+      source: "/:path*",
+      has: [{ type: "host" as const, value: host }],
+      destination: "https://www.printzzdigital.de/:path*",
       permanent: true,
     }));
+
+    return [
+      ...domainRedirects,
+      ...blogRedirects.map(([slug, destination]) => ({
+        source: `/blog/${slug}`,
+        destination,
+        permanent: true,
+      })),
+    ];
   },
   
   // Experimentelle Features für bessere Performance

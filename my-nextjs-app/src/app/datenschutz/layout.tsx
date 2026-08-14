@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Datenschutzerklärung',
   description: 'Datenschutzerklärung der PrintzzDigital – Informationen zum Datenschutz gemäß DSGVO.',
   alternates: {
-    canonical: 'https://printzzdigital.com/datenschutz',
+    canonical: 'https://www.printzzdigital.de/datenschutz',
   },
   robots: {
     index: true,

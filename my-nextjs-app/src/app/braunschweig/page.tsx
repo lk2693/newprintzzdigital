@@ -42,7 +42,7 @@ const jsonLd = {
   "name": "PrintzzDigital – Digitalagentur Braunschweig",
   "description":
     "Digitalagentur in Braunschweig für Webdesign, Software-Entwicklung, KI-Anwendungen und Digitaldruck. Bekannt durch die Stadt-App „Deine City of Lions“.",
-  "url": "https://printzzdigital.com/braunschweig",
+  "url": "https://www.printzzdigital.de/braunschweig",
   "telephone": "+49-531-70201786",
   "email": "info@printzzdigital.de",
   "priceRange": "$$",
@@ -134,8 +134,8 @@ export default function BraunschweigPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://printzzdigital.com" },
-              { name: "Digitalagentur Braunschweig", url: "https://printzzdigital.com/braunschweig" },
+              { name: "Home", url: "https://www.printzzdigital.de" },
+              { name: "Digitalagentur Braunschweig", url: "https://www.printzzdigital.de/braunschweig" },
             ])
           ),
         }}

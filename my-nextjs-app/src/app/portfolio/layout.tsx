@@ -13,19 +13,19 @@ export const metadata: Metadata = {
     'Webentwicklung Referenzen',
   ],
   alternates: {
-    canonical: 'https://printzzdigital.com/portfolio',
+    canonical: 'https://www.printzzdigital.de/portfolio',
   },
   openGraph: {
     title: 'Portfolio – Projekte aus Braunschweig | PrintzzDigital',
     description:
       'Die Stadt-App „Deine City of Lions“, Websites für Handwerk, Gastronomie und Architektur – Arbeiten, die man besuchen kann.',
-    url: 'https://printzzdigital.com/portfolio',
+    url: 'https://www.printzzdigital.de/portfolio',
     siteName: 'PrintzzDigital',
     locale: 'de_DE',
     type: 'website',
     images: [
       {
-        url: 'https://printzzdigital.com/assets/ref-jordan-v2.png',
+        url: 'https://www.printzzdigital.de/assets/ref-jordan-v2.png',
         width: 2162,
         height: 1650,
         alt: 'PrintzzDigital Portfolio – Website der Jordan GmbH Braunschweig',

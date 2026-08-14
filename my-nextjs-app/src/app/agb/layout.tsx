@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'AGB – Allgemeine Geschäftsbedingungen',
   description: 'Allgemeine Geschäftsbedingungen der PrintzzDigital. Vertragsbedingungen für unsere digitalen Dienstleistungen.',
   alternates: {
-    canonical: 'https://printzzdigital.com/agb',
+    canonical: 'https://www.printzzdigital.de/agb',
   },
   robots: {
     index: true,
