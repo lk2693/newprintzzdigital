@@ -1,6 +1,10 @@
 export const metadata = {
   title: 'Admin Panel',
-  description: 'Admin Panel für PrintzzDigital'
+  description: 'Admin Panel für PrintzzDigital',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function AdminLayout({

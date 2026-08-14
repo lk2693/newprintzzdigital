@@ -1,20 +1,12 @@
 // Service Worker für erweiterte Performance
-const CACHE_NAME = 'printzzdigital-v1';
-const STATIC_CACHE = 'static-v1';
-const DYNAMIC_CACHE = 'dynamic-v1';
-
-const staticAssets = [
-  '/',
-  '/static/js/app.js',
-  '/static/css/app.css',
-];
+// Version bei jedem Relaunch/Redesign erhöhen, damit alte Caches gelöscht werden
+const STATIC_CACHE = 'static-v2';
+const DYNAMIC_CACHE = 'dynamic-v2';
 
 // Install event
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then(cache => cache.addAll(staticAssets))
-  );
+  // Neue Version sofort aktivieren statt auf Tab-Schließen zu warten
+  self.skipWaiting();
 });
 
 // Activate event
@@ -25,7 +17,7 @@ self.addEventListener('activate', event => {
         .filter(key => key !== STATIC_CACHE && key !== DYNAMIC_CACHE)
         .map(key => caches.delete(key))
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
@@ -58,19 +50,16 @@ self.addEventListener('fetch', event => {
     );
   }
   
-  // Stale-while-revalidate für HTML
+  // Network-first für HTML – immer die aktuelle Seite, Cache nur als Offline-Fallback
   else if (request.destination === 'document') {
     event.respondWith(
-      caches.match(request).then(response => {
-        const fetchPromise = fetch(request).then(fetchResponse => {
-          caches.open(DYNAMIC_CACHE).then(cache => {
-            cache.put(request, fetchResponse.clone());
-          });
-          return fetchResponse;
+      fetch(request).then(fetchResponse => {
+        const responseClone = fetchResponse.clone();
+        caches.open(DYNAMIC_CACHE).then(cache => {
+          cache.put(request, responseClone);
         });
-        
-        return response || fetchPromise;
-      })
+        return fetchResponse;
+      }).catch(() => caches.match(request))
     );
   }
 });

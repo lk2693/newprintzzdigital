@@ -25,6 +25,81 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Barrierefreiheit: sichtbarer Tastatur-Fokus ===== */
+:focus-visible {
+  outline: 3px solid #a05f00;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== Landingpage (Printzz-Design) ===== */
+.landing {
+  font-family: var(--font-archivo), sans-serif;
+}
+
+.landing ::selection {
+  background: #fbb800;
+  color: #141210;
+}
+
+/* „Archivo Expanded" über die Breiten-Achse der Archivo-Variable-Font.
+   font-variation-settings statt font-stretch: Fallback-Schriften ohne
+   wdth-Achse bleiben unverzerrt (Safari dehnt bei font-stretch synthetisch). */
+.font-expanded {
+  font-family: var(--font-archivo), sans-serif;
+  font-variation-settings: "wdth" 125;
+}
+
+@keyframes phoneFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-phone-float {
+  animation: phoneFloat 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 5s ease-in-out infinite;
+}
+
+/* Feine Papier-Textur (SVG-Noise), kaum sichtbar, aber nimmt der Seite die sterile Glätte */
+.landing-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-phone-float,
+  .animate-glow-pulse {
+    animation: none;
+  }
+}
+
 /* ===== Splash Screen ===== */
 
 /* ===== Splash Screen Animations ===== */

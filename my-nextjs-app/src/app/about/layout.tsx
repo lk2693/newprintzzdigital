@@ -2,15 +2,15 @@ import { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Über uns - PrintzzDigital Braunschweig',
-  description: 'Lernen Sie PrintzzDigital kennen: Ihre Digitalagentur in Braunschweig für Webentwicklung, KI-Integration und digitale Transformation. Persönlich, kompetent, lokal.',
-  keywords: ['Über uns', 'PrintzzDigital', 'Digitalagentur Braunschweig', 'Team Braunschweig', 'Webagentur'],
+  title: 'Über uns – Olaf Jaeschke & Team',
+  description: 'Hinter PrintzzDigital steht Olaf Jaeschke: über 20 Jahre Druckgewerbe, IHK-Vizepräsident Braunschweig, Präsident des Handelsverbands Harz-Heide. Lernen Sie den Menschen hinter der Agentur kennen.',
+  keywords: ['Über uns', 'Olaf Jaeschke', 'PrintzzDigital', 'Digitalagentur Braunschweig', 'Printzz GmbH'],
   alternates: {
     canonical: 'https://printzzdigital.com/about',
   },
   openGraph: {
-    title: 'Über uns - PrintzzDigital Braunschweig',
-    description: 'Ihre Digitalagentur in Braunschweig. Persönliche Betreuung, moderne Technologien, lokale Expertise.',
+    title: 'Über uns – Olaf Jaeschke & Team | PrintzzDigital',
+    description: 'Über 20 Jahre Druckgewerbe, IHK-Vizepräsident Braunschweig, Gründer von PrintzzDigital: der Mensch hinter der Agentur.',
     url: 'https://printzzdigital.com/about',
     type: 'website',
     locale: 'de_DE',

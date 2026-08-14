@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software-Entwicklung Braunschweig | Individuelle Softwarelösungen",
-  description: "Individuelle Software-Entwicklung in Braunschweig ✓ Web-Apps ✓ Mobile Apps ✓ Datenbanklösungen ✓ API-Entwicklung ✓ Automatisierung. Maßgeschneiderte Software vom Experten. Jetzt beraten lassen!",
-  keywords: ["Software Entwicklung Braunschweig", "Softwareentwicklung Braunschweig", "App Entwicklung Braunschweig", "Programmierer Braunschweig", "IT Dienstleistungen Braunschweig", "Web Anwendung Braunschweig", "individuelle Software Braunschweig", "IT Unternehmen Braunschweig", "Softwarefirma Braunschweig"],
+  title: "Software-Entwicklung Braunschweig – Web-Apps & PWAs ab 5.000 €",
+  description: "Individuelle Software aus Braunschweig von den Entwicklern der Stadt-App „Deine City of Lions“: Web-Anwendungen, Buchungssysteme, Schnittstellen und Automatisierung. Erstgespräch kostenlos, ehrliche Einschätzung inklusive.",
+  keywords: ["Software Entwicklung Braunschweig", "Softwareentwicklung Braunschweig", "App Entwicklung Braunschweig", "Programmierer Braunschweig", "Web Anwendung Braunschweig", "individuelle Software Braunschweig", "Softwarefirma Braunschweig"],
   openGraph: {
-    title: "Software-Entwicklung Braunschweig | Individuelle Softwarelösungen",
-    description: "Maßgeschneiderte Software-Entwicklung aus Braunschweig. Web-Apps, Mobile Apps und Automatisierung.",
+    title: "Software-Entwicklung Braunschweig – Web-Apps & PWAs ab 5.000 €",
+    description: "Von den Entwicklern der Stadt-App „Deine City of Lions“: Web-Anwendungen, Buchungssysteme und Automatisierung für Unternehmen aus Braunschweig und der Region.",
     url: "https://printzzdigital.com/software-entwicklung-braunschweig",
     type: "website",
     locale: "de_DE",

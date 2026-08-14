@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Digitalagentur Braunschweig | Webdesign, Webentwicklung & Software",
-  description: "PrintzzDigital - Ihre Digitalagentur in Braunschweig. ✓ Webdesign ✓ Webentwicklung ✓ Software-Entwicklung ✓ KI-Integration ✓ SEO & Online Marketing. Persönliche Beratung vor Ort. Jetzt kostenloses Erstgespräch!",
-  keywords: ["Digitalagentur Braunschweig", "Webdesign Braunschweig", "Webentwicklung Braunschweig", "Software Entwicklung Braunschweig", "Website erstellen Braunschweig", "SEO Braunschweig", "Webagentur Braunschweig", "App Entwicklung Braunschweig", "IT Dienstleistungen Braunschweig", "Homepage erstellen Braunschweig"],
+  title: "Digitalagentur Braunschweig – Webdesign, Software & KI vor Ort",
+  description: "PrintzzDigital, Rischbleek 6 in Braunschweig: die Agentur hinter der Stadt-App „Deine City of Lions“. Websites ab 1.500 €, Software ab 5.000 €, KI ab 3.000 € – mit Festpreisen und persönlichen Terminen in der ganzen Region.",
+  keywords: ["Digitalagentur Braunschweig", "Webdesign Braunschweig", "Webentwicklung Braunschweig", "Software Entwicklung Braunschweig", "Website erstellen Braunschweig", "Webagentur Braunschweig"],
   openGraph: {
-    title: "Digitalagentur Braunschweig | PrintzzDigital",
-    description: "Professionelles Webdesign, Webentwicklung & Software-Entwicklung in Braunschweig. Persönliche Beratung, faire Preise, messbare Ergebnisse.",
+    title: "Digitalagentur Braunschweig – Webdesign, Software & KI vor Ort",
+    description: "Die Agentur hinter der Stadt-App „Deine City of Lions“: Websites, Software und KI mit Festpreisen – persönlich in Braunschweig und Region.",
     url: "https://printzzdigital.com/braunschweig",
     type: "website",
     locale: "de_DE",

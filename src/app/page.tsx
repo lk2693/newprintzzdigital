@@ -1,86 +1,65 @@
-"use client";
+import {
+  organizationSchema,
+  websiteSchema,
+  servicesSchema,
+  localBusinessSchema,
+} from "@/lib/schemas";
 
-import { useState, useEffect, Suspense } from "react";
-import dynamic from "next/dynamic";
-import Script from "next/script";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { organizationSchema, websiteSchema, servicesSchema, localBusinessSchema } from "@/lib/schemas";
+import LandingHeader from "@/components/landing/LandingHeader";
+import LandingHero from "@/components/landing/LandingHero";
+import PartnerBar from "@/components/landing/PartnerBar";
+import StatsSection from "@/components/landing/StatsSection";
+import ServicesSection from "@/components/landing/ServicesSection";
+import CaseStudySection from "@/components/landing/CaseStudySection";
+import ReferencesSection from "@/components/landing/ReferencesSection";
+import AboutSection from "@/components/landing/AboutSection";
+import ProcessSection from "@/components/landing/ProcessSection";
+import FaqSection from "@/components/landing/FaqSection";
+import ContactCta from "@/components/landing/ContactCta";
+import LandingFooter from "@/components/landing/LandingFooter";
 
-// Critical components loaded immediately
-import TerminalHero from "@/components/TerminalHero";
-import ProblemSection from "@/components/ProblemSection";
-import FullScreenServices from "@/components/FullScreenServices";
-import MinimalCTA from "@/components/MinimalCTA";
-
-// Lazy loaded sections
-const PortfolioSection = dynamic(() => import("@/components/UltraLightPortfolioSection"), {
-  ssr: false,
-  loading: () => <div className="h-8 animate-pulse bg-slate-100 rounded"></div>
-});
-const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: false });
-const EBookDownload = dynamic(() => import("@/components/EBookDownload"), { ssr: false });
-const BlogPreview = dynamic(() => import("@/components/BlogPreview"), { ssr: false });
+// Inhalte zentral anpassbar (entspricht den Props des Designs)
+const JAHRE_ERFAHRUNG = "15+";
+const ANZAHL_PROJEKTE = "50+";
+const PARTNER_ZEILE_ANZEIGEN = true;
+const PROZESS_ANZEIGEN = true;
 
 export default function Page() {
-
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="landing min-h-screen bg-[#FAF9F6] text-[#26231E]">
+      {/* Feine Papier-Textur über der ganzen Seite */}
+      <div aria-hidden className="landing-grain" />
+
       {/* Structured Data for SEO */}
-      <Script
-        id="organization-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
-      <Script
-        id="website-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-      <Script
-        id="services-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
       />
-      <Script
-        id="local-business-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
-      
-      <Header />
-      
-      {/* Hero Section - Terminal Style */}
-      <TerminalHero />
-      
-      {/* Problem Statement Section */}
-      <ProblemSection />
-      
-      {/* Full-Screen Service Sections */}
-      <FullScreenServices />
-      
-      {/* Portfolio - Lazy loaded */}
-      <Suspense fallback={<div className="h-8 animate-pulse bg-slate-100 rounded mx-4"></div>}>
-        <PortfolioSection />
-      </Suspense>
-      
-      {/* Minimal CTA Section */}
-      <MinimalCTA />
-      
-      {/* Bottom sections - Only load when needed */}
-      <Suspense fallback={null}>
-        <EBookDownload />
-      </Suspense>
-      
-      <Suspense fallback={null}>
-        <BlogPreview />
-      </Suspense>
-      
-      <Suspense fallback={null}>
-        <ContactForm />
-      </Suspense>
 
-      <Footer />
+      <LandingHeader />
+      <LandingHero />
+      {PARTNER_ZEILE_ANZEIGEN && <PartnerBar />}
+      <StatsSection jahreErfahrung={JAHRE_ERFAHRUNG} anzahlProjekte={ANZAHL_PROJEKTE} />
+      <ServicesSection />
+      <CaseStudySection />
+      <ReferencesSection />
+      <AboutSection />
+      {PROZESS_ANZEIGEN && <ProcessSection />}
+      <FaqSection />
+      <ContactCta />
+      <LandingFooter />
     </div>
   );
 }

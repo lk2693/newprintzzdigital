@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date('2025-01-01'),
+      lastModified: new Date('2026-08-13'),
       changeFrequency: 'monthly',
       priority: 1,
     },
@@ -28,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2025-01-01'),
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/portfolio/kloster-und-partner-architekten`,
+      lastModified: new Date('2026-08-13'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/blog`,
@@ -61,42 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/blog/moderne-webentwicklung-2025`,
-      lastModified: new Date('2025-10-01'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/ki-integration-geschaeftsprozesse`,
-      lastModified: new Date('2025-09-28'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/lighthouse-score-100`,
-      lastModified: new Date('2025-09-25'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/website-in-48-stunden`,
-      lastModified: new Date('2025-09-20'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/design-systems`,
-      lastModified: new Date('2025-09-15'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/seo-2025`,
-      lastModified: new Date('2025-09-10'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
       url: `${baseUrl}/blog/individuelle-webseite-vs-baukasten`,
       lastModified: new Date('2025-10-03'),
       changeFrequency: 'monthly',
@@ -105,54 +75,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/blog/chatbots-kundenservice`,
       lastModified: new Date('2025-10-05'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/digitale-transformation-schritt-fuer-schritt`,
-      lastModified: new Date('2025-10-08'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/predictive-analytics-geschaeftsentscheidungen`,
-      lastModified: new Date('2025-10-10'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/ai-agents-2026`,
-      lastModified: new Date('2026-01-02'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/nachhaltige-digitalisierung`,
-      lastModified: new Date('2026-01-04'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/web3-blockchain-business`,
-      lastModified: new Date('2026-01-06'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/augmented-reality-ecommerce`,
-      lastModified: new Date('2026-01-08'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/zero-click-content-strategie`,
-      lastModified: new Date('2026-01-10'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/hyper-personalisierung-ki`,
-      lastModified: new Date('2026-01-12'),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
@@ -238,6 +160,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/cookies`,
       lastModified: new Date('2025-01-01'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/barrierefreiheit`,
+      lastModified: new Date('2026-08-14'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },

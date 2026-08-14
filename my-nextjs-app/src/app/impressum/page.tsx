@@ -1,183 +1,99 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+
+import { LegalShell, LegalSection, LegalBox } from '@/components/landing/Legal'
 
 export const metadata: Metadata = {
-  title: 'Impressum | Printzz GmbH',
+  title: 'Impressum',
   description: 'Impressum und rechtliche Informationen der Printzz GmbH.',
 }
 
 export default function ImpressumPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-50 via-yellow-50/30 to-gray-100 pt-32 pb-20">
-      <div className="max-w-4xl mx-auto px-6">
-        {/* Zurück Button */}
-        <Link 
-          href="/" 
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-yellow-600 transition-colors mb-8 group"
-        >
-          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          <span>Zurück zur Startseite</span>
-        </Link>
+    <LegalShell title="Impressum" subtitle="Angaben gemäß § 5 TMG" stand="Dezember 2025">
+      <LegalSection nr="01" title="Firmeninformationen">
+        <p>
+          <strong>Printzz GmbH</strong>
+        </p>
+        <p>Geschäftsführer: Olaf Jaeschke</p>
+      </LegalSection>
 
-        {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 bg-yellow-500/20 text-yellow-700 text-sm font-semibold rounded-full mb-4">
-            Rechtliches
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Impressum
-          </h1>
-          <p className="text-gray-600 text-lg">
-            Angaben gemäß § 5 TMG
+      <LegalSection nr="02" title="Geschäftsadresse">
+        <LegalBox>
+          <p className="m-0 leading-[1.7]">
+            Printzz GmbH
+            <br />
+            Rischbleek 6
+            <br />
+            38126 Braunschweig
+            <br />
+            DEUTSCHLAND
           </p>
-        </div>
+        </LegalBox>
+      </LegalSection>
 
-        {/* Content Box */}
-        <div className="bg-white border border-gray-200 rounded-3xl shadow-xl p-8 md:p-12">
-          <div className="space-y-8">
-            
-            {/* 1. Firmeninformationen */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">1</span>
-                <h2 className="text-xl font-bold text-gray-900">Firmeninformationen</h2>
-              </div>
-              <div className="pl-11 space-y-1">
-                <p className="text-gray-700 font-semibold">Printzz GmbH</p>
-                <p className="text-gray-600">Geschäftsführer: Olaf Jaeschke</p>
-              </div>
-            </section>
+      <LegalSection nr="03" title="Vertreten durch">
+        <p>Olaf Jaeschke</p>
+      </LegalSection>
 
-            {/* 2. Geschäftsadresse */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">2</span>
-                <h2 className="text-xl font-bold text-gray-900">Geschäftsadresse</h2>
-              </div>
-              <div className="pl-11 space-y-1">
-                <p className="text-gray-600">Printzz GmbH</p>
-                <p className="text-gray-600">Rischbleek 6</p>
-                <p className="text-gray-600">38126 Braunschweig</p>
-                <p className="text-gray-600">DEUTSCHLAND</p>
-              </div>
-            </section>
+      <LegalSection nr="04" title="Kontakt">
+        <p>
+          <strong>Telefon:</strong> <a href="tel:+4953170201786">0531 - 70201786</a>
+        </p>
+        <p>
+          <strong>Telefax:</strong> 0531 - 270 33 98
+        </p>
+        <p>
+          <strong>E-Mail:</strong> <a href="mailto:info@printzzdigital.de">info@printzzdigital.de</a>
+        </p>
+      </LegalSection>
 
-            {/* 3. Vertreten durch */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">3</span>
-                <h2 className="text-xl font-bold text-gray-900">Vertreten durch</h2>
-              </div>
-              <div className="pl-11">
-                <p className="text-gray-700">Olaf Jaeschke</p>
-              </div>
-            </section>
+      <LegalSection nr="05" title="Registereintrag">
+        <p>Eintragung im Handelsregister</p>
+        <p>
+          <strong>Registergericht:</strong> Amtsgericht Braunschweig
+        </p>
+        <p>
+          <strong>Registernummer:</strong> HRB203533
+        </p>
+      </LegalSection>
 
-            {/* 4. Kontakt */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">4</span>
-                <h2 className="text-xl font-bold text-gray-900">Kontakt</h2>
-              </div>
-              <div className="pl-11 space-y-1">
-                <p className="text-gray-600">
-                  <span className="font-medium">Telefon:</span> <a href="tel:+4953170201786" className="text-yellow-600 hover:text-yellow-700 underline transition-colors">0531 - 70201786</a>
-                </p>
-                <p className="text-gray-600">
-                  <span className="font-medium">Telefax:</span> 0531 - 270 33 98
-                </p>
-                <p className="text-gray-600">
-                  <span className="font-medium">E-Mail:</span> <a href="mailto:info@printzzdigital.de" className="text-yellow-600 hover:text-yellow-700 underline transition-colors">info@printzzdigital.de</a>
-                </p>
-              </div>
-            </section>
+      <LegalSection nr="06" title="Umsatzsteuer-ID">
+        <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:</p>
+        <p>
+          <strong>DE281896307</strong>
+        </p>
+      </LegalSection>
 
-            {/* 5. Registereintrag */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">5</span>
-                <h2 className="text-xl font-bold text-gray-900">Registereintrag</h2>
-              </div>
-              <div className="pl-11 space-y-1">
-                <p className="text-gray-600">Eintragung im Handelsregister</p>
-                <p className="text-gray-600"><span className="font-medium">Registergericht:</span> Amtsgericht Braunschweig</p>
-                <p className="text-gray-600"><span className="font-medium">Registernummer:</span> HRB203533</p>
-              </div>
-            </section>
+      <LegalSection nr="07" title="Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV">
+        <LegalBox>
+          <p className="m-0 leading-[1.7]">
+            <strong>Olaf Jaeschke</strong>
+            <br />
+            Rischbleek 6
+            <br />
+            38126 Braunschweig
+            <br />
+            DEUTSCHLAND
+          </p>
+        </LegalBox>
+      </LegalSection>
 
-            {/* 6. Umsatzsteuer-ID */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">6</span>
-                <h2 className="text-xl font-bold text-gray-900">Umsatzsteuer-ID</h2>
-              </div>
-              <div className="pl-11">
-                <p className="text-gray-600">Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:</p>
-                <p className="text-gray-700 font-semibold mt-1">DE281896307</p>
-              </div>
-            </section>
+      <LegalSection nr="08" title="EU-Streitschlichtung">
+        <p>
+          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{' '}
+          <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">
+            https://ec.europa.eu/consumers/odr/
+          </a>
+        </p>
+        <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+      </LegalSection>
 
-            {/* 7. Verantwortlich für den Inhalt */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">7</span>
-                <h2 className="text-xl font-bold text-gray-900">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-              </div>
-              <div className="pl-11 space-y-1">
-                <p className="text-gray-700 font-semibold">Olaf Jaeschke</p>
-                <p className="text-gray-600">Rischbleek 6</p>
-                <p className="text-gray-600">38126 Braunschweig</p>
-                <p className="text-gray-600">DEUTSCHLAND</p>
-              </div>
-            </section>
-
-            {/* 8. EU-Streitschlichtung */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">8</span>
-                <h2 className="text-xl font-bold text-gray-900">EU-Streitschlichtung</h2>
-              </div>
-              <div className="pl-11 space-y-2">
-                <p className="text-gray-600">
-                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{' '}
-                  <a 
-                    href="https://ec.europa.eu/consumers/odr/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-yellow-600 hover:text-yellow-700 underline transition-colors"
-                  >
-                    https://ec.europa.eu/consumers/odr/
-                  </a>
-                </p>
-                <p className="text-gray-600">Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-              </div>
-            </section>
-
-            {/* 9. Verbraucherstreitbeilegung */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white text-sm font-bold rounded-full">9</span>
-                <h2 className="text-xl font-bold text-gray-900">Verbraucherstreitbeilegung/Universalschlichtungsstelle</h2>
-              </div>
-              <div className="pl-11">
-                <p className="text-gray-600">
-                  Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
-                  Verbraucherschlichtungsstelle teilzunehmen.
-                </p>
-              </div>
-            </section>
-
-          </div>
-
-          {/* Stand Box */}
-          <div className="mt-12 p-6 bg-yellow-50 border border-yellow-200 rounded-2xl">
-            <p className="text-gray-700 text-center">
-              <span className="font-semibold">Stand:</span> Dezember 2025
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>
+      <LegalSection nr="09" title="Verbraucherstreitbeilegung/Universalschlichtungsstelle">
+        <p>
+          Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+          Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+      </LegalSection>
+    </LegalShell>
   )
 }

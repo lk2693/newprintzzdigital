@@ -1,412 +1,494 @@
-'use client';
+import Image from "next/image";
+import Link from "next/link";
 
-import { useEffect, useState, useRef, ReactNode } from 'react';
-import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { ArrowRight, Check, Globe, Zap, Smartphone, Search, BarChart3, Phone, Monitor, Palette, Shield, Clock } from 'lucide-react';
+import LandingHeader from "@/components/landing/LandingHeader";
+import LandingFooter from "@/components/landing/LandingFooter";
+import ReferencesSection from "@/components/landing/ReferencesSection";
+import FaqSection from "@/components/landing/FaqSection";
+import ContactCta from "@/components/landing/ContactCta";
+import { Reveal } from "@/components/landing/motion";
+import { faqSchema, breadcrumbSchema } from "@/lib/schemas";
 
-// ============================================================
-// ANIMATION HOOKS
-// ============================================================
-function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setIsInView(true); obs.disconnect(); } }, { threshold });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [threshold]);
-  return { ref, isInView };
-}
-
-function AnimatedSection({ children, className = '', delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
-  const { ref, isInView } = useInView();
-  return (
-    <div ref={ref} className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
-      {children}
-    </div>
-  );
-}
-
-function Counter({ end, suffix = '', prefix = '', duration = 2000 }: { end: number; suffix?: string; prefix?: string; duration?: number }) {
-  const { ref, isInView } = useInView();
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const step = end / (duration / 16);
-    const timer = setInterval(() => { start += step; if (start >= end) { setCount(end); clearInterval(timer); } else setCount(Math.floor(start)); }, 16);
-    return () => clearInterval(timer);
-  }, [isInView, end, duration]);
-  return <span ref={ref}>{prefix}{count}{suffix}</span>;
-}
-
-// ============================================================
-// JSON-LD
-// ============================================================
-const jsonLd = {
-  "@context": "https://schema.org", "@type": "Service",
-  "name": "Webdesign Braunschweig",
-  "description": "Professionelles Webdesign und Website-Erstellung in Braunschweig. Responsive Design, SEO-Optimierung und moderne Technologien.",
-  "provider": { "@type": "LocalBusiness", "name": "PrintzzDigital", "address": { "@type": "PostalAddress", "streetAddress": "Rischbleek 6", "addressLocality": "Braunschweig", "postalCode": "38126", "addressCountry": "DE" }, "telephone": "+49-531-70201786" },
-  "areaServed": { "@type": "City", "name": "Braunschweig" }, "serviceType": "Webdesign"
-};
-
-const faqItems = [
-  { q: "Was kostet Webdesign in Braunschweig?", a: "Eine einfache Website beginnt ab ca. 1.500€, Unternehmenswebsites mit CMS ab 2.500€, Online-Shops ab 5.000€. Transparente, faire Angebote ohne versteckte Kosten." },
-  { q: "Ist die Website auch für Handys optimiert?", a: "Ja, alle Websites folgen dem Mobile-First-Ansatz und sehen auf Smartphones, Tablets und Desktops perfekt aus. Das ist auch entscheidend für gute Google-Rankings." },
-  { q: "Wird meine Website bei Google gefunden?", a: "Alle Websites werden von Grund auf SEO-optimiert: technisches SEO, Ladezeit-Optimierung, strukturierte Daten und lokale SEO-Strategien für Braunschweig." },
-  { q: "Welche Technologien verwendet PrintzzDigital?", a: "Next.js, React, TypeScript und Tailwind CSS. Diese garantieren maximale Performance, Sicherheit und Skalierbarkeit mit regelmäßig 95+ Lighthouse Score." },
-  { q: "Kann ich die Website selbst bearbeiten?", a: "Auf Wunsch richten wir ein benutzerfreundliches CMS ein, mit dem Sie Texte, Bilder und Inhalte selbst pflegen können – ganz ohne Programmierkenntnisse." },
+const webdesignFaqs = [
+  {
+    question: "Was kostet eine Website in Braunschweig?",
+    answer:
+      "Eine kompakte Website (Onepager) startet bei 1.500 €, eine Unternehmens-Website mit mehreren Unterseiten und CMS bei 2.500 €, Online-Shops und individuelle Projekte bei 5.000 €. Nach dem kostenlosen Erstgespräch bekommen Sie einen Festpreis – und der gilt dann auch.",
+  },
+  {
+    question: "Wie lange dauert es, bis meine Website online ist?",
+    answer:
+      "Eine typische Unternehmens-Website ist in 4–8 Wochen live, ein kompakter Onepager oft schneller. Den ersten Design-Entwurf sehen Sie meist schon nach etwa einer Woche – direkt im Browser, nicht als PDF.",
+  },
+  {
+    question: "Baut ihr mit WordPress?",
+    answer:
+      "Nein. Wir entwickeln mit Next.js und React – damit laden unsere Websites in unter einer Sekunde und es gibt keine Plugin-Updates, die man vergessen kann, und deutlich weniger Angriffsfläche für Hacker. Wenn Sie Inhalte selbst pflegen möchten, binden wir ein modernes CMS an – das können Sie ohne Technikkenntnisse bedienen.",
+  },
+  {
+    question: "Kann ich Texte und Bilder später selbst ändern?",
+    answer:
+      "Ja, wenn Sie das möchten. Wir richten Ihnen ein CMS ein, in dem Sie Texte, Bilder, Öffnungszeiten oder Speisekarten selbst pflegen – ohne Programmierkenntnisse. Alternativ übernehmen wir die Pflege für Sie.",
+  },
+  {
+    question: "Was passiert mit meiner alten Website?",
+    answer:
+      "Wir kümmern uns um den kompletten Umzug: Inhalte, Domain und E-Mail-Adressen bleiben erhalten. Wichtig für Google: Alte Adressen leiten wir sauber auf die neuen Seiten weiter, damit bestehende Rankings nicht verloren gehen.",
+  },
+  {
+    question: "Werde ich mit der neuen Website bei Google gefunden?",
+    answer:
+      "Die technische Basis – Ladezeit, Struktur, lokale Suchbegriffe für Braunschweig – bauen wir von Anfang an ein. Ehrlich gesagt: Rankings wachsen über Wochen und Monate, nicht über Nacht. Wer Ihnen Platz 1 in zwei Wochen verspricht, verspricht zu viel. Wir zeigen Ihnen stattdessen, was realistisch ist und woran wir es messen.",
+  },
 ];
 
-const faqJsonLd = {
-  "@context": "https://schema.org", "@type": "FAQPage",
-  "mainEntity": faqItems.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Webdesign Braunschweig",
+  "description":
+    "Webdesign und Website-Erstellung in Braunschweig: handgebaute Websites mit Next.js, Ladezeit unter einer Sekunde, lokale Suchmaschinenoptimierung. Festpreise ab 1.500 €.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "PrintzzDigital",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rischbleek 6",
+      "addressLocality": "Braunschweig",
+      "postalCode": "38126",
+      "addressCountry": "DE",
+    },
+    "telephone": "+49-531-70201786",
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Braunschweig" },
+    { "@type": "City", "name": "Wolfsburg" },
+    { "@type": "City", "name": "Salzgitter" },
+    { "@type": "City", "name": "Gifhorn" },
+    { "@type": "City", "name": "Peine" },
+  ],
+  "serviceType": "Webdesign",
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "1500",
+    "priceCurrency": "EUR",
+  },
 };
 
-// ============================================================
-// PAGE
-// ============================================================
+const pakete = [
+  {
+    name: "Kompakt",
+    preis: "ab 1.500 €",
+    fuer: "Für Handwerk, Praxis und Gastronomie: alles Wichtige auf einer Seite.",
+    leistungen: [
+      "Onepager mit allen Infos: Leistungen, Kontakt, Anfahrt, Öffnungszeiten",
+      "Für Google Braunschweig optimiert",
+      "Ladezeit unter einer Sekunde",
+      "Impressum & Datenschutz inklusive",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Unternehmens-Website",
+    preis: "ab 2.500 €",
+    fuer: "Der Standard für die meisten Betriebe: mehrere Seiten, selbst pflegbar.",
+    leistungen: [
+      "Mehrere Unterseiten (Leistungen, Team, Referenzen …)",
+      "CMS – Texte und Bilder selbst pflegen",
+      "Lokale SEO-Optimierung für Braunschweig und Region",
+      "In 4–8 Wochen live, Festpreis nach Erstgespräch",
+    ],
+    highlight: true,
+  },
+  {
+    name: "Shop & Individuell",
+    preis: "ab 5.000 €",
+    fuer: "Wenn es mehr sein soll: verkaufen, buchen, reservieren.",
+    leistungen: [
+      "Online-Shop oder Buchungs- / Reservierungssystem",
+      "Anbindung an Ihre Warenwirtschaft oder Kasse",
+      "Auch als PWA – wie unsere Stadt-App für Braunschweig",
+      "Individuelle Kalkulation, transparent aufgeschlüsselt",
+    ],
+    highlight: false,
+  },
+];
+
+const arbeitsweise = [
+  {
+    number: "01",
+    title: "Handgebaut statt Baukasten",
+    text: "Kein WordPress-Template, kein Baukasten-Look. Wir entwickeln mit Next.js und React – dadurch gibt es keine Plugin-Updates, die man vergessen kann, und deutlich weniger Angriffsfläche für Hacker.",
+  },
+  {
+    number: "02",
+    title: "Schnell ist bei uns Standard",
+    text: "Unter einer Sekunde Ladezeit, Lighthouse-Score 95+. Das ist kein bezahltes Extra, sondern die Basis – weil Google und Ihre Besucher genau das honorieren.",
+  },
+  {
+    number: "03",
+    title: "In Braunschweig zu Hause",
+    text: "Rischbleek 6, 38126 Braunschweig. Erstgespräch bei Ihnen im Betrieb oder bei uns – auch in Wolfsburg, Salzgitter, Gifhorn und Peine sind wir schnell vor Ort.",
+  },
+];
+
+const prozess = [
+  {
+    number: "01",
+    title: "Erstgespräch – kostenlos",
+    text: "Bei Ihnen im Betrieb, bei uns oder per Video. Sie erzählen, wir hören zu – und Sie bekommen eine ehrliche Einschätzung samt Festpreis. Kein Verkaufsgespräch.",
+  },
+  {
+    number: "02",
+    title: "Erster Entwurf",
+    text: "Nach etwa einer Woche sehen Sie den ersten Design-Entwurf – direkt im Browser auf Ihrem Handy und Rechner, nicht als PDF-Skizze.",
+  },
+  {
+    number: "03",
+    title: "Feedback & Umsetzung",
+    text: "Wir bauen, Sie geben Feedback in kurzen Runden. Änderungen sind in dieser Phase normal und eingeplant – bis es wirklich passt.",
+  },
+  {
+    number: "04",
+    title: "Launch & danach",
+    text: "Domain, Hosting, Google Search Console: übernehmen wir. Und wenn Sie möchten, bleiben wir auch nach dem Launch dran – mit Wartung und Weiterentwicklung.",
+  },
+];
+
 export default function WebdesignBraunschweigPage() {
-  const [heroVisible, setHeroVisible] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  useEffect(() => { setTimeout(() => setHeroVisible(true), 100); }, []);
-
-  const features = [
-    { icon: Smartphone, title: "Responsive Design", desc: "Perfekt auf allen Geräten — Mobile-First für beste Google-Rankings.", color: "from-yellow-400 to-yellow-500" },
-    { icon: Zap, title: "Blitzschnelle Ladezeiten", desc: "Sub-Second Performance. 95+ Lighthouse Score durch Server-Side Rendering.", color: "from-gray-700 to-gray-900" },
-    { icon: Search, title: "SEO-Optimiert", desc: "Vom ersten Tag bei Google sichtbar. Lokale SEO-Strategien für Braunschweig.", color: "from-yellow-500 to-amber-500" },
-    { icon: BarChart3, title: "Conversion-Optimiert", desc: "Design das verkauft. Strategische CTAs für mehr Anfragen und Kunden.", color: "from-gray-800 to-black" },
-    { icon: Shield, title: "Sicher & Zuverlässig", desc: "SSL, DSGVO-konform und regelmäßige Updates. Ihre Daten sind sicher.", color: "from-yellow-400 to-orange-400" },
-    { icon: Palette, title: "Individuelles Design", desc: "Kein Template-Look. Jedes Design wird maßgeschneidert für Ihre Marke.", color: "from-gray-600 to-gray-800" },
-  ];
-
-  const process = [
-    { step: "01", title: "Erstgespräch", desc: "Wir treffen uns in Braunschweig und besprechen Ihre Ziele, Wünsche und Anforderungen.", icon: Phone },
-    { step: "02", title: "Konzept & Design", desc: "Maßgeschneidertes Konzept und modernes Design, das Ihre Marke perfekt repräsentiert.", icon: Palette },
-    { step: "03", title: "Entwicklung", desc: "Ihr Design wird mit modernsten Technologien umgesetzt — schnell, sicher und SEO-optimiert.", icon: Monitor },
-    { step: "04", title: "Launch & Support", desc: "Ihre Website geht live. Wir supporten Sie mit Wartung, Updates und Weiterentwicklung.", icon: Zap },
-  ];
-
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+    <div className="landing min-h-screen bg-[#FAF9F6] text-[#26231E]">
+      <div aria-hidden className="landing-grain" />
 
-      <Header />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(webdesignFaqs)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", url: "https://printzzdigital.com" },
+              { name: "Webdesign Braunschweig", url: "https://printzzdigital.com/webdesign-braunschweig" },
+            ])
+          ),
+        }}
+      />
 
-      {/* ==================== HERO ==================== */}
-      <section className="relative min-h-screen flex items-center overflow-hidden px-4 sm:px-6 lg:px-8 pt-8">
-        <div className="relative mx-auto max-w-7xl w-full">
-          <div className="bg-gradient-to-br from-gray-100 via-yellow-50 to-gray-100 rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl relative">
-            <div className="absolute inset-0 overflow-hidden opacity-20">
-              <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-yellow-400/30 to-transparent" />
-            </div>
+      <LandingHeader />
 
-            <div className="relative px-6 sm:px-12 lg:px-16 py-16 sm:py-24">
-              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div className={`transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm mb-8">
-                    <Globe className="w-4 h-4 text-yellow-500" />
-                    <span className="text-sm text-gray-700 font-medium">Webdesign Braunschweig</span>
-                  </div>
-
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gray-900">
-                    Professionelles{' '}
-                    <span className="text-yellow-500">Webdesign</span>
-                    <br />
-                    aus Braunschweig
-                  </h1>
-
-                  <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-10 max-w-xl">
-                    Ihre Website ist Ihre digitale Visitenkarte. Wir erstellen moderne, schnelle und 
-                    SEO-optimierte Websites, die Besucher in Kunden verwandeln.
-                  </p>
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link href="/contact" className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-white font-medium rounded-full shadow-lg hover:bg-gray-900 transition-all duration-300 hover:scale-105">
-                      Kostenloses Angebot anfordern
-                    </Link>
-                    <Link href="/portfolio" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 font-medium rounded-full border border-gray-200 hover:border-yellow-500 hover:bg-yellow-50 transition-all duration-300">
-                      Unsere Referenzen <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Right: Browser mockup */}
-                <div className={`transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0 rotate-0' : 'opacity-0 translate-y-16 rotate-2'}`}>
-                  <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-yellow-400/20 to-yellow-300/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-60 group-hover:opacity-100" />
-                    
-                    <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-                      {/* Browser bar */}
-                      <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100 bg-gray-50">
-                        <div className="flex gap-1.5">
-                          <div className="w-3 h-3 rounded-full bg-red-400" />
-                          <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                          <div className="w-3 h-3 rounded-full bg-green-400" />
-                        </div>
-                        <div className="flex-1 ml-3">
-                          <div className="bg-gray-100 rounded-md px-3 py-1 text-xs text-gray-500 font-mono border border-gray-200">
-                            https://ihre-website.de
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Content mockup */}
-                      <div className="p-6 space-y-4 bg-white">
-                        <div className="flex items-center gap-3 mb-6">
-                          <div className="w-8 h-8 rounded bg-gradient-to-r from-yellow-400 to-yellow-500" />
-                          <div className="h-3 w-24 bg-gray-200 rounded" />
-                          <div className="flex-1" />
-                          <div className="flex gap-3">
-                            <div className="h-2 w-12 bg-gray-100 rounded" />
-                            <div className="h-2 w-12 bg-gray-100 rounded" />
-                            <div className="h-2 w-12 bg-gray-100 rounded" />
-                          </div>
-                        </div>
-                        <div className="h-4 w-3/4 bg-gradient-to-r from-yellow-200 to-transparent rounded" />
-                        <div className="h-3 w-full bg-gray-100 rounded" />
-                        <div className="h-3 w-5/6 bg-gray-100 rounded" />
-                        <div className="mt-6 flex gap-3">
-                          <div className="h-10 w-32 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full" />
-                          <div className="h-10 w-32 border border-gray-200 rounded-full" />
-                        </div>
-                        <div className="grid grid-cols-3 gap-3 mt-6">
-                          {[1,2,3].map((i) => (
-                            <div key={i} className="bg-gray-50 rounded-xl p-4 space-y-2 border border-gray-100">
-                              <div className="w-6 h-6 rounded bg-yellow-100" />
-                              <div className="h-2 w-full bg-gray-200 rounded" />
-                              <div className="h-2 w-2/3 bg-gray-100 rounded" />
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      {/* Hero */}
+      <section id="inhalt" className="relative overflow-hidden bg-gradient-to-b from-[#FAF9F6] to-[#F5F1E8]">
+        <div className="mx-auto grid max-w-[1200px] items-center gap-14 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:pb-20 lg:pt-[80px]">
+          <div className="flex flex-col gap-[26px]">
+            <Reveal>
+              <div className="flex items-center gap-2.5">
+                <span className="h-0.5 w-[34px] bg-[#F28C00]" />
+                <span className="text-sm font-semibold uppercase tracking-[0.12em] text-[#A05F00]">
+                  Webdesign · Braunschweig
+                </span>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </Reveal>
 
-      {/* ==================== STATS ==================== */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: 95, suffix: '+', label: 'Lighthouse Score', icon: Zap },
-              { value: 1, prefix: '<', suffix: 's', label: 'Ladezeit', icon: Clock },
-              { value: 100, suffix: '%', label: 'Responsive', icon: Smartphone },
-              { value: 60, suffix: '%', label: 'Mehr Conversions', icon: BarChart3 },
-            ].map((stat, i) => (
-              <AnimatedSection key={i} delay={i * 150}>
-                <div className="group">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-yellow-50 border border-yellow-200 flex items-center justify-center group-hover:bg-yellow-500 group-hover:border-yellow-500 transition-all duration-300">
-                    <stat.icon className="w-6 h-6 text-yellow-500 group-hover:text-white transition-colors" />
-                  </div>
-                  <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-                    {stat.prefix && <span>{stat.prefix}</span>}
-                    <Counter end={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-sm text-gray-500">{stat.label}</div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
+            <Reveal delay={0.08}>
+              <h1 className="font-expanded m-0 text-[36px] font-extrabold leading-[1.08] tracking-[-0.01em] text-[#26231E] [text-wrap:balance] sm:text-[46px] lg:text-[54px]">
+                Webdesign aus Braunschweig –{" "}
+                <span className="text-[#A05F00]">Websites, die man hier kennt.</span>
+              </h1>
+            </Reveal>
 
-      {/* ==================== FEATURES ==================== */}
-      <section className="py-24 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="text-sm uppercase tracking-[0.3em] text-yellow-500 mb-4 font-semibold">Warum PrintzzDigital</div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-16 max-w-4xl leading-tight text-gray-900">
-              Website erstellen lassen in{' '}
-              <span className="text-yellow-500">Braunschweig</span>
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, i) => (
-              <AnimatedSection key={i} delay={i * 100}>
-                <div className="relative group h-full bg-white rounded-2xl sm:rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:border-yellow-200 transition-all duration-500 hover:-translate-y-1">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <feature.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-yellow-500 transition-colors">{feature.title}</h3>
-                  <p className="text-gray-500 leading-relaxed text-sm">{feature.desc}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== PROCESS ==================== */}
-      <section className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-20 text-center leading-tight text-gray-900">
-              So entsteht Ihre{' '}
-              <span className="text-yellow-500">Website</span>
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, i) => (
-              <AnimatedSection key={i} delay={i * 200}>
-                <div className="relative group">
-                  {/* Connecting line */}
-                  {i < 3 && <div className="hidden lg:block absolute top-10 left-full w-full h-[2px] bg-gradient-to-r from-yellow-300 to-transparent z-0" />}
-                  
-                  <div className="relative bg-white border border-gray-100 rounded-2xl sm:rounded-3xl p-8 hover:border-yellow-300 hover:shadow-xl transition-all duration-500">
-                    <div className="text-5xl font-bold text-yellow-500 mb-6">{step.step}</div>
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-lg">
-                      <step.icon className="w-5 h-5 text-white" />
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== BRANCHEN ==================== */}
-      <section className="py-24 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-bold mb-16 text-gray-900">
-              Websites für jede{' '}
-              <span className="text-yellow-500">Branche</span>
-              {' '}in Braunschweig
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              "Handwerksbetriebe", "Arztpraxen & Ärzte", "Restaurants & Gastronomie",
-              "Rechtsanwälte & Kanzleien", "Immobilienmakler", "Steuerberater",
-              "Friseure & Beauty", "Architekturbüros", "Fitnessstudios",
-              "Einzelhandel", "Startups & Gründer", "Vereine & Verbände"
-            ].map((branche, i) => (
-              <AnimatedSection key={branche} delay={i * 60}>
-                <div className="flex items-center gap-4 p-4 bg-white border border-gray-100 rounded-2xl hover:border-yellow-300 hover:shadow-md transition-all duration-300 group cursor-default">
-                  <div className="w-8 h-8 rounded-lg bg-yellow-50 border border-yellow-200 flex items-center justify-center flex-shrink-0 group-hover:bg-yellow-500 group-hover:border-yellow-500 transition-colors">
-                    <Check className="w-4 h-4 text-yellow-500 group-hover:text-white transition-colors" />
-                  </div>
-                  <span className="font-medium text-gray-700 group-hover:text-gray-900 transition-colors">{branche}</span>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== SEO CONTENT ==================== */}
-      <section className="py-24 px-4">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-bold mb-10 text-gray-900">
-              Webdesign Braunschweig —{' '}
-              <span className="text-yellow-500">Ihr Partner</span>
-              {' '}für digitalen Erfolg
-            </h2>
-            <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
-              <p>
-                Sie suchen einen erfahrenen Webdesigner in Braunschweig? PrintzzDigital ist Ihre lokale Webagentur 
-                für professionelles Webdesign und Webentwicklung. Wir erstellen moderne Websites, die nicht nur 
-                gut aussehen, sondern auch bei Google gefunden werden und Besucher in Kunden verwandeln.
+            <Reveal delay={0.16}>
+              <p className="m-0 max-w-[560px] text-[19px] leading-[1.6] text-[#6B655B] [text-wrap:pretty]">
+                Die Stadt-App „Deine City of Lions“, die Website vom Meisterbetrieb Jordan, das
+                Ristorante il Capriccio: Vieles, was Sie in Braunschweig digital nutzen, haben wir
+                gebaut. Ihre Website kann das nächste Projekt sein – handgemacht, in unter einer
+                Sekunde geladen, ab 1.500 €.
               </p>
-              <p>
-                Ob neue Homepage, Online-Shop oder Website-Modernisierung — wir sind Ihr Ansprechpartner in Braunschweig. 
-                Mit unserer Expertise in Next.js, React und modernem Webdesign garantieren wir eine Website, 
-                die technisch auf dem neuesten Stand ist.
-              </p>
-              <p>
-                Jede Website wird von Grund auf für Suchmaschinen optimiert. Strukturierte Daten, optimierte Ladezeiten 
-                und lokale SEO-Strategien sorgen dafür, dass Ihr Unternehmen bei Suchanfragen in Braunschweig 
-                prominent angezeigt wird.
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+            </Reveal>
 
-      {/* ==================== FAQ ==================== */}
-      <section className="py-24 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-gray-900">
-              Häufige Fragen zu{' '}
-              <span className="text-yellow-500">Webdesign</span>
-              {' '}in Braunschweig
-            </h2>
-          </AnimatedSection>
-
-          <div className="space-y-4">
-            {faqItems.map((faq, i) => (
-              <AnimatedSection key={i} delay={i * 100}>
-                <div className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-sm ${openFaq === i ? 'border-2 border-yellow-400 shadow-md' : 'border border-gray-100 hover:border-yellow-200'}`}>
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full p-6 text-left font-semibold text-lg flex items-center justify-between gap-4">
-                    <span className={openFaq === i ? 'text-yellow-600' : 'text-gray-900'}>{faq.q}</span>
-                    <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center transition-all duration-300 ${openFaq === i ? 'bg-yellow-500 text-white rotate-45' : 'bg-gray-100 text-gray-600'}`}>
-                      <span className="text-xl leading-none">+</span>
-                    </div>
-                  </button>
-                  <div className={`overflow-hidden transition-all duration-500 ${openFaq === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="px-6 pb-6 text-gray-600 leading-relaxed">{faq.a}</div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== CTA ==================== */}
-      <section className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-br from-gray-100 via-yellow-50 to-gray-100 rounded-[2rem] sm:rounded-[3rem] p-12 sm:p-16 lg:p-20 text-center relative overflow-hidden shadow-xl">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-[100px]" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-yellow-300/10 rounded-full blur-[80px]" />
-
-            <div className="relative z-10">
-              <AnimatedSection>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight text-gray-900">
-                  Bereit für Ihre neue{' '}
-                  <span className="text-yellow-500">Website</span>?
-                </h2>
-                <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-                  Lassen Sie uns kostenlos und unverbindlich über Ihr Webdesign-Projekt sprechen.
-                </p>
-
-                <Link href="/contact" className="group inline-flex items-center gap-3 px-10 py-5 bg-black text-white text-lg font-medium rounded-full shadow-lg hover:bg-gray-900 transition-all duration-300 hover:scale-105">
-                  <Phone className="w-5 h-5" /> Kostenloses Angebot
+            <Reveal delay={0.24}>
+              <div className="flex flex-wrap gap-3.5">
+                <Link
+                  href="/contact"
+                  className="rounded-md bg-[#FBB800] px-7 py-[15px] text-base font-bold text-[#141210] transition-all hover:-translate-y-0.5 hover:bg-[#F28C00] hover:shadow-[0_12px_28px_rgba(251,184,0,0.4)] active:translate-y-0"
+                >
+                  Kostenloses Erstgespräch
                 </Link>
+                <a
+                  href="#preise"
+                  className="rounded-md border border-[#C9C2B4] px-7 py-[15px] text-base font-semibold text-[#26231E] transition-all hover:-translate-y-0.5 hover:border-[#FBB800] hover:text-[#A05F00] active:translate-y-0"
+                >
+                  Was kostet das?
+                </a>
+              </div>
+            </Reveal>
 
-                <div className="mt-10 flex items-center justify-center gap-8 text-sm text-gray-500">
-                  <span className="flex items-center gap-2"><Check className="w-4 h-4 text-yellow-500" /> Kostenlos</span>
-                  <span className="flex items-center gap-2"><Check className="w-4 h-4 text-yellow-500" /> Unverbindlich</span>
-                  <span className="flex items-center gap-2"><Check className="w-4 h-4 text-yellow-500" /> Persönlich</span>
+            <Reveal delay={0.3}>
+              <span className="text-sm text-[#7A7365]">
+                Bekannt aus{" "}
+                <a
+                  href="https://www.braunschweiger-zeitung.de/niedersachsen/braunschweig/article411967592/braunschweig-startet-neue-stadt-app-deine-city-of-lions-das-kann-sie.html"
+                  target="_blank"
+                  rel="noopener"
+                  className="font-semibold text-[#6B655B] underline decoration-[#FBB800] decoration-2 underline-offset-4 transition-colors hover:text-[#A05F00]"
+                >
+                  Braunschweiger Zeitung
+                </a>{" "}
+                &amp;{" "}
+                <a
+                  href="https://regionalheute.de/braunschweig/alles-auf-einen-blick-das-bietet-die-neue-braunschweig-app-braunschweig-1778508878/"
+                  target="_blank"
+                  rel="noopener"
+                  className="font-semibold text-[#6B655B] underline decoration-[#FBB800] decoration-2 underline-offset-4 transition-colors hover:text-[#A05F00]"
+                >
+                  regionalHeute.de
+                </a>
+              </span>
+            </Reveal>
+          </div>
+
+          {/* Echte Referenz statt Mockup */}
+          <Reveal delay={0.2}>
+            <div className="relative">
+              <div
+                aria-hidden
+                className="absolute -inset-x-10 -inset-y-6"
+                style={{
+                  background:
+                    "radial-gradient(circle at 50% 45%, rgba(251,184,0,0.18), transparent 65%)",
+                }}
+              />
+              <div className="relative overflow-hidden rounded-xl border border-[#E8E4DC] bg-white shadow-[0_30px_60px_rgba(38,35,30,0.18)]">
+                <div className="flex items-center gap-2 border-b border-[#E8E4DC] bg-[#FAF9F6] px-4 py-2.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#E8E4DC]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#E8E4DC]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FBB800]" />
+                  <span className="ml-3 rounded bg-white px-3 py-0.5 font-mono text-xs text-[#7A7365]">
+                    jordan24.de
+                  </span>
                 </div>
-              </AnimatedSection>
+                <Image
+                  src="/assets/ref-jordan-v2.png"
+                  alt="Website der Jordan GmbH aus Braunschweig – Webdesign von PrintzzDigital"
+                  width={2162}
+                  height={1650}
+                  priority
+                  className="block h-auto w-full"
+                />
+              </div>
+              <p className="mt-3 text-center text-sm text-[#7A7365]">
+                Umgesetzt für die Jordan GmbH, Meisterbetrieb aus Braunschweig
+              </p>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Arbeitsweise */}
+      <section className="mx-auto max-w-[1200px] px-5 pb-[90px] pt-[90px] sm:px-8">
+        <div className="mb-14 grid items-end gap-8 lg:grid-cols-2">
+          <Reveal>
+            <div>
+              <div className="mb-4 flex items-center gap-2.5">
+                <span className="h-0.5 w-[34px] bg-[#F28C00]" />
+                <span className="text-sm font-semibold uppercase tracking-[0.12em] text-[#A05F00]">
+                  So arbeiten wir
+                </span>
+              </div>
+              <h2 className="font-expanded m-0 text-[32px] font-extrabold leading-[1.12] tracking-[-0.01em] text-[#26231E] sm:text-[40px]">
+                Drei Dinge, die uns von der Masse unterscheiden.
+              </h2>
+            </div>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="m-0 text-[17px] leading-[1.6] text-[#6B655B] [text-wrap:pretty]">
+              Webdesign-Agenturen gibt es viele. Deshalb sagen wir lieber konkret, wie wir bauen –
+              und Sie entscheiden, ob das zu Ihnen passt.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {arbeitsweise.map((punkt, i) => (
+            <Reveal key={punkt.number} delay={i * 0.12}>
+              <div className="group flex h-full flex-col gap-3.5 rounded-xl border border-[#E8E4DC] bg-white p-9 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#FBB800] hover:shadow-[0_20px_48px_rgba(20,18,16,0.1)]">
+                <div className="flex items-center justify-between">
+                  <span className="font-expanded text-[15px] font-extrabold text-[#FBB800] transition-colors group-hover:text-[#F28C00]">
+                    {punkt.number}
+                  </span>
+                  <span className="h-0.5 w-8 origin-left scale-x-0 bg-[#FBB800] transition-transform duration-300 group-hover:scale-x-100" />
+                </div>
+                <h3 className="m-0 text-[22px] font-bold text-[#26231E]">{punkt.title}</h3>
+                <p className="m-0 flex-1 text-base leading-[1.6] text-[#6B655B]">{punkt.text}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Preise */}
+      <section id="preise" className="scroll-mt-20 border-y border-[#E8E4DC] bg-[#F2EFE9]">
+        <div className="mx-auto max-w-[1200px] px-5 py-[100px] sm:px-8">
+          <div className="mb-14 grid items-end gap-8 lg:grid-cols-2">
+            <Reveal>
+              <div>
+                <div className="mb-4 flex items-center gap-2.5">
+                  <span className="h-0.5 w-[34px] bg-[#F28C00]" />
+                  <span className="text-sm font-semibold uppercase tracking-[0.12em] text-[#A05F00]">
+                    Preise
+                  </span>
+                </div>
+                <h2 className="font-expanded m-0 text-[32px] font-extrabold leading-[1.12] tracking-[-0.01em] text-[#26231E] sm:text-[40px]">
+                  Was eine Website bei uns kostet.
+                </h2>
+              </div>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="m-0 text-[17px] leading-[1.6] text-[#6B655B] [text-wrap:pretty]">
+                Keine „Preis auf Anfrage“-Spielchen: Das sind unsere Einstiegspreise. Nach dem
+                Erstgespräch bekommen Sie einen Festpreis – und der gilt.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {pakete.map((paket, i) => (
+              <Reveal key={paket.name} delay={i * 0.12}>
+                <div
+                  className={`relative flex h-full flex-col gap-5 rounded-xl border bg-white p-9 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_48px_rgba(20,18,16,0.1)] ${
+                    paket.highlight ? "border-[#FBB800]" : "border-[#E8E4DC] hover:border-[#FBB800]"
+                  }`}
+                >
+                  {paket.highlight && (
+                    <span className="absolute -top-3.5 left-9 rounded-full bg-[#FBB800] px-3.5 py-1 text-xs font-extrabold uppercase tracking-[0.08em] text-[#141210]">
+                      Am häufigsten gewählt
+                    </span>
+                  )}
+                  <div>
+                    <h3 className="m-0 text-[20px] font-bold text-[#26231E]">{paket.name}</h3>
+                    <div className="font-expanded mt-2 text-[34px] font-extrabold tracking-[-0.01em] text-[#26231E]">
+                      {paket.preis}
+                    </div>
+                    <p className="m-0 mt-2 text-[15px] leading-[1.55] text-[#6B655B]">
+                      {paket.fuer}
+                    </p>
+                  </div>
+                  <ul className="m-0 flex flex-1 list-none flex-col gap-3 p-0">
+                    {paket.leistungen.map((leistung) => (
+                      <li key={leistung} className="flex gap-3 text-[15px] leading-[1.55] text-[#26231E]">
+                        <span className="mt-[7px] h-1.5 w-1.5 flex-none rounded-full bg-[#FBB800]" />
+                        {leistung}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/contact"
+                    className={`rounded-md px-6 py-3.5 text-center text-[15px] font-bold transition-all hover:-translate-y-0.5 active:translate-y-0 ${
+                      paket.highlight
+                        ? "bg-[#FBB800] text-[#141210] hover:bg-[#F28C00] hover:shadow-[0_12px_28px_rgba(251,184,0,0.4)]"
+                        : "border border-[#C9C2B4] text-[#26231E] hover:border-[#FBB800] hover:text-[#A05F00]"
+                    }`}
+                  >
+                    Unverbindlich anfragen
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <Footer />
+      {/* Referenzen – echte Projekte aus Braunschweig */}
+      <ReferencesSection />
+
+      {/* Prozess */}
+      <section className="mx-auto max-w-[1200px] px-5 py-[100px] sm:px-8">
+        <Reveal>
+          <div className="mb-4 flex items-center gap-2.5">
+            <span className="h-0.5 w-[34px] bg-[#F28C00]" />
+            <span className="text-sm font-semibold uppercase tracking-[0.12em] text-[#A05F00]">
+              Der Ablauf
+            </span>
+          </div>
+          <h2 className="font-expanded m-0 mb-14 max-w-[640px] text-[32px] font-extrabold leading-[1.12] tracking-[-0.01em] text-[#26231E] sm:text-[40px]">
+            Vom ersten Kaffee bis zum Launch.
+          </h2>
+        </Reveal>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {prozess.map((schritt, i) => (
+            <Reveal key={schritt.number} delay={i * 0.12}>
+              <div className="group flex h-full flex-col gap-3 border-t-[3px] border-[#FBB800] pt-6">
+                <span className="font-expanded text-[15px] font-extrabold text-[#A05F00] transition-transform duration-300 group-hover:translate-x-1">
+                  {schritt.number}
+                </span>
+                <h3 className="m-0 text-[20px] font-bold text-[#26231E]">{schritt.title}</h3>
+                <p className="m-0 text-base leading-[1.6] text-[#6B655B]">{schritt.text}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Über uns, lokal & konkret */}
+      <section className="border-t border-[#E8E4DC]">
+        <div className="mx-auto max-w-[900px] px-5 py-[90px] sm:px-8">
+          <Reveal>
+            <div className="mb-4 flex items-center gap-2.5">
+              <span className="h-0.5 w-[34px] bg-[#F28C00]" />
+              <span className="text-sm font-semibold uppercase tracking-[0.12em] text-[#A05F00]">
+                Wer dahinter steckt
+              </span>
+            </div>
+            <h2 className="font-expanded m-0 mb-8 text-[32px] font-extrabold leading-[1.12] tracking-[-0.01em] text-[#26231E] sm:text-[40px]">
+              Eine Agentur aus Braunschweig – keine anonyme Web-Fabrik.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="flex flex-col gap-5 text-[17px] leading-[1.7] text-[#6B655B]">
+              <p className="m-0">
+                PrintzzDigital sitzt am Rischbleek 6 in Braunschweig. Zusammen mit dem Stadtmarketing,
+                der BLSK und der Propstei haben wir „Deine City of Lions“ gebaut – die offizielle
+                Stadt-App, über die die Braunschweiger Zeitung und regionalHeute.de berichtet haben.
+                Daneben betreuen wir Handwerksbetriebe, Restaurants und Institutionen aus der Region:
+                vom{" "}
+                <Link href="/portfolio" className="font-semibold text-[#A05F00] underline decoration-[#FBB800] decoration-2 underline-offset-4 hover:text-[#F28C00]">
+                  Meisterbetrieb bis zur Kulturplattform
+                </Link>
+                .
+              </p>
+              <p className="m-0">
+                Das heißt für Sie: Wenn Sie anrufen, sprechen Sie mit den Leuten, die Ihre Website
+                tatsächlich bauen. Termine machen wir persönlich – in Braunschweig, Wolfsburg,
+                Salzgitter, Gifhorn oder Peine. Und wenn Sie mehr brauchen als eine Website, etwa{" "}
+                <Link href="/software-entwicklung-braunschweig" className="font-semibold text-[#A05F00] underline decoration-[#FBB800] decoration-2 underline-offset-4 hover:text-[#F28C00]">
+                  individuelle Software
+                </Link>{" "}
+                oder{" "}
+                <Link href="/ki-anwendungen-braunschweig" className="font-semibold text-[#A05F00] underline decoration-[#FBB800] decoration-2 underline-offset-4 hover:text-[#F28C00]">
+                  KI-Anwendungen
+                </Link>
+                , sind wir auch dafür die richtigen Ansprechpartner.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <FaqSection
+        items={webdesignFaqs}
+        eyebrow="Häufige Fragen"
+        title="Webdesign in Braunschweig: Was Sie wissen möchten."
+      />
+
+      <ContactCta />
+      <LandingFooter />
     </div>
   );
 }

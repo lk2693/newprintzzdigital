@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Archivo } from "next/font/google";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 import CookieBanner from "@/components/CookieBanner";
@@ -10,6 +10,12 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  axes: ["wdth"],
+});
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -18,7 +24,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://printzzdigital.com'),
   title: {
-    default: "PrintzzDigital Braunschweig - Webentwicklung, KI-Integration & Digitale Transformation",
+    default: "Digitalagentur Braunschweig – Webdesign, Apps & KI | PrintzzDigital",
     template: "%s | PrintzzDigital Braunschweig"
   },
   description: "Digitalagentur in Braunschweig: Schnelle Websites (<1s), KI-Integration & digitale Transformation. Ihre Experten für Webentwicklung in Braunschweig. Kostenlose Beratung vor Ort.",
@@ -54,9 +60,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "PrintzzDigital Logo",
+        width: 906,
+        height: 660,
+        alt: "PrintzzDigital – Digitalagentur Braunschweig",
       },
     ],
   },
@@ -92,8 +98,7 @@ export default function RootLayout({
     <html lang="de">
       <head>
         {/* Critical image preloads for LCP optimization */}
-        <link rel="preload" href="/artmarket.png" as="image" type="image/png" />
-        <link rel="preload" href="/aiflow.png" as="image" type="image/png" />
+        <link rel="preload" href="/assets/city-of-lions-app-v2.png" as="image" type="image/png" />
         
         {/* Font optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -135,7 +140,7 @@ export default function RootLayout({
         }} />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${archivo.variable} antialiased`}
       >
         {children}
         <Analytics />

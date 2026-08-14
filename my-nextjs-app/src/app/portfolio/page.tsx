@@ -1,429 +1,351 @@
-"use client";
-
-import { motion, useInView } from "framer-motion";
-import { ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
-import { Button } from "@/components/ui/button";
-import { useRef } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Link from "next/link";
 
-/* ──────────────────────────  DATA  ────────────────────────── */
+import LandingHeader from "@/components/landing/LandingHeader";
+import LandingFooter from "@/components/landing/LandingFooter";
+import ContactCta from "@/components/landing/ContactCta";
+import { Reveal } from "@/components/landing/motion";
+import { breadcrumbSchema } from "@/lib/schemas";
 
-const projects = [
+const kundenprojekte = [
   {
-    id: 9,
-    title: "Kloster & Partner Architekten",
-    subtitle: "Architekturbüro Website",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop&auto=format&q=80",
-    link: "/portfolio/kloster-und-partner-architekten",
+    name: "Stadt Braunschweig – „Deine City of Lions“",
+    tag: "Smart City · PWA",
+    text: "Die offizielle digitale Stadtplattform: Events, Live-Parkplätze, ÖPNV und Buchungen in einer App – entwickelt mit Stadtmarketing, BLSK und Propstei.",
+    liveUrl: "https://www.deinecityoflions.de",
+    liveLabel: "deinecityoflions.de",
+  },
+  {
+    name: "Kloster & Partner Architekten",
+    tag: "Architektur · Website",
+    text: "Ruhige, klare Website für das Braunschweiger Architekturbüro – die Projekte stehen im Mittelpunkt, nicht die Effekte.",
     liveUrl: "https://www.kloster-und-partner-architekten.de/",
-    accent: "bg-yellow-500",
-    featured: true,
+    liveLabel: "kloster-und-partner-architekten.de",
+    detailHref: "/portfolio/kloster-und-partner-architekten",
   },
   {
-    id: 1,
-    title: "Restaurant Website",
-    subtitle: "Gastronomie & Reservierung",
-    image: "/restaurant.png",
-    accent: "bg-gray-900",
+    name: "Jordan GmbH",
+    tag: "Handwerk · Website",
+    text: "Website für den Meisterbetrieb für Klima, Heizung, Sanitär und Elektro – mit Rückruf-Formular, 24/7-Notdienst und Online-Terminbuchung.",
+    image: { src: "/assets/ref-jordan-v2.png", width: 2162, height: 1650 },
+    liveUrl: "https://www.jordan24.de",
+    liveLabel: "jordan24.de",
   },
   {
-    id: 5,
-    title: "AI Health Platform",
-    subtitle: "KI-gestützte Gesundheit",
-    image: "/AiHealth.png",
-    accent: "bg-emerald-600",
+    name: "il Capriccio",
+    tag: "Gastronomie · Website",
+    text: "Website für das italienische Ristorante in Braunschweig – Speisekarte, Events, Galerie, Online-Bestellung und Tischreservierung.",
+    image: { src: "/assets/ref-capriccio-v2.png", width: 1824, height: 1498 },
   },
   {
-    id: 2,
-    title: "E-Commerce Shop",
-    subtitle: "Online-Shop & Payments",
-    image: "/ecommerce.png",
-    accent: "bg-blue-600",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "Fashion Store",
-    subtitle: "Mode & E-Commerce",
-    image: "/ecommerce2.png",
-    accent: "bg-rose-500",
-  },
-  {
-    id: 7,
-    title: "Hotel Booking",
-    subtitle: "Buchung & Verfügbarkeit",
-    image: "/hotel.png",
-    accent: "bg-amber-600",
-  },
-  {
-    id: 4,
-    title: "Online-Shop Plattform",
-    subtitle: "Vollständige E-Commerce-Lösung",
-    image: "/onlineshop.png",
-    accent: "bg-indigo-600",
-    featured: true,
-  },
-  {
-    id: 6,
-    title: "Kunstmarkt Plattform",
-    subtitle: "Kunst & Auktionen",
-    image: "/artmarket.png",
-    accent: "bg-purple-600",
-  },
-  {
-    id: 8,
-    title: "Conversion Landing Page",
-    subtitle: "Performance & Optimierung",
-    image: "/landing.png",
-    accent: "bg-gray-900",
+    name: "Kulturrat Braunschweig",
+    tag: "Kultur · Plattform",
+    text: "Digitale Plattform für die Braunschweiger Kulturszene – Veranstaltungskalender, Mitgliederbereich, Förderung und News.",
+    image: { src: "/assets/ref-kulturrat-v2.png", width: 2620, height: 1638 },
   },
 ];
 
-/* ── Structured Data (SEO) ── */
-const portfolioSchema = {
+const studioArbeiten = [
+  { src: "/AiHealth.png", width: 2074, height: 1416, label: "KI-Gesundheitsplattform" },
+  { src: "/onlineshop.png", width: 2916, height: 1548, label: "E-Commerce-Plattform" },
+  { src: "/hotel.png", width: 926, height: 572, label: "Hotel-Buchung" },
+  { src: "/artmarket.png", width: 1978, height: 1278, label: "Kunstmarkt & Auktionen" },
+  { src: "/landing.png", width: 1304, height: 690, label: "Conversion-Landingpage" },
+  { src: "/restaurant.png", width: 568, height: 778, label: "Restaurant & Reservierung" },
+  { src: "/ecommerce.png", width: 364, height: 388, label: "Shop-Konzept" },
+  { src: "/ecommerce2.png", width: 372, height: 338, label: "Fashion-Store-Konzept" },
+];
+
+const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Portfolio – PrintzzDigital Referenzprojekte",
-  description:
-    "Unsere erfolgreich umgesetzten Projekte: Websites, E-Commerce-Shops, KI-Lösungen und digitale Transformationen für Unternehmen in Braunschweig und der Region.",
-  url: "https://printzzdigital.de/portfolio",
-  publisher: {
+  "name": "Portfolio – PrintzzDigital Braunschweig",
+  "description":
+    "Projekte von PrintzzDigital aus Braunschweig: die Stadt-App „Deine City of Lions“, Websites für Jordan GmbH, il Capriccio, Kloster & Partner Architekten und die Plattform des Kulturrats.",
+  "url": "https://printzzdigital.com/portfolio",
+  "publisher": {
     "@type": "Organization",
-    name: "PrintzzDigital",
-    url: "https://printzzdigital.de",
+    "name": "PrintzzDigital",
+    "url": "https://printzzdigital.com",
   },
-  mainEntity: {
+  "mainEntity": {
     "@type": "ItemList",
-    numberOfItems: projects.length,
-    itemListElement: projects.map((p, i) => ({
+    "numberOfItems": kundenprojekte.length,
+    "itemListElement": kundenprojekte.map((p, i) => ({
       "@type": "ListItem",
-      position: i + 1,
-      item: {
+      "position": i + 1,
+      "item": {
         "@type": "CreativeWork",
-        name: p.title,
-        description: p.subtitle,
+        "name": p.name,
+        "description": p.text,
         ...(p.liveUrl ? { url: p.liveUrl } : {}),
       },
     })),
   },
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://printzzdigital.de/" },
-    { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://printzzdigital.de/portfolio" },
-  ],
-};
-
-/* ──────────────────────────  COMPONENTS  ────────────────────────── */
-
-/** Visual project card — Framer-style large image with overlay */
-function ProjectCard({
-  project,
-  index,
-  size = "normal",
-}: {
-  project: (typeof projects)[0];
-  index: number;
-  size?: "normal" | "wide" | "tall";
-}) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
-  const Wrapper = project.link ? Link : "div";
-  const wrapperProps = project.link
-    ? { href: project.link }
-    : {};
-
-  const aspectClass =
-    size === "wide"
-      ? "aspect-[16/9] md:aspect-[2/1]"
-      : size === "tall"
-      ? "aspect-[4/5]"
-      : "aspect-[4/3]";
-
+export default function PortfolioPage() {
   return (
-    <motion.article
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.06 }}
-      className={`group relative ${
-        size === "wide" ? "md:col-span-2" : ""
-      }`}
-      itemScope
-      itemType="https://schema.org/CreativeWork"
-    >
-      {/* @ts-expect-error dynamic wrapper */}
-      <Wrapper
-        {...wrapperProps}
-        className="block relative overflow-hidden rounded-2xl sm:rounded-3xl cursor-pointer"
-        aria-label={`Projekt: ${project.title}`}
-      >
-        {/* Image container */}
-        <div className={`relative ${aspectClass} overflow-hidden bg-gray-100`}>
-          <Image
-            src={project.image}
-            alt={`${project.title} – Projekt von PrintzzDigital`}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            sizes={
-              size === "wide"
-                ? "(max-width: 768px) 100vw, 66vw"
-                : "(max-width: 768px) 100vw, 33vw"
-            }
-            loading={index < 3 ? "eager" : "lazy"}
-            itemProp="image"
-          />
+    <div className="landing min-h-screen bg-[#FAF9F6] text-[#26231E]">
+      <div aria-hidden className="landing-grain" />
 
-          {/* Dark overlay on hover */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", url: "https://printzzdigital.com" },
+              { name: "Portfolio", url: "https://printzzdigital.com/portfolio" },
+            ])
+          ),
+        }}
+      />
 
-          {/* Permanent bottom gradient for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+      <LandingHeader />
 
-          {/* Content overlay */}
-          <div className="absolute inset-0 flex flex-col justify-between p-5 sm:p-7">
-            {/* Top row: accent dot + live link */}
-            <div className="flex items-start justify-between">
-              <div
-                className={`w-3 h-3 rounded-full ${project.accent} ring-2 ring-white/30`}
-              />
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white"
-                  aria-label={`${project.title} live ansehen`}
-                >
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-              )}
+      {/* Kopf */}
+      <section id="inhalt" className="relative overflow-hidden bg-gradient-to-b from-[#FAF9F6] to-[#F5F1E8]">
+        <div className="mx-auto max-w-[1200px] px-5 pb-16 pt-14 sm:px-8 lg:pt-[80px]">
+          <Reveal>
+            <div className="mb-4 flex items-center gap-2.5">
+              <span className="h-0.5 w-[34px] bg-[#F28C00]" />
+              <span className="text-sm font-semibold uppercase tracking-[0.12em] text-[#A05F00]">
+                Portfolio
+              </span>
             </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h1 className="font-expanded m-0 max-w-[800px] text-[36px] font-extrabold leading-[1.08] tracking-[-0.01em] text-[#26231E] [text-wrap:balance] sm:text-[46px] lg:text-[54px]">
+              Arbeiten, die man{" "}
+              <span className="text-[#A05F00]">besuchen kann.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="m-0 mt-6 max-w-[620px] text-[19px] leading-[1.6] text-[#6B655B] [text-wrap:pretty]">
+              Keine anonymen Referenz-Kacheln: Das hier sind echte Projekte mit Namen und Adresse –
+              die meisten können Sie direkt im Browser öffnen oder in Braunschweig im Alltag
+              benutzen. Darunter: Konzepte aus unserem Studio, ehrlich als solche markiert.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-            {/* Bottom: project info */}
-            <div>
-              <p className="text-white/70 text-xs sm:text-sm font-medium uppercase tracking-wider mb-1">
-                {project.subtitle}
-              </p>
-              <h3
-                className="text-white text-lg sm:text-xl lg:text-2xl font-bold leading-tight mb-3"
-                itemProp="name"
-              >
-                {project.title}
-              </h3>
-              <div className="flex items-center gap-2 text-white/80 text-sm font-medium group-hover:text-yellow-400 transition-colors">
-                <span>Projekt ansehen</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      {/* Kundenprojekte */}
+      <section className="mx-auto max-w-[1200px] px-5 pb-[90px] pt-[80px] sm:px-8">
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* City of Lions – dunkle Hero-Karte */}
+          <Reveal>
+            <div className="group flex h-full flex-col overflow-hidden rounded-xl bg-[#161310] text-[#FAF9F6] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_56px_rgba(20,18,16,0.35)]">
+              <div className="h-[220px] overflow-hidden bg-black">
+                <Image
+                  src="/assets/city-of-lions-app-v2.png"
+                  alt="City of Lions App – die offizielle Stadt-App für Braunschweig"
+                  width={708}
+                  height={1508}
+                  className="block h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+              </div>
+              <div className="flex flex-1 flex-col gap-3 px-8 pb-8 pt-7">
+                <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-[#FBB800]">
+                  {kundenprojekte[0].tag}
+                </span>
+                <h2 className="m-0 text-[22px] font-bold">{kundenprojekte[0].name}</h2>
+                <p className="m-0 flex-1 text-[15px] leading-[1.6] text-[#B8B2A6]">
+                  {kundenprojekte[0].text}
+                </p>
+                <div className="flex flex-wrap gap-x-5 gap-y-2">
+                  <a
+                    href={kundenprojekte[0].liveUrl}
+                    target="_blank"
+                    rel="noopener"
+                    className="text-[15px] font-semibold text-[#FBB800] hover:text-[#F28C00]"
+                  >
+                    {kundenprojekte[0].liveLabel} →
+                  </a>
+                  <a
+                    href="/#case"
+                    className="text-[15px] font-semibold text-[#B8B2A6] hover:text-[#FBB800]"
+                  >
+                    Zur Case Study →
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </Wrapper>
-    </motion.article>
-  );
-}
+          </Reveal>
 
-/* ──────────────────────────  PAGE  ────────────────────────── */
-
-export default function PortfolioPage() {
-  const heroRef = useRef(null);
-  const heroInView = useInView(heroRef, { once: true });
-  const gridRef = useRef(null);
-  const gridInView = useInView(gridRef, { once: true, margin: "-100px" });
-
-  return (
-    <div className="min-h-screen bg-white text-gray-900">
-      {/* Structured Data */}
-      <Script
-        id="portfolio-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
-      />
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-
-      <Header />
-
-      {/* ── 1. HERO ── */}
-      <section
-        ref={heroRef}
-        className="relative pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="mb-10">
-            <ol
-              className="flex items-center gap-2 text-sm text-gray-500"
-              itemScope
-              itemType="https://schema.org/BreadcrumbList"
-            >
-              <li
-                itemProp="itemListElement"
-                itemScope
-                itemType="https://schema.org/ListItem"
-              >
-                <Link
-                  href="/"
-                  className="hover:text-yellow-600 transition-colors"
-                  itemProp="item"
-                >
-                  <span itemProp="name">Home</span>
-                </Link>
-                <meta itemProp="position" content="1" />
-              </li>
-              <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
-              <li
-                itemProp="itemListElement"
-                itemScope
-                itemType="https://schema.org/ListItem"
-              >
-                <span className="text-gray-900 font-medium" itemProp="name">
-                  Portfolio
+          {/* Kloster & Partner – typografische Karte */}
+          <Reveal delay={0.12}>
+            <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#E8E4DC] bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-[#FBB800] hover:shadow-[0_24px_56px_rgba(20,18,16,0.12)]">
+              <div className="flex h-[220px] flex-col justify-between border-b border-[#E8E4DC] bg-[#F2EFE9] p-8">
+                <span className="font-mono text-[13px] text-[#7A7365]">
+                  kloster-und-partner-architekten.de
                 </span>
-                <meta itemProp="position" content="2" />
-              </li>
-            </ol>
-          </nav>
+                <div>
+                  <span className="font-expanded block text-[34px] font-extrabold leading-[1.05] tracking-[-0.01em] text-[#26231E]">
+                    Kloster &amp;<br />Partner
+                  </span>
+                  <span className="mt-1 block text-[15px] font-semibold uppercase tracking-[0.14em] text-[#A05F00]">
+                    Architekten
+                  </span>
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col gap-3 px-8 pb-8 pt-7">
+                <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-[#A05F00]">
+                  {kundenprojekte[1].tag}
+                </span>
+                <h2 className="m-0 text-[22px] font-bold text-[#26231E]">
+                  {kundenprojekte[1].name}
+                </h2>
+                <p className="m-0 flex-1 text-[15px] leading-[1.6] text-[#6B655B]">
+                  {kundenprojekte[1].text}
+                </p>
+                <div className="flex flex-wrap gap-x-5 gap-y-2">
+                  <a
+                    href={kundenprojekte[1].liveUrl}
+                    target="_blank"
+                    rel="noopener"
+                    className="text-[15px] font-semibold text-[#A05F00] hover:text-[#F28C00]"
+                  >
+                    Live ansehen →
+                  </a>
+                  <Link
+                    href={kundenprojekte[1].detailHref!}
+                    className="text-[15px] font-semibold text-[#7A7365] hover:text-[#A05F00]"
+                  >
+                    Zur Projektseite →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Reveal>
 
-          {/* Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 leading-[1.05] mb-6">
-              Unsere neuesten{" "}
-              <span className="text-yellow-500">Projekte</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-500 leading-relaxed max-w-2xl">
-              Entdecken Sie eine Auswahl unserer Arbeiten – von Websites über
-              E-Commerce bis hin zu KI-Lösungen. Jedes Projekt ist maßgeschneidert
-              und auf Ergebnisse ausgelegt.
-            </p>
-          </motion.div>
+          {/* Jordan, Capriccio, Kulturrat – Bildkarten */}
+          {kundenprojekte.slice(2).map((projekt, i) => (
+            <Reveal key={projekt.name} delay={(i % 2) * 0.12}>
+              <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#E8E4DC] bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-[#FBB800] hover:shadow-[0_24px_56px_rgba(20,18,16,0.12)]">
+                <div className="h-[220px] overflow-hidden border-b border-[#E8E4DC]">
+                  <Image
+                    src={projekt.image!.src}
+                    alt={`${projekt.name} – Projekt von PrintzzDigital Braunschweig`}
+                    width={projekt.image!.width}
+                    height={projekt.image!.height}
+                    className="block h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col gap-3 px-8 pb-8 pt-7">
+                  <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-[#A05F00]">
+                    {projekt.tag}
+                  </span>
+                  <h2 className="m-0 text-[22px] font-bold text-[#26231E]">{projekt.name}</h2>
+                  <p className="m-0 flex-1 text-[15px] leading-[1.6] text-[#6B655B]">
+                    {projekt.text}
+                  </p>
+                  {projekt.liveUrl ? (
+                    <a
+                      href={projekt.liveUrl}
+                      target="_blank"
+                      rel="noopener"
+                      className="text-[15px] font-semibold text-[#A05F00] hover:text-[#F28C00]"
+                    >
+                      {projekt.liveLabel} →
+                    </a>
+                  ) : (
+                    <Link
+                      href="/contact"
+                      className="text-[15px] font-semibold text-[#A05F00] hover:text-[#F28C00]"
+                    >
+                      Ähnliches Projekt anfragen →
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+
+          {/* Platzhalter-Karte: Ihr Projekt */}
+          <Reveal delay={0.12}>
+            <Link
+              href="/contact"
+              className="group flex h-full min-h-[300px] flex-col items-start justify-end gap-3 rounded-xl border-2 border-dashed border-[#C9C2B4] bg-transparent p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#FBB800]"
+            >
+              <span className="font-expanded text-[15px] font-extrabold text-[#FBB800] transition-colors group-hover:text-[#F28C00]">
+                06
+              </span>
+              <span className="font-expanded text-[26px] font-extrabold leading-[1.1] text-[#26231E]">
+                Hier ist noch Platz.
+              </span>
+              <p className="m-0 text-[15px] leading-[1.6] text-[#6B655B]">
+                Die nächste Karte könnte Ihr Projekt sein – erzählen Sie uns im kostenlosen
+                Erstgespräch davon.
+              </p>
+              <span className="text-[15px] font-semibold text-[#A05F00] group-hover:text-[#F28C00]">
+                Projekt besprechen{" "}
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
+                  →
+                </span>
+              </span>
+            </Link>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── 2. PROJECT GRID ── */}
-      <section ref={gridRef} className="pb-24 sm:pb-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {/* Row 1: featured wide + normal */}
-            <ProjectCard
-              project={projects[0]}
-              index={0}
-              size="wide"
-            />
-            <ProjectCard
-              project={projects[1]}
-              index={1}
-              size="tall"
-            />
+      {/* Studio-Konzepte */}
+      <section className="border-t border-[#E8E4DC] bg-[#F2EFE9]">
+        <div className="mx-auto max-w-[1200px] px-5 py-[100px] sm:px-8">
+          <div className="mb-12 grid items-end gap-8 lg:grid-cols-2">
+            <Reveal>
+              <div>
+                <div className="mb-4 flex items-center gap-2.5">
+                  <span className="h-0.5 w-[34px] bg-[#F28C00]" />
+                  <span className="text-sm font-semibold uppercase tracking-[0.12em] text-[#A05F00]">
+                    Aus dem Studio
+                  </span>
+                </div>
+                <h2 className="font-expanded m-0 text-[32px] font-extrabold leading-[1.12] tracking-[-0.01em] text-[#26231E] sm:text-[40px]">
+                  Konzepte, an denen wir uns austoben.
+                </h2>
+              </div>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="m-0 text-[17px] leading-[1.6] text-[#6B655B] [text-wrap:pretty]">
+                Ehrlich gesagt: Das hier sind keine Kundenaufträge, sondern Designstudien aus
+                unserer Werkstatt – so probieren wir Layouts, Branchen und Ideen aus, bevor sie in
+                echte Projekte wandern.
+              </p>
+            </Reveal>
+          </div>
 
-            {/* Row 2: normal + normal + tall */}
-            <ProjectCard
-              project={projects[2]}
-              index={2}
-              size="normal"
-            />
-            <ProjectCard
-              project={projects[3]}
-              index={3}
-              size="wide"
-            />
-
-            {/* Row 3: tall + wide */}
-            <ProjectCard
-              project={projects[4]}
-              index={4}
-              size="tall"
-            />
-            <ProjectCard
-              project={projects[5]}
-              index={5}
-              size="normal"
-            />
-            <ProjectCard
-              project={projects[6]}
-              index={6}
-              size="normal"
-            />
-
-            {/* Row 4: wide + normal */}
-            <ProjectCard
-              project={projects[7]}
-              index={7}
-              size="wide"
-            />
-            <ProjectCard
-              project={projects[8]}
-              index={8}
-              size="tall"
-            />
+          <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
+            {studioArbeiten.map((arbeit, i) => (
+              <Reveal key={arbeit.src} delay={(i % 4) * 0.08} y={20}>
+                <div className="group overflow-hidden rounded-xl border border-[#E8E4DC] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#FBB800] hover:shadow-[0_16px_40px_rgba(20,18,16,0.1)]">
+                  <div className="h-[150px] overflow-hidden border-b border-[#E8E4DC] bg-white sm:h-[180px]">
+                    <Image
+                      src={arbeit.src}
+                      alt={`Designstudie: ${arbeit.label}`}
+                      width={arbeit.width}
+                      height={arbeit.height}
+                      className="block h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+                    />
+                  </div>
+                  <div className="px-4 py-3.5">
+                    <span className="text-[14px] font-semibold text-[#26231E]">
+                      {arbeit.label}
+                    </span>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── 3. CTA ── */}
-      <section className="py-24 sm:py-32 bg-gray-950 relative overflow-hidden">
-        {/* Decorative blurs */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-yellow-500/8 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -right-40 w-[400px] h-[400px] bg-yellow-500/5 rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Haben Sie eine Idee?{" "}
-              <span className="text-yellow-500">
-                Lassen Sie uns zusammenarbeiten.
-              </span>
-            </h2>
-            <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto leading-relaxed">
-              Von der ersten Idee bis zum fertigen Produkt – wir begleiten Sie
-              bei jedem Schritt Ihres digitalen Projekts.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button className="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-6 rounded-full text-base font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
-                  Projekt starten
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
-              <Link href="/leistungen">
-                <Button
-                  variant="outline"
-                  className="px-8 py-6 rounded-full text-base font-medium border-gray-700 text-white hover:bg-gray-800 hover:border-gray-600 transition-all duration-300"
-                >
-                  Unsere Leistungen
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <Footer />
+      <ContactCta />
+      <LandingFooter />
     </div>
   );
 }

@@ -1,46 +1,42 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Portfolio – Referenzprojekte | Websites, E-Commerce & KI | PrintzzDigital',
+  title: 'Portfolio – Projekte aus Braunschweig',
   description:
-    'Entdecken Sie unsere erfolgreich umgesetzten Projekte: Moderne Websites, E-Commerce-Shops, KI-Lösungen und digitale Transformationen für Unternehmen in Braunschweig und der Region. 95+ Lighthouse Score.',
+    'Echte Projekte mit Namen und Adresse: die Stadt-App „Deine City of Lions“, Websites für Jordan GmbH, il Capriccio und Kloster & Partner Architekten sowie die Plattform des Kulturrats Braunschweig.',
   keywords: [
     'Portfolio',
     'Referenzen',
-    'Webdesign Projekte',
-    'E-Commerce Beispiele',
-    'KI-Integration',
+    'Webdesign Projekte Braunschweig',
     'Website erstellen lassen',
-    'Braunschweig',
     'PrintzzDigital',
     'Webentwicklung Referenzen',
-    'Next.js Projekte',
   ],
   alternates: {
-    canonical: 'https://printzzdigital.de/portfolio',
+    canonical: 'https://printzzdigital.com/portfolio',
   },
   openGraph: {
-    title: 'Portfolio – Unsere Referenzprojekte | PrintzzDigital',
+    title: 'Portfolio – Projekte aus Braunschweig | PrintzzDigital',
     description:
-      'Websites, E-Commerce-Shops und KI-Lösungen – entdecken Sie unsere erfolgreich umgesetzten Projekte mit 95+ Lighthouse Score.',
-    url: 'https://printzzdigital.de/portfolio',
+      'Die Stadt-App „Deine City of Lions“, Websites für Handwerk, Gastronomie und Architektur – Arbeiten, die man besuchen kann.',
+    url: 'https://printzzdigital.com/portfolio',
     siteName: 'PrintzzDigital',
     locale: 'de_DE',
     type: 'website',
     images: [
       {
-        url: 'https://printzzdigital.de/restaurant.png',
-        width: 1200,
-        height: 630,
-        alt: 'PrintzzDigital Portfolio – Referenzprojekte',
+        url: 'https://printzzdigital.com/assets/ref-jordan-v2.png',
+        width: 2162,
+        height: 1650,
+        alt: 'PrintzzDigital Portfolio – Website der Jordan GmbH Braunschweig',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Portfolio – PrintzzDigital Referenzprojekte',
+    title: 'Portfolio – Projekte aus Braunschweig | PrintzzDigital',
     description:
-      'Moderne Websites, E-Commerce & KI-Lösungen. Entdecken Sie unsere Arbeiten.',
+      'Echte Projekte mit Namen und Adresse – von der Stadt-App bis zur Handwerker-Website.',
   },
   robots: {
     index: true,

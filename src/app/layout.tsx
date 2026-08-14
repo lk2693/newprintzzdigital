@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Archivo } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  axes: ["wdth"],
 });
 
 const geistMono = Geist_Mono({
@@ -94,8 +100,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#f97316" />
         
         {/* Critical image preloads for LCP optimization */}
-        <link rel="preload" href="/artmarket.png" as="image" type="image/png" />
-        <link rel="preload" href="/aiflow.png" as="image" type="image/png" />
+        <link rel="preload" href="/assets/city-of-lions-app-v2.png" as="image" type="image/png" />
         
         {/* Font optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -137,7 +142,7 @@ export default function RootLayout({
         }} />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${archivo.variable} antialiased`}
       >
         {children}
         <CookieBanner />

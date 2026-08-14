@@ -2,26 +2,20 @@ import { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'KI-Anwendungen Braunschweig | Künstliche Intelligenz für Unternehmen | PrintzzDigital',
-  description: 'KI-Lösungen für Braunschweiger Unternehmen: Chatbots, Automatisierung, Datenanalyse & KI-Integration. Ihr lokaler Partner für Künstliche Intelligenz in Braunschweig.',
+  title: 'KI-Anwendungen Braunschweig – Chatbots & Automatisierung ab 3.000 €',
+  description: 'KI für Unternehmen in Braunschweig, ohne Buzzword-Bingo: Chatbots mit Ihrem Firmenwissen, Texterkennung für den Papierkram, Auswertungen auf Zuruf. DSGVO-konform, auf Wunsch auf deutschen Servern. Potenzial-Check kostenlos.',
   keywords: [
     'KI Braunschweig',
     'Künstliche Intelligenz Braunschweig',
     'KI Anwendungen Braunschweig',
-    'AI Braunschweig',
     'Chatbot Braunschweig',
-    'KI Integration Unternehmen',
     'KI Automatisierung Braunschweig',
-    'Machine Learning Braunschweig',
     'KI Beratung Braunschweig',
-    'Datenanalyse KI Braunschweig',
-    'OpenAI Integration',
     'KI für Mittelstand',
-    'PrintzzDigital KI',
   ],
   openGraph: {
-    title: 'KI-Anwendungen Braunschweig | PrintzzDigital',
-    description: 'Künstliche Intelligenz für Ihr Unternehmen in Braunschweig. Chatbots, Automatisierung, Datenanalyse & individuelle KI-Lösungen.',
+    title: 'KI-Anwendungen Braunschweig – Chatbots & Automatisierung ab 3.000 €',
+    description: 'KI, die messbar Zeit spart – und ehrliche Beratung, wo sie nichts bringt. Von den Software-Entwicklern der Stadt-App „Deine City of Lions“.',
     url: 'https://printzzdigital.com/ki-anwendungen-braunschweig',
     type: 'website',
     locale: 'de_DE',
