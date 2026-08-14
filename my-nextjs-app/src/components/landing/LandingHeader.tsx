@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const navLinks = [
+  { href: "/#website-check", label: "Website-Check" },
   { href: "/#leistungen", label: "Leistungen" },
   { href: "/digitaldruck", label: "Digitaldruck" },
   { href: "/#case", label: "City of Lions" },
@@ -50,7 +51,7 @@ export default function LandingHeader() {
           />
         </a>
 
-        <nav className="hidden items-center gap-7 text-[15px] font-medium lg:flex">
+        <nav className="hidden items-center gap-5 text-[15px] font-medium lg:flex xl:gap-7">
           {navLinks.map((link) => (
             <a
               key={link.href}

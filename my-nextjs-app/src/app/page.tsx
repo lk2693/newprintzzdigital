@@ -49,8 +49,8 @@ export default function Page() {
       <LandingHero />
       {PARTNER_ZEILE_ANZEIGEN && <PartnerBar />}
       <StatsSection jahreErfahrung={JAHRE_ERFAHRUNG} anzahlProjekte={ANZAHL_PROJEKTE} />
-      <ServicesSection />
       <WebsiteCheckSection infoLink />
+      <ServicesSection />
       <CaseStudySection />
       <ReferencesSection />
       <AboutSection />
