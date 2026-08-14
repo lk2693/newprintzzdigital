@@ -1,0 +1,25 @@
+# PrintzzDigital
+
+> Digitalagentur aus Braunschweig: Webdesign, individuelle Software-Entwicklung, KI-Anwendungen und Digitaldruck für Unternehmen in Braunschweig, Wolfsburg, Salzgitter, Gifhorn und Peine. Bekannt als das Team hinter der offiziellen Stadt-App „Deine City of Lions".
+
+Websites von PrintzzDigital laden in unter einer Sekunde, werden mit Next.js und React handgebaut (kein WordPress, kein Baukasten) und sind ab 1.500 € zum Festpreis erhältlich. Das Erstgespräch ist kostenlos und findet persönlich in Braunschweig und Region statt.
+
+## Leistungen
+
+- [Webdesign Braunschweig](https://www.printzzdigital.de/webdesign-braunschweig): Handgebaute Websites ab 1.500 €, Unternehmens-Websites mit CMS ab 2.500 €, Shops und individuelle Projekte ab 5.000 €
+- [Software-Entwicklung Braunschweig](https://www.printzzdigital.de/software-entwicklung-braunschweig): Individuelle Software, Web-Apps und PWAs
+- [KI-Anwendungen Braunschweig](https://www.printzzdigital.de/ki-anwendungen-braunschweig): Chatbots, KI-Integration und Automatisierung
+- [Digitaldruck](https://www.printzzdigital.de/digitaldruck): Druckprodukte für Unternehmen
+- [Kostenloser Website-Check](https://www.printzzdigital.de/website-check): 25 Prüfpunkte zu Sicherheit, SEO, Technik und KI-Sichtbarkeit – ohne Anmeldung
+
+## Referenzen
+
+- [Portfolio](https://www.printzzdigital.de/portfolio): Stadt-App „Deine City of Lions" (mit Stadtmarketing Braunschweig), Jordan GmbH, Ristorante il Capriccio, Kloster und Partner Architekten
+- [Blog](https://www.printzzdigital.de/blog): Artikel zu Webdesign, Ladezeit, Conversion und KI
+
+## Kontakt
+
+- Adresse: Rischbleek 6, 38126 Braunschweig
+- Telefon: +49 531 70201786
+- E-Mail: info@printzzdigital.de
+- [Kontaktseite](https://www.printzzdigital.de/contact)

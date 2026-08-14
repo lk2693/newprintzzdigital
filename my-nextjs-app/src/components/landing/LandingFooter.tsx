@@ -12,6 +12,7 @@ const footerNav = [
 ];
 
 const footerRegion = [
+  { href: "/website-check", label: "Kostenloser Website-Check" },
   { href: "/webdesign-braunschweig", label: "Webdesign Braunschweig" },
   { href: "/software-entwicklung-braunschweig", label: "Software-Entwicklung Braunschweig" },
   { href: "/ki-anwendungen-braunschweig", label: "KI-Anwendungen Braunschweig" },

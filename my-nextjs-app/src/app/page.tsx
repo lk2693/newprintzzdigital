@@ -6,6 +6,7 @@ import LandingHero from "@/components/landing/LandingHero";
 import PartnerBar from "@/components/landing/PartnerBar";
 import StatsSection from "@/components/landing/StatsSection";
 import ServicesSection from "@/components/landing/ServicesSection";
+import WebsiteCheckSection from "@/components/landing/WebsiteCheckSection";
 import CaseStudySection from "@/components/landing/CaseStudySection";
 import ReferencesSection from "@/components/landing/ReferencesSection";
 import AboutSection from "@/components/landing/AboutSection";
@@ -49,6 +50,7 @@ export default function Page() {
       {PARTNER_ZEILE_ANZEIGEN && <PartnerBar />}
       <StatsSection jahreErfahrung={JAHRE_ERFAHRUNG} anzahlProjekte={ANZAHL_PROJEKTE} />
       <ServicesSection />
+      <WebsiteCheckSection infoLink />
       <CaseStudySection />
       <ReferencesSection />
       <AboutSection />
