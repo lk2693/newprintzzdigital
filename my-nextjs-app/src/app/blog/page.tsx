@@ -25,6 +25,33 @@ export const metadata: Metadata = {
 // Statische Blog-Posts - kannst du später durch ein CMS ersetzen
 const blogPosts = [
   {
+    _id: '21',
+    title: 'Was kostet eine Website in Braunschweig 2026?',
+    slug: { current: 'website-kosten-braunschweig' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-08-14',
+    excerpt: 'Onepager ab 1.500 €, Unternehmens-Website ab 2.500 €, Shop ab 5.000 € – wir legen unsere Preise offen und erklären, was den Preis einer Website wirklich bestimmt.',
+    tags: ['Kosten & Preise', 'Webentwicklung', 'Braunschweig']
+  },
+  {
+    _id: '22',
+    title: 'Die 10 häufigsten Website-Fehler bei Braunschweiger Unternehmen',
+    slug: { current: 'website-fehler-braunschweig' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-08-14',
+    excerpt: 'Aus Erstgesprächen und Website-Checks in der Region: Diese zehn Fehler sehen wir immer wieder. Die meisten lassen sich ohne Relaunch beheben – so erkennen Sie sie.',
+    tags: ['Braunschweig', 'SEO', 'Webentwicklung']
+  },
+  {
+    _id: '23',
+    title: 'WordPress gehackt: Was Unternehmen in Braunschweig jetzt prüfen sollten',
+    slug: { current: 'wordpress-gehackt-was-tun' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-08-14',
+    excerpt: 'Spam-Links in den Suchergebnissen, Warnhinweis bei Google, Post vom Hoster? So erkennen Sie einen Hack, bereinigen die Website in der richtigen Reihenfolge und beugen dem nächsten Angriff vor.',
+    tags: ['Sicherheit', 'WordPress', 'Braunschweig']
+  },
+  {
     _id: '20',
     title: 'Website-Speed 2026: Warum jede Sekunde Ladezeit bares Geld kostet',
     slug: { current: 'website-ladezeit-optimierung-2026' },

@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date('2025-01-01'),
+      lastModified: new Date('2026-08-14'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
@@ -71,6 +71,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2025-01-01'),
       changeFrequency: 'monthly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/website-kosten-braunschweig`,
+      lastModified: new Date('2026-08-14'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/website-fehler-braunschweig`,
+      lastModified: new Date('2026-08-14'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/wordpress-gehackt-was-tun`,
+      lastModified: new Date('2026-08-14'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/blog/individuelle-webseite-vs-baukasten`,

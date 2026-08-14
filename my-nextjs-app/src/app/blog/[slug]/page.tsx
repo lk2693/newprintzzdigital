@@ -7,6 +7,207 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 // Statische Blog-Posts
 const blogPosts: Record<string, any> = {
+  'website-kosten-braunschweig': {
+    _id: '21',
+    title: 'Was kostet eine Website in Braunschweig 2026?',
+    slug: { current: 'website-kosten-braunschweig' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-08-14',
+    excerpt: 'Onepager ab 1.500 €, Unternehmens-Website ab 2.500 €, Shop ab 5.000 € – wir legen unsere Preise offen und erklären, was den Preis einer Website wirklich bestimmt.',
+    tags: ['Kosten & Preise', 'Webentwicklung', 'Braunschweig'],
+    content: `
+      <p>„Das kommt darauf an" – diesen Satz hören Sie vermutlich in jedem Agenturgespräch, sobald Sie nach dem Preis fragen. Er stimmt sogar. Nur hilft er niemandem, der ein Budget planen muss. Deshalb machen wir es anders und nennen unsere Preise öffentlich: Eine kompakte Website kostet bei uns ab 1.500 €, eine Unternehmens-Website mit mehreren Unterseiten ab 2.500 €, ein Online-Shop oder ein individuelles Projekt ab 5.000 €. In diesem Artikel schlüsseln wir auf, was hinter diesen Zahlen steckt, welche laufenden Kosten dazukommen – und wann eine günstigere Lösung tatsächlich ausreicht.</p>
+
+      <h2>Die kurze Antwort: drei Preisklassen</h2>
+      <p>Für Unternehmen in Braunschweig und der Region bewegen sich seriöse Angebote 2026 grob in diesen Spannen:</p>
+      <ul>
+        <li><strong>Kompakte Website (Onepager): 1.500 – 2.500 €.</strong> Alles Wichtige auf einer Seite: Leistungen, Kontakt, Anfahrt, Öffnungszeiten. Für viele Handwerksbetriebe, Praxen und Restaurants völlig ausreichend.</li>
+        <li><strong>Unternehmens-Website: 2.500 – 5.000 €.</strong> Mehrere Unterseiten (Leistungen, Team, Referenzen), ein CMS, mit dem Sie Inhalte selbst pflegen, und lokale Suchmaschinenoptimierung. Der Standard für die meisten Betriebe.</li>
+        <li><strong>Online-Shop oder Individualprojekt: ab 5.000 €.</strong> Verkaufen, buchen, reservieren – oft mit Anbindung an Warenwirtschaft oder Kasse. Nach oben offen, je nach Anforderungen.</li>
+      </ul>
+      <p>Das sind unsere realen Festpreise, keine Lockangebote – Sie finden sie genauso auf unserer Seite <a href="/webdesign-braunschweig">Webdesign Braunschweig</a>. Andere Anbieter kalkulieren anders, und das ist legitim. Nur eines sollte Sie stutzig machen: Wer eine „professionelle Firmenwebsite für 299 €" verspricht, verdient sein Geld an anderer Stelle – meist über monatliche Gebühren oder über Leistungen, die dann doch extra kosten.</p>
+
+      <h2>Was den Preis einer Website wirklich bestimmt</h2>
+      <p>Eine Website ist kein Produkt aus dem Regal, sondern Arbeitszeit. Der Preis ergibt sich fast vollständig daraus, wie viele Stunden ein Projekt braucht. Diese Faktoren machen den Unterschied:</p>
+      <ul>
+        <li><strong>Umfang:</strong> Fünf Seiten sind schneller gebaut als fünfundzwanzig. Jede zusätzliche Unterseite braucht Struktur, Text, Bilder und Abstimmung.</li>
+        <li><strong>Design:</strong> Ein angepasstes Template ist günstiger als ein individueller Entwurf. Individuell heißt: Ihr Betrieb sieht nicht aus wie tausend andere – kostet aber Designzeit.</li>
+        <li><strong>Inhalte:</strong> Liefern Sie fertige Texte und Fotos? Oder sollen Texte geschrieben und Bilder organisiert werden? Content ist der am häufigsten unterschätzte Posten – und der häufigste Grund, warum sich Projekte verzögern.</li>
+        <li><strong>Selbst pflegen:</strong> Ein CMS, mit dem Sie Öffnungszeiten, Preise oder Team-Fotos selbst ändern, kostet einmalig mehr – spart aber jede spätere „Kleinigkeit auf Rechnung".</li>
+        <li><strong>Funktionen:</strong> Kontaktformular ist Standard. Online-Shop, Buchungssystem, Kundenbereich oder Schnittstellen zu Ihrer Warenwirtschaft sind eigene Projekte innerhalb des Projekts.</li>
+        <li><strong>Suchmaschinenoptimierung:</strong> Saubere Technik, Ladezeit und lokale Suchbegriffe gehören von Anfang an eingebaut. Laufende SEO-Betreuung ist dagegen eine separate, monatliche Leistung – vermischen Sie beides im Angebot nicht.</li>
+      </ul>
+
+      <h2>Die drei Preisklassen im Detail</h2>
+
+      <h3>Onepager: ab 1.500 €</h3>
+      <p>Ein Onepager beantwortet die Fragen, die ein Kunde wirklich hat: Was machen Sie, was kostet es ungefähr, wo finde ich Sie, wie erreiche ich Sie? Für einen Malerbetrieb, eine Physiotherapie-Praxis oder ein Restaurant ist das oft die ehrlichste Lösung – schnell umgesetzt, günstig und bei Google für die eigene Stadt gut auffindbar.</p>
+      <p>Die Grenze: Wenn Sie mit mehreren Leistungen einzeln gefunden werden wollen („Badsanierung Braunschweig", „Fliesenleger Braunschweig"), braucht jede Leistung irgendwann eine eigene Unterseite. Dann sind Sie in der nächsten Klasse.</p>
+
+      <h3>Unternehmens-Website: ab 2.500 €</h3>
+      <p>Der Standard für Betriebe, die online mehr wollen als eine Visitenkarte: eigene Seiten für jede Leistung, Referenzen, Team und Kontakt, dazu ein CMS für die eigene Pflege. Bei uns ist eine solche Website in 4 – 8 Wochen live; den ersten Design-Entwurf sehen Sie nach etwa einer Woche direkt im Browser.</p>
+      <p>Warum die Spanne bis 5.000 € reicht: Zwölf Unterseiten mit neu geschriebenen Texten und individuellem Design sind schlicht mehr Arbeit als sechs Seiten mit fertigen Inhalten.</p>
+
+      <h3>Shop und Individualprojekte: ab 5.000 €</h3>
+      <p>Sobald auf der Website verkauft, gebucht oder reserviert wird, steigt der Aufwand deutlich: Bezahlwege, Rechtstexte, Produktdaten, Schnittstellen, Testläufe. Ein kompakter Shop mit überschaubarem Sortiment liegt am unteren Ende der Spanne, ein Shop mit Warenwirtschafts-Anbindung oder ein individuelles Buchungssystem entsprechend darüber. Hier gibt es keine ehrliche Pauschale – nur eine transparente Kalkulation nach Anforderungen.</p>
+
+      <h2>Die laufenden Kosten nicht vergessen</h2>
+      <p>Mit dem Projektpreis ist es nicht getan. Planen Sie realistisch ein:</p>
+      <ul>
+        <li><strong>Domain:</strong> etwa 10 – 25 € pro Jahr.</li>
+        <li><strong>Hosting:</strong> je nach Technik etwa 10 – 30 € im Monat. Billig-Hosting für 3 € rächt sich bei Ladezeit und Support.</li>
+        <li><strong>Wartung:</strong> Bei WordPress-Websites sind regelmäßige Updates Pflicht, sonst wird die Seite früher oder später <a href="/blog/wordpress-gehackt-was-tun">gehackt</a> – rechnen Sie mit 30 – 100 € im Monat oder eigenem Zeitaufwand. Moderne, statisch generierte Websites kommen praktisch ohne laufende Wartung aus.</li>
+        <li><strong>Inhaltspflege:</strong> Mit CMS kostenlos in Eigenregie, sonst nach Aufwand.</li>
+      </ul>
+      <p>Vorsicht bei reinen Mietmodellen („Website für 79 €/Monat, keine Anfangskosten"): Über fünf Jahre zahlen Sie fast 5.000 € – und wenn Sie kündigen, gehört Ihnen nichts. Kein Code, oft nicht einmal die Inhalte.</p>
+
+      <h2>Warum Angebote so weit auseinanderliegen</h2>
+      <p>Für dieselbe Anfrage können Sie Angebote zwischen 500 € und 20.000 € bekommen. Das ist selten Abzocke – dahinter stecken schlicht unterschiedliche Leistungen:</p>
+      <ul>
+        <li><strong>Baukasten-Dienstleister (300 – 1.000 €):</strong> richtet ein Wix- oder Jimdo-Template mit Ihren Texten ein. Schnell und günstig, aber: Die monatlichen Baukasten-Gebühren laufen weiter, technisch sind Sie limitiert, und umziehen können Sie später nicht.</li>
+        <li><strong>Freelancer (1.000 – 5.000 €):</strong> können hervorragende Arbeit liefern. Prüfen Sie Referenzen – und klären Sie, wer die Seite betreut, wenn der Freelancer mal nicht verfügbar ist.</li>
+        <li><strong>Lokale Agentur (1.500 – 15.000 €):</strong> mehr Verlässlichkeit und Erfahrung, dafür höhere Stundensätze. Der Vorteil vor Ort: Man kennt den Markt und kann sich in Braunschweig einfach mal zusammensetzen.</li>
+        <li><strong>Große Full-Service-Agenturen (ab 20.000 €):</strong> Workshops, Markenstrategie, mehrköpfige Projektteams. Für Konzerne sinnvoll, für die meisten Mittelständler überdimensioniert.</li>
+      </ul>
+
+      <h2>Wann eine günstige Lösung wirklich reicht</h2>
+      <p>Ehrlich: Nicht jeder braucht eine Website für mehrere tausend Euro. Für den Sportverein, das Hobbyprojekt oder den ersten Test einer Geschäftsidee ist ein Baukasten eine vernünftige Wahl. Den ausführlichen Vergleich haben wir <a href="/blog/individuelle-webseite-vs-baukasten">hier aufgeschrieben</a>.</p>
+      <p>Die Rechnung dreht sich in dem Moment, in dem Kunden Sie über Google finden und Ihnen Aufträge bringen sollen. Dann entscheiden Ladezeit, lokale Auffindbarkeit und ein professioneller Auftritt darüber, ob die Website arbeitet oder nur existiert – und eine Website, die einen einzigen zusätzlichen Auftrag im Monat bringt, hat sich bei den meisten Betrieben nach wenigen Monaten bezahlt gemacht.</p>
+
+      <h2>Checkliste: Darauf sollten Sie im Angebot achten</h2>
+      <ol>
+        <li>Sind Texte und Bilder enthalten – oder kommen die von Ihnen?</li>
+        <li>Auf wen sind Domain und Hosting registriert? (Richtige Antwort: auf Sie.)</li>
+        <li>Einmalpreis oder Mietmodell? Was passiert bei Kündigung?</li>
+        <li>Was kostet eine kleine Änderung nach dem Livegang?</li>
+        <li>Bei einem Relaunch: Werden die alten Adressen sauber weitergeleitet? Sonst verlieren Sie Ihre Google-Rankings.</li>
+        <li>Sind Impressum und Datenschutzerklärung Teil des Projekts?</li>
+        <li>Gibt es einen Festpreis nach dem Erstgespräch – oder nur eine offene Schätzung?</li>
+      </ol>
+
+      <h2>Fazit: Rechnen Sie in Arbeitszeit, nicht in Schnäppchen</h2>
+      <p>Eine seriöse Unternehmens-Website kostet in Braunschweig 2026 realistisch zwischen 1.500 und 5.000 €, ein Shop entsprechend mehr. Alles deutlich darunter bezahlen Sie an anderer Stelle: mit monatlichen Gebühren, mit Ihrer eigenen Zeit oder mit einer Website, die niemand findet.</p>
+      <p>Wenn Sie wissen wollen, wo Ihr Projekt landet: Im kostenlosen Erstgespräch nennen wir Ihnen einen Festpreis – und der gilt dann auch. <a href="/contact">Melden Sie sich gern</a>, oder testen Sie vorab mit unserem <a href="/website-check">kostenlosen Website-Check</a>, wo Ihre aktuelle Seite steht.</p>
+    `
+  },
+  'website-fehler-braunschweig': {
+    _id: '22',
+    title: 'Die 10 häufigsten Website-Fehler bei Braunschweiger Unternehmen',
+    slug: { current: 'website-fehler-braunschweig' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-08-14',
+    excerpt: 'Aus Erstgesprächen und Website-Checks in der Region: Diese zehn Fehler sehen wir immer wieder. Die meisten lassen sich ohne Relaunch beheben – so erkennen Sie sie.',
+    tags: ['Braunschweig', 'SEO', 'Webentwicklung'],
+    content: `
+      <p>Durch unseren <a href="/website-check">kostenlosen Website-Check</a> und die Erstgespräche mit Betrieben aus Braunschweig, Wolfsburg und der Region sehen wir regelmäßig, woran Unternehmens-Websites in der Praxis scheitern. Das Auffällige daran: Es sind fast immer dieselben zehn Fehler – und die wenigsten davon erfordern einen teuren Relaunch. Viele lassen sich an einem Nachmittag beheben. Gehen Sie die Liste einfach mit Ihrer eigenen Website durch.</p>
+
+      <h2>1. Die Startseite verrät nicht, was Sie tun – und wo</h2>
+      <p>„Herzlich willkommen auf unserer Homepage" ist die häufigste Überschrift auf Unternehmenswebsites – und die nutzloseste. Ein Besucher entscheidet in wenigen Sekunden, ob er hier richtig ist. Und Google kann eine Seite nur für „Elektriker Braunschweig" anzeigen, wenn dort auch steht, dass Sie Elektriker in Braunschweig sind.</p>
+      <p><strong>So beheben Sie es:</strong> Die erste Überschrift benennt Leistung und Ort. „Sanitär und Heizung in Braunschweig" schlägt jedes „Willkommen". Das ist keine Poesie – aber es bringt Kunden.</p>
+
+      <h2>2. Auf dem Smartphone wird die Seite unbenutzbar</h2>
+      <p>Der größte Teil der Besucher kommt heute über das Handy – und Google bewertet ausschließlich die mobile Version Ihrer Website. Trotzdem sehen wir ständig Seiten mit winzigem Text, abgeschnittenen Tabellen und Menüs, die sich am Touchscreen nicht bedienen lassen.</p>
+      <p><strong>So prüfen Sie es:</strong> Nehmen Sie Ihr eigenes Handy. Können Sie alles ohne Zoomen lesen? Treffen Sie jeden Knopf mit dem Daumen? Wenn nicht, verlieren Sie genau dort Kunden.</p>
+
+      <h2>3. Die Seite lädt zu langsam</h2>
+      <p>Häufigste Ursache in der Praxis: Fotos, die direkt von der Kamera oder vom Fotografen hochgeladen wurden – mehrere Megabyte pro Bild. Auf dem Smartphone im Mobilfunknetz lädt so eine Seite gefühlt ewig, und wer wartet, springt ab. Auch Google misst die Ladezeit und stuft langsame Seiten ab.</p>
+      <p><strong>So prüfen Sie es:</strong> Testen Sie Ihre Seite mit Googles PageSpeed Insights. Bilder gehören verkleinert und in modernen Formaten (WebP) eingebunden – das allein löst das Problem oft schon.</p>
+
+      <h2>4. Die Telefonnummer ist nicht antippbar</h2>
+      <p>Gerade bei Handwerk, Gastronomie und Praxen gilt: Kunden rufen an, sie füllen keine Formulare aus. Wenn die Telefonnummer nur als Text – oder schlimmer: als Bild – auf der Seite steht, muss der Kunde sie abtippen. Jede Hürde kostet Anrufe.</p>
+      <p><strong>So beheben Sie es:</strong> Die Nummer gehört als klickbarer Link auf jede Seite: ein Tipp, und das Telefon wählt. Dasselbe gilt für die Adresse mit Verknüpfung zu Google Maps.</p>
+
+      <h2>5. Veraltete Inhalte</h2>
+      <p>Öffnungszeiten, die nicht mehr stimmen. Ein Team-Foto mit Mitarbeitern, die längst weg sind. Eine „Aktuelles"-Rubrik, deren letzter Eintrag von 2023 ist. All das signalisiert Besuchern – und Google –, dass hier niemand mehr hinschaut. Im schlimmsten Fall wirkt der Betrieb geschlossen.</p>
+      <p><strong>So beheben Sie es:</strong> Einmal im Quartal eine halbe Stunde Inhalte prüfen. Und: lieber gar keine News-Rubrik als eine tote.</p>
+
+      <h2>6. Kein HTTPS – der Browser warnt vor Ihrer Seite</h2>
+      <p>Websites ohne SSL-Zertifikat markiert der Browser sichtbar als „Nicht sicher". Für Besucher ein Abschreckungssignal, für Google ein Abwertungsgrund – dabei ist die Lösung seit Jahren kostenlos.</p>
+      <p><strong>So beheben Sie es:</strong> Jeder seriöse Hoster bietet kostenlose Zertifikate (Let's Encrypt) an, oft mit einem Klick aktivierbar. Wichtig: Die unverschlüsselte Version muss automatisch auf die verschlüsselte weiterleiten.</p>
+
+      <h2>7. Kein Google-Unternehmensprofil – oder eines, das der Website widerspricht</h2>
+      <p>Bei lokalen Suchen wie „Dachdecker Braunschweig" zeigt Google zuerst die Karte mit drei Einträgen. Wer dort nicht auftaucht, existiert für viele Suchende nicht – egal wie gut die Website ist. Genauso schädlich: Profil und Website nennen unterschiedliche Öffnungszeiten oder Telefonnummern.</p>
+      <p><strong>So beheben Sie es:</strong> Kostenloses Google-Unternehmensprofil anlegen, mit der Website verknüpfen und darauf achten, dass Name, Adresse und Telefonnummer überall identisch sind.</p>
+
+      <h2>8. Der Besucher weiß nicht, was er tun soll</h2>
+      <p>Viele Websites informieren – und hören dann einfach auf. Kein „Jetzt Termin anfragen", kein „Kostenloses Angebot", nirgendwo. Der interessierte Besucher müsste sich seinen Weg zur Kontaktaufnahme selbst suchen. Die meisten tun das nicht.</p>
+      <p><strong>So beheben Sie es:</strong> Jede Seite braucht genau eine klare Handlungsaufforderung, gut sichtbar: anrufen, Termin anfragen, Angebot einholen. Eine reicht – aber die muss da sein.</p>
+
+      <h2>9. Rechtliche Basics fehlen oder sind veraltet</h2>
+      <p>Fehlendes oder unvollständiges Impressum, eine Datenschutzerklärung, die nicht zu den tatsächlich eingesetzten Tools passt, Google-Schriftarten, die vom Google-Server statt vom eigenen geladen werden – all das ist in Deutschland abmahnfähig, und Abmahnwellen dazu gab es bereits. Das ist keine Panikmache, sondern vermeidbares Risiko.</p>
+      <p><strong>So beheben Sie es:</strong> Impressum und Datenschutzerklärung von jeder Seite aus erreichbar machen und einmal jährlich aktualisieren, Schriftarten lokal einbinden. Bei Unsicherheit lohnt die Stunde beim Fachanwalt – sie ist günstiger als eine Abmahnung. (Dieser Absatz ersetzt keine Rechtsberatung.)</p>
+
+      <h2>10. Veraltete Technik, um die sich niemand kümmert</h2>
+      <p>Ein WordPress, das seit Jahren kein Update gesehen hat, Plugins, deren Entwickler längst aufgegeben haben, eine PHP-Version, die der Hoster eigentlich abschalten will: Solche Websites funktionieren – bis sie es nicht mehr tun. Entweder weil etwas kaputtgeht oder weil automatisierte Angriffe die bekannte Lücke finden. Was dann zu tun ist, haben wir im Artikel <a href="/blog/wordpress-gehackt-was-tun">„WordPress gehackt"</a> aufgeschrieben.</p>
+      <p><strong>So beheben Sie es:</strong> Entweder kümmert sich jemand verbindlich um Updates – intern oder per Wartungsvertrag – oder Sie wechseln auf eine Technik, die ohne ständige Updates auskommt.</p>
+
+      <h2>Wie viele Punkte treffen auf Ihre Website zu?</h2>
+      <p>Null bis zwei: solide Basis. Drei bis fünf: Sie verschenken spürbar Anfragen. Mehr als fünf: Ein Relaunch ist wahrscheinlich günstiger als das Flickwerk.</p>
+      <p>Wenn Sie es genau wissen wollen: Unser <a href="/website-check">kostenloser Website-Check</a> gibt Ihnen in wenigen Minuten eine erste Einschätzung – inklusive der Frage, wie sichtbar Ihr Unternehmen in KI-Suchen wie ChatGPT ist. Und im <a href="/contact">kostenlosen Erstgespräch</a> sagen wir Ihnen ehrlich, ob sich die Behebung lohnt oder ein Neustart sinnvoller ist.</p>
+    `
+  },
+  'wordpress-gehackt-was-tun': {
+    _id: '23',
+    title: 'WordPress gehackt: Was Unternehmen in Braunschweig jetzt prüfen sollten',
+    slug: { current: 'wordpress-gehackt-was-tun' },
+    author: 'Printzz Digital',
+    publishedAt: '2026-08-14',
+    excerpt: 'Spam-Links in den Suchergebnissen, Warnhinweis bei Google, Post vom Hoster? So erkennen Sie einen Hack, bereinigen die Website in der richtigen Reihenfolge und beugen dem nächsten Angriff vor.',
+    tags: ['Sicherheit', 'WordPress', 'Braunschweig'],
+    content: `
+      <p>Ein gehackter Webauftritt fällt selten sofort auf. Oft läuft die Website äußerlich normal weiter, während sie im Hintergrund Spam verteilt oder Besucher auf dubiose Seiten umleitet – und der Betreiber erfährt es erst, wenn Google warnt, der Hoster mahnt oder ein Kunde anruft. Genau dann zählt die richtige Reihenfolge: Wer hektisch löscht und neu installiert, zerstört Spuren und lässt die Hintertür meistens offen. Eines vorweg: Wir bauen selbst bewusst nicht mit WordPress – dieser Artikel ist trotzdem keine Abrechnung, sondern eine nüchterne Anleitung für den Ernstfall.</p>
+
+      <h2>Woran Sie erkennen, dass Ihre Website gehackt wurde</h2>
+      <ul>
+        <li><strong>Google warnt:</strong> In den Suchergebnissen erscheint „Diese Website wurde möglicherweise gehackt", oder der Browser zeigt vor dem Aufruf eine rote Warnseite.</li>
+        <li><strong>Fremde Seiten in den Suchergebnissen:</strong> Suchen Sie bei Google nach <strong>site:ihre-domain.de</strong>. Tauchen dort Seiten auf, die Sie nie erstellt haben – oft mit japanischen Zeichen oder Pharma-Begriffen –, ist die Website kompromittiert. Tückisch: Beim direkten Aufruf sieht die Seite meist normal aus, weil die Schadinhalte nur Suchmaschinen gezeigt werden.</li>
+        <li><strong>Weiterleitungen:</strong> Besucher – häufig nur die mit Smartphone – landen auf Gewinnspiel-, Dating- oder Fake-Shop-Seiten.</li>
+        <li><strong>Post vom Hoster:</strong> Ihr Anbieter meldet Malware oder Spam-Versand oder hat die Seite bereits gesperrt.</li>
+        <li><strong>Meldung in der Google Search Console:</strong> Unter „Sicherheitsprobleme" listet Google erkannte Infektionen konkret auf.</li>
+        <li><strong>Unbekannte Administratoren:</strong> In der WordPress-Benutzerliste tauchen Konten auf, die niemand angelegt hat.</li>
+        <li><strong>Plötzlicher Absturz der Rankings</strong> oder E-Mails, die als Spam abgewiesen werden, weil Ihre Domain auf schwarzen Listen steht.</li>
+      </ul>
+
+      <h2>Warum trifft es so oft WordPress?</h2>
+      <p>Nicht, weil WordPress grundsätzlich schlecht wäre – sondern weil es mit gut 40 Prozent Marktanteil das mit Abstand häufigste System und damit das lohnendste Ziel ist. Angriffe laufen fast nie gezielt gegen Ihr Unternehmen: Automatisierte Bots durchsuchen rund um die Uhr Millionen Websites nach bekannten Sicherheitslücken in veralteten Plugins und Themes. Wer seine Installation seit zwei Jahren nicht aktualisiert hat, wird nicht gehackt, weil jemand ihn ausgesucht hat, sondern weil ein Skript die Lücke gefunden hat.</p>
+      <p>Fair bleibt: Ein aktuell gehaltenes WordPress mit wenigen, gepflegten Plugins, starken Passwörtern und Zwei-Faktor-Anmeldung lässt sich solide betreiben. Das Problem sind die vielen Installationen, um die sich seit dem Livegang niemand mehr kümmert.</p>
+
+      <h2>Sofortmaßnahmen – in dieser Reihenfolge</h2>
+      <ol>
+        <li><strong>Nichts vorschnell löschen.</strong> Sichern Sie zuerst den aktuellen, infizierten Stand (Dateien und Datenbank) als separates Backup. Es dient der Analyse – eingespielt wird es natürlich nie.</li>
+        <li><strong>Website vorübergehend vom Netz nehmen.</strong> In den Wartungsmodus schalten oder vom Hoster sperren lassen. Das schützt Ihre Besucher und begrenzt den Schaden an Ihrer Reputation.</li>
+        <li><strong>Hoster kontaktieren.</strong> Gute Hoster haben Malware-Scanner und Zugriffs-Logs und können oft sagen, wann und worüber der Angriff lief. Fragen Sie auch, ob weitere Websites in Ihrem Paket betroffen sind.</li>
+        <li><strong>Alle Passwörter ändern – von einem sauberen Gerät.</strong> WordPress-Zugänge, FTP/SSH, Datenbank, Hosting-Kundenkonto und die zugehörigen E-Mail-Postfächer. Falls Sie eines der Passwörter auch anderswo verwenden: dort ebenfalls.</li>
+        <li><strong>Benutzerliste aufräumen.</strong> Unbekannte Konten – besonders Administratoren – entfernen und für alle verbliebenen Konten neue Passwörter erzwingen.</li>
+        <li><strong>Klären, welche Daten betroffen sein könnten.</strong> Kundendaten aus Formularen, Newsletter-Adressen, Shop-Konten? Dann lesen Sie unbedingt den Abschnitt zum Datenschutz weiter unten.</li>
+      </ol>
+
+      <h2>Bereinigen: Warum der Malware-Scanner allein selten reicht</h2>
+      <p>Sicherheits-Plugins finden bekannte Schadmuster – aber Angreifer hinterlassen fast immer mehrere Hintertüren: unauffällig benannte Dateien in Upload-Ordnern, manipulierte Systemdateien, Einträge direkt in der Datenbank, zusätzliche Zugangsschlüssel. Wird nur die sichtbare Infektion entfernt, ist die Seite häufig nach wenigen Tagen wieder kompromittiert – über dieselbe Tür.</p>
+      <p>Der zuverlässige Weg ist ein sauberer Neuaufbau: WordPress, Theme und Plugins frisch aus den offiziellen Quellen installieren, Inhalte aus einem geprüften Backup übernehmen, Konfigurationsdateien kontrollieren und anschließend alles auf den neuesten Stand bringen. Wichtig dabei: Der Einbruch liegt oft Wochen vor der Entdeckung – das Backup „von letzter Woche" kann also bereits infiziert sein. Prüfen Sie ältere Stände, bevor Sie sie einspielen.</p>
+      <p>Wenn das über Ihre Möglichkeiten hinausgeht, ist das keine Schande. Holen Sie sich Hilfe, bevor Sie zum dritten Mal dieselbe Infektion entfernen.</p>
+
+      <h2>Google informieren und die Reputation reparieren</h2>
+      <p>Ist die Seite sauber, melden Sie das aktiv: in der Google Search Console unter „Sicherheitsprobleme" eine Überprüfung anfordern. Die Warnung in den Suchergebnissen verschwindet danach meist innerhalb weniger Tage; verlorene Rankings erholen sich langsamer, aber sie erholen sich. Falls Ihre Website noch gar nicht in der Search Console angemeldet ist: nachholen – das ist auch unabhängig vom Hack Pflicht für jede Unternehmens-Website.</p>
+
+      <h2>Datenschutz: Prüfen Sie Ihre Meldepflicht</h2>
+      <p>Sobald personenbezogene Daten im Spiel sein könnten – Anfragen aus dem Kontaktformular, Newsletter-Adressen, Kundenkonten im Shop –, kann der Vorfall eine meldepflichtige Datenpanne nach Art. 33 DSGVO sein. Die Frist ist kurz: 72 Stunden ab Kenntnis, zuständig für Unternehmen aus Niedersachsen ist die Landesbeauftragte für den Datenschutz. Dokumentieren Sie den Vorfall in jedem Fall schriftlich: Was ist wann passiert, welche Daten waren möglicherweise betroffen, was wurde unternommen. Ob tatsächlich gemeldet werden muss, hängt vom Risiko für die Betroffenen ab – klären Sie das im Zweifel mit einem Datenschutzbeauftragten oder Anwalt, statt es auszusitzen. (Auch hier gilt: Das ersetzt keine Rechtsberatung.)</p>
+
+      <h2>So verhindern Sie den nächsten Hack</h2>
+      <ul>
+        <li><strong>Updates zur Routine machen:</strong> System, Theme und Plugins regelmäßig aktualisieren – oder automatische Updates aktivieren und die Seite danach kurz prüfen.</li>
+        <li><strong>Plugins radikal ausmisten:</strong> Jedes Plugin ist potenzielle Angriffsfläche. Was Sie nicht nutzen, fliegt raus – auch deaktivierte Plugins löschen.</li>
+        <li><strong>Zwei-Faktor-Anmeldung</strong> für alle Administrator-Konten, dazu einzigartige Passwörter aus einem Passwortmanager.</li>
+        <li><strong>Backups automatisieren</strong> und getrennt vom Webserver aufbewahren – und die Wiederherstellung einmal wirklich testen.</li>
+        <li><strong>Verantwortung klären:</strong> Wenn sich intern niemand kümmern kann, braucht die Seite einen Wartungsvertrag. Eine ungepflegte WordPress-Installation ist keine Frage, ob sie gehackt wird – nur wann.</li>
+      </ul>
+      <p>Und die grundsätzliche Alternative: Wir entwickeln Websites mit Next.js statt WordPress – unter anderem genau aus diesem Grund. Es gibt kein Plugin-System, kein öffentlich erreichbares Admin-Login und keine vergessenen Updates; die häufigsten Einfallstore existieren schlicht nicht. Das ist kein Freifahrtschein gegen jede denkbare Attacke, aber es macht die Website als Ziel weitgehend uninteressant. Wenn Ihre WordPress-Seite zum wiederholten Mal bereinigt werden musste, ist ein <a href="/webdesign-braunschweig">Neubau auf moderner Technik</a> oft günstiger als die nächste Rettung.</p>
+
+      <h2>Fazit</h2>
+      <p>Ein Hack ist ärgerlich, aber lösbar – wenn die Reihenfolge stimmt: Beweise sichern, Seite offline nehmen, Hoster einbinden, Passwörter ändern, sauber neu aufbauen, Google und gegebenenfalls die Datenschutzbehörde informieren. Und danach dafür sorgen, dass es kein zweites Mal gibt.</p>
+      <p>Wenn Sie akut betroffen sind und nicht weiterwissen: Rufen Sie uns an unter <a href="tel:+4953170201786">0531 70201786</a> oder <a href="/contact">schreiben Sie uns</a> – wir schauen uns die Lage an und sagen Ihnen ehrlich, ob sich eine Bereinigung lohnt oder ein Neuaufbau der schnellere Weg ist.</p>
+    `
+  },
   'individuelle-webseite-vs-baukasten': {
     _id: '7',
     title: 'Individuelle Webseite vs. Baukasten: Was ist die richtige Wahl?',
