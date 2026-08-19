@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Kostenloser Website-Check – SEO, Sicherheit & KI-Sichtbarkeit",
   description:
-    "Website kostenlos prüfen: 25 Punkte zu SEO, Sicherheit, Technik und KI-Sichtbarkeit – wird Ihre Website von ChatGPT & Co. gefunden? Ohne Anmeldung, ohne Speicherung. Vom Braunschweiger Team hinter der Stadt-App „Deine City of Lions“.",
+    "Website kostenlos prüfen: 25 Punkte zu SEO, Sicherheit, Technik und KI-Sichtbarkeit – wird Ihre Website von ChatGPT & Co. gefunden? Score sofort und ohne Anmeldung. Vom Braunschweiger Team hinter der Stadt-App „Deine City of Lions“.",
   keywords: [
     "Website Check kostenlos",
     "Website Check Braunschweig",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kostenloser Website-Check – SEO, Sicherheit & KI-Sichtbarkeit",
     description:
-      "25 Prüfpunkte in 30 Sekunden: Sicherheits-Header, SEO-Grundlagen, Technik und KI-Sichtbarkeit (ChatGPT & Co.) – kostenlos, ohne Anmeldung, ohne Speicherung.",
+      "25 Prüfpunkte in 30 Sekunden: Sicherheits-Header, SEO-Grundlagen, Technik und KI-Sichtbarkeit (ChatGPT & Co.) – kostenlos, Score sofort ohne Anmeldung.",
     url: "https://www.printzzdigital.de/website-check",
     type: "website",
     locale: "de_DE",

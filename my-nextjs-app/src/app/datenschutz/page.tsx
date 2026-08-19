@@ -101,6 +101,28 @@ export default function DatenschutzPage() {
           <strong>Speicherdauer:</strong> Bis zum Widerruf der Einwilligung
         </p>
 
+        <h3>Website-Check</h3>
+        <p>
+          Unser kostenloser Website-Check ruft ausschließlich öffentlich sichtbare Daten der von
+          Ihnen angegebenen Website ab. Wenn Sie die detaillierte Auswertung freischalten oder ein
+          Beratungsgespräch anfragen, erheben wir folgende Daten:
+        </p>
+        <ul>
+          <li>E-Mail-Adresse</li>
+          <li>Name (optional)</li>
+          <li>Telefonnummer (optional, bei Termin-Anfrage)</li>
+          <li>Geprüfte Website-Adresse und Check-Ergebnis</li>
+        </ul>
+        <p>
+          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)
+          <br />
+          <strong>Zweck:</strong> Zusendung der Auswertung und Kontaktaufnahme zu Ihrem
+          Website-Check bzw. Terminvereinbarung
+          <br />
+          <strong>Speicherdauer:</strong> Bis zur vollständigen Bearbeitung Ihrer Anfrage,
+          längstens 3 Jahre; bei Widerruf der Einwilligung früher
+        </p>
+
         <h3>Newsletter</h3>
         <p>
           Mit Ihrer Einwilligung können Sie unseren Newsletter abonnieren, mit dem wir Sie über

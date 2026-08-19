@@ -227,6 +227,147 @@ function isBotBlocked(groups: RobotsGroup[], bot: string): boolean {
 }
 
 // ---------------------------------------------------------------------------
+// System-Erkennung: Baukasten, CMS, Shop oder individuell entwickelt
+// ---------------------------------------------------------------------------
+
+type SystemKind = 'baukasten' | 'cms' | 'shop' | 'framework' | 'custom'
+
+type DetectedSystem = {
+  name: string
+  kind: SystemKind
+  kindLabel: string
+  detail: string
+}
+
+const KIND_LABELS: Record<SystemKind, string> = {
+  baukasten: 'Homepage-Baukasten',
+  cms: 'CMS',
+  shop: 'Shop-System',
+  framework: 'Individuell entwickelt',
+  custom: 'Individuell',
+}
+
+const KIND_DETAILS: Record<SystemKind, string> = {
+  baukasten:
+    'Baukasten-Systeme sind schnell eingerichtet, stoßen bei SEO, Ladezeit und individuellen Funktionen aber oft an Grenzen.',
+  cms: 'Ein Content-Management-System – flexibel, braucht aber regelmäßige Updates und Sicherheitspflege.',
+  shop: 'Ein Shop-System – Performance und SEO hängen stark von Theme und Erweiterungen ab.',
+  framework:
+    'Individuell mit modernem Framework entwickelt – volle Kontrolle über Technik, Performance und SEO.',
+  custom:
+    'Kein Baukasten- oder CMS-Fingerabdruck erkennbar – vermutlich individuell entwickelt.',
+}
+
+type SystemSignature = {
+  name: string
+  kind: SystemKind
+  detail?: string
+  html?: RegExp
+  header?: (headers: Headers) => boolean
+}
+
+/**
+ * Reihenfolge = Priorität: Shops vor Baukästen vor Frameworks vor CMS.
+ * (WooCommerce enthält auch WordPress-Spuren; Headless-CMS mit
+ * Framework-Frontend soll als "individuell" zählen.)
+ */
+const SYSTEM_SIGNATURES: SystemSignature[] = [
+  // Shop-Systeme
+  {
+    name: 'Shopify',
+    kind: 'shop',
+    html: /cdn\.shopify\.com|myshopify\.com/,
+    header: (h) => h.get('x-shopify-stage') !== null || h.get('x-sorting-hat-shopid') !== null,
+  },
+  { name: 'WordPress + WooCommerce', kind: 'shop', html: /woocommerce/ },
+  { name: 'Shopware', kind: 'shop', html: /shopware/ },
+  { name: 'Magento', kind: 'shop', html: /magento|\/static\/version\d/ },
+  { name: 'PrestaShop', kind: 'shop', html: /prestashop/ },
+
+  // Homepage-Baukästen
+  {
+    name: 'Wix',
+    kind: 'baukasten',
+    html: /wixstatic\.com|parastorage\.com/,
+    header: (h) => h.get('x-wix-request-id') !== null,
+  },
+  { name: 'Jimdo', kind: 'baukasten', html: /jimstatic|jimdo/ },
+  {
+    name: 'Squarespace',
+    kind: 'baukasten',
+    html: /static1\.squarespace|squarespace\.com/,
+    header: (h) => (h.get('server') ?? '').toLowerCase().includes('squarespace'),
+  },
+  { name: 'Webflow', kind: 'baukasten', html: /website-files\.com|data-wf-site/ },
+  { name: 'Weebly', kind: 'baukasten', html: /editmysite\.com|weebly/ },
+  { name: 'GoDaddy Websites', kind: 'baukasten', html: /godaddysites|wsimg\.com/ },
+  { name: 'IONOS MyWebsite', kind: 'baukasten', html: /ionos\.space|mywebsite-editor/ },
+  { name: 'Duda', kind: 'baukasten', html: /dudaone|cdn\.website-editor\.net/ },
+  { name: 'Webnode', kind: 'baukasten', html: /webnode/ },
+  { name: 'Sitejet', kind: 'baukasten', html: /sitejet/ },
+  { name: 'SITE123', kind: 'baukasten', html: /site123/ },
+  { name: 'Strikingly', kind: 'baukasten', html: /strikingly/ },
+  { name: 'Carrd', kind: 'baukasten', html: /carrd\.co/ },
+
+  // Frameworks (individuell entwickelt)
+  { name: 'Next.js', kind: 'framework', html: /__next_data__|\/_next\/|id="__next"/ },
+  { name: 'Nuxt', kind: 'framework', html: /__nuxt|\/_nuxt\// },
+  { name: 'Astro', kind: 'framework', html: /astro-island|content="astro/ },
+  { name: 'Gatsby', kind: 'framework', html: /___gatsby/ },
+  { name: 'SvelteKit', kind: 'framework', html: /data-sveltekit/ },
+  { name: 'Remix', kind: 'framework', html: /__remixcontext/ },
+  { name: 'Angular', kind: 'framework', html: /ng-version=/ },
+
+  // Klassische CMS
+  {
+    name: 'WordPress',
+    kind: 'cms',
+    html: /wp-content|wp-includes|wp-json/,
+    detail:
+      'Das weltweit meistgenutzte CMS – flexibel, aber auf regelmäßige Updates und Sicherheitspflege angewiesen.',
+  },
+  { name: 'TYPO3', kind: 'cms', html: /typo3temp|typo3conf|typo3/ },
+  { name: 'Joomla', kind: 'cms', html: /\/media\/jui\/|joomla/ },
+  {
+    name: 'Drupal',
+    kind: 'cms',
+    html: /drupal|\/sites\/default\/files\//,
+    header: (h) => (h.get('x-generator') ?? '').toLowerCase().includes('drupal'),
+  },
+  { name: 'Contao', kind: 'cms', html: /contao/ },
+
+  // Schwaches Framework-Signal zuletzt
+  { name: 'Individuell (React)', kind: 'framework', html: /data-reactroot/ },
+]
+
+function detectSystem(html: string, headers: Headers): DetectedSystem {
+  const lower = html.toLowerCase()
+  for (const sig of SYSTEM_SIGNATURES) {
+    if ((sig.html && sig.html.test(lower)) || (sig.header && sig.header(headers))) {
+      return {
+        name: sig.name,
+        kind: sig.kind,
+        kindLabel: KIND_LABELS[sig.kind],
+        detail: sig.detail ?? KIND_DETAILS[sig.kind],
+      }
+    }
+  }
+
+  const generator = getMetaContent(html, 'generator')
+  if (generator) {
+    const name = (generator.split(/\d/)[0].trim() || generator).slice(0, 40)
+    return { name, kind: 'cms', kindLabel: KIND_LABELS.cms, detail: KIND_DETAILS.cms }
+  }
+
+  return {
+    name: 'Eigenentwicklung',
+    kind: 'custom',
+    kindLabel: KIND_LABELS.custom,
+    detail: KIND_DETAILS.custom,
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Checks
 // ---------------------------------------------------------------------------
 
@@ -588,9 +729,57 @@ function checkAiVisibility(
 
 const STATUS_POINTS: Record<CheckStatus, number> = { pass: 1, warn: 0.5, fail: 0 }
 
+/**
+ * Gewichtung pro Prüfpunkt: Kritisches (HTTPS, Title, Ladezeit) zählt mehr
+ * als Nice-to-haves (Favicon, llms.txt) – sonst verzerren Kleinigkeiten den Score.
+ */
+const CHECK_WEIGHTS: Record<string, number> = {
+  // Sicherheit
+  csp: 1.5,
+  hsts: 1.5,
+  xfo: 1,
+  xcto: 1,
+  referrer: 0.5,
+  permissions: 0.5,
+  // SEO & Sichtbarkeit
+  title: 2,
+  description: 1.5,
+  h1: 1.5,
+  alt: 1,
+  canonical: 0.5,
+  og: 1,
+  robots: 0.5,
+  sitemap: 1,
+  // Technik & Performance
+  https: 3,
+  speed: 2,
+  viewport: 2,
+  lang: 0.5,
+  favicon: 0.5,
+  // KI-Sichtbarkeit
+  chatgpt: 1.5,
+  'other-ai': 1,
+  'ssr-text': 2,
+  'structured-data': 1,
+  'llms-txt': 0.5,
+  snippets: 1.5,
+}
+
+/** Gewichtung der Kategorien im Gesamtscore (Summe = 1). */
+const CATEGORY_WEIGHTS: Record<Category['id'], number> = {
+  security: 0.3,
+  seo: 0.25,
+  technical: 0.25,
+  ai: 0.2,
+}
+
 function scoreOf(checks: Check[]): number {
-  const sum = checks.reduce((acc, c) => acc + STATUS_POINTS[c.status], 0)
-  return Math.round((sum / checks.length) * 100)
+  const totalWeight = checks.reduce((acc, c) => acc + (CHECK_WEIGHTS[c.id] ?? 1), 0)
+  const sum = checks.reduce(
+    (acc, c) => acc + STATUS_POINTS[c.status] * (CHECK_WEIGHTS[c.id] ?? 1),
+    0
+  )
+  return Math.round((sum / totalWeight) * 100)
 }
 
 function gradeOf(score: number): string {
@@ -700,13 +889,14 @@ export async function POST(request: NextRequest) {
     ]
 
     const overallScore = Math.round(
-      categories.reduce((acc, c) => acc + c.score, 0) / categories.length
+      categories.reduce((acc, c) => acc + c.score * CATEGORY_WEIGHTS[c.id], 0)
     )
 
     return NextResponse.json({
       url: finalUrl.toString(),
       checkedAt: new Date().toISOString(),
       overall: { score: overallScore, grade: gradeOf(overallScore) },
+      system: detectSystem(html, response.headers),
       categories,
     })
   } catch (error) {

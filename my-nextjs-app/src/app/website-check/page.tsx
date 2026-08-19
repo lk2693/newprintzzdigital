@@ -12,12 +12,12 @@ const checkFaqs = [
   {
     question: "Ist der Website-Check wirklich kostenlos?",
     answer:
-      "Ja, komplett. Keine Anmeldung, keine E-Mail-Adresse, keine versteckten Kosten. Wir bieten den Check an, weil er in 30 Sekunden zeigt, worauf wir bei jeder Website achten, die wir bauen – und weil viele Unternehmer gar nicht wissen, wo ihre Website steht.",
+      "Ja, komplett. Ihren Score und die Note sehen Sie sofort und ohne Anmeldung. Die detaillierte Auswertung mit allen Verbesserungstipps schalten Sie mit Ihrer E-Mail-Adresse frei – ebenfalls kostenlos und ohne versteckte Kosten. Wir bieten den Check an, weil er in 30 Sekunden zeigt, worauf wir bei jeder Website achten, die wir bauen.",
   },
   {
     question: "Was genau wird geprüft?",
     answer:
-      "25 Punkte in vier Kategorien: Sicherheit (die sechs wichtigsten Schutz-Header Ihrer Website), SEO & Sichtbarkeit (Seitentitel, Meta-Description, Überschriften, Alt-Texte, Sitemap und mehr), Technik & Performance (Verschlüsselung, Antwortzeit, mobile Darstellung) sowie KI-Sichtbarkeit (wird Ihre Website von ChatGPT, Claude, Perplexity und Gemini gelesen?). Jeder Punkt wird verständlich erklärt – ohne Fachchinesisch.",
+      "25 Punkte in vier Kategorien: Sicherheit (die sechs wichtigsten Schutz-Header Ihrer Website), SEO & Sichtbarkeit (Seitentitel, Meta-Description, Überschriften, Alt-Texte, Sitemap und mehr), Technik & Performance (Verschlüsselung, Antwortzeit, mobile Darstellung) sowie KI-Sichtbarkeit (wird Ihre Website von ChatGPT, Claude, Perplexity und Gemini gelesen?). Zusätzlich erkennt der Check, womit Ihre Website gebaut wurde – Homepage-Baukasten wie Wix oder Jimdo, CMS wie WordPress oder individuell entwickelt. Jeder Punkt wird verständlich erklärt – ohne Fachchinesisch.",
   },
   {
     question: "Taucht meine Website in ChatGPT & Co. auf?",
@@ -27,7 +27,7 @@ const checkFaqs = [
   {
     question: "Werden meine Daten oder Ergebnisse gespeichert?",
     answer:
-      "Nein. Der Check ruft nur öffentlich sichtbare Daten Ihrer Website ab – genau das, was jeder Browser beim Besuch auch sieht. Weder die geprüfte Adresse noch die Ergebnisse werden gespeichert oder an Dritte übermittelt.",
+      "Der Check selbst ruft nur öffentlich sichtbare Daten Ihrer Website ab – genau das, was jeder Browser beim Besuch auch sieht. Erst wenn Sie die detaillierte Auswertung freischalten oder ein Beratungsgespräch anfragen, speichern wir Ihre E-Mail-Adresse und das Ergebnis, um Sie kontaktieren zu können. Eine Weitergabe an Dritte findet nicht statt – Details in unserer Datenschutzerklärung.",
   },
   {
     question: "Was sind Security-Header – und warum sind sie wichtig?",
@@ -62,7 +62,7 @@ const webApplicationSchema = {
   name: "Kostenloser Website-Check",
   url: "https://www.printzzdigital.de/website-check",
   description:
-    "Kostenloser Website-Check: 25 Prüfpunkte zu Sicherheit, SEO, Technik und KI-Sichtbarkeit (ChatGPT, Claude, Perplexity, Gemini) in 30 Sekunden – ohne Anmeldung und ohne Speicherung.",
+    "Kostenloser Website-Check: 25 Prüfpunkte zu Sicherheit, SEO, Technik und KI-Sichtbarkeit (ChatGPT, Claude, Perplexity, Gemini) in 30 Sekunden – Score sofort, detaillierte Auswertung kostenlos per E-Mail-Freischaltung.",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "Web",
   offers: {
@@ -191,8 +191,9 @@ export default function WebsiteCheckPage() {
               <p className="m-0 max-w-[600px] text-[19px] leading-[1.6] text-[#6B655B] [text-wrap:pretty]">
                 Sicherheit, SEO, Technik und KI-Sichtbarkeit – wir prüfen Ihre Website
                 auf die 25 Punkte, die über Ihr Google-Ranking entscheiden und darüber,
-                ob ChatGPT &amp; Co. Sie empfehlen können. Ohne Anmeldung, ohne
-                Speicherung, mit verständlichen Erklärungen statt Fachchinesisch.
+                ob ChatGPT &amp; Co. Sie empfehlen können. Ihren Score sehen Sie sofort,
+                die komplette Auswertung mit verständlichen Erklärungen statt
+                Fachchinesisch gibt es kostenlos per E-Mail.
               </p>
             </Reveal>
 
