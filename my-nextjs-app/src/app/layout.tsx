@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Geist, Geist_Mono, Archivo } from "next/font/google";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
@@ -89,11 +90,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // CSP-Nonce aus src/proxy.ts. Der headers()-Aufruf schaltet bewusst alle Seiten
+  // auf dynamisches Rendering – ohne frischen Nonce pro Request wären die
+  // Inline-Scripts statisch gerenderter Seiten blockiert.
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html lang="de">
       <head>
@@ -123,7 +129,7 @@ export default function RootLayout({
         }} />
         
         {/* Service Worker Registration */}
-        <script dangerouslySetInnerHTML={{
+        <script nonce={nonce} dangerouslySetInnerHTML={{
           __html: `
             if ('serviceWorker' in navigator) {
               window.addEventListener('load', function() {

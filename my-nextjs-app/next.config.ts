@@ -1,31 +1,8 @@
 import type { NextConfig } from "next";
 
-const isDev = process.env.NODE_ENV === "development";
-
-// Content-Security-Policy – deckt exakt die extern genutzten Dienste ab:
-// Supabase (Kontakt-Webhook/Admin), Vercel Analytics, Carto-Kartenkacheln (Kontaktseite),
-// Unsplash (Portfolio). 'unsafe-inline' bei script/style braucht Next.js selbst
-// (Framework-Bootstrap, JSON-LD, Inline-Critical-CSS) – ohne Nonces nicht vermeidbar.
-const contentSecurityPolicy = [
-  "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://va.vercel-scripts.com`,
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "img-src 'self' data: blob: https://images.unsplash.com https://*.basemaps.cartocdn.com",
-  "font-src 'self' data: https://fonts.gstatic.com",
-  `connect-src 'self' https://*.supabase.co https://vitals.vercel-insights.com https://va.vercel-scripts.com${isDev ? " ws:" : ""}`,
-  "frame-src 'none'",
-  "object-src 'none'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "frame-ancestors 'none'",
-  "manifest-src 'self'",
-  "worker-src 'self' blob:",
-  "media-src 'self'",
-  ...(isDev ? [] : ["upgrade-insecure-requests"]),
-].join("; ");
-
+// Die Content-Security-Policy wird nicht mehr hier, sondern pro Request in
+// src/proxy.ts gesetzt (Nonce-basiert, nötig für securityheaders.com A+).
 const securityHeaders = [
-  { key: "Content-Security-Policy", value: contentSecurityPolicy },
   // 2 Jahre HSTS inkl. Subdomains, Preload-fähig
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
   { key: "X-Content-Type-Options", value: "nosniff" },
