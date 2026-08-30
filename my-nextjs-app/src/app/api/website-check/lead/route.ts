@@ -3,6 +3,7 @@ import { writeFile, readFile, mkdir } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 import nodemailer from 'nodemailer'
+import { saveRecordToBlob } from '@/lib/blobStore'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -245,19 +246,24 @@ export async function POST(request: NextRequest) {
     createdAt: new Date().toLocaleString('de-DE'),
   }
 
-  let saved = false
+  // Immer loggen, damit der Lead notfalls in den Runtime-Logs auffindbar ist
+  console.log('[website-check-lead]', JSON.stringify(lead))
+
+  const blobSaved = await saveRecordToBlob('website-check-leads', lead)
+
+  let fileSaved = false
   try {
     const leads = await loadLeads()
     leads.unshift(lead)
     await saveLeads(leads)
-    saved = true
+    fileSaved = true
   } catch (error) {
     console.error('Error saving website-check lead:', error)
   }
 
   const emailResult = await sendLeadEmails(lead)
 
-  if (!saved && !emailResult.admin) {
+  if (!blobSaved && !fileSaved && !emailResult.admin) {
     return NextResponse.json(
       { error: 'Das hat leider nicht geklappt. Bitte versuchen Sie es später erneut.' },
       { status: 500 }

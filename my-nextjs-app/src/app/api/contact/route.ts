@@ -3,6 +3,7 @@ import { writeFile, readFile, mkdir } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 import nodemailer from 'nodemailer'
+import { saveRecordToBlob } from '@/lib/blobStore'
 
 const DATA_DIR = path.join(process.cwd(), 'data')
 const CONTACTS_FILE = path.join(DATA_DIR, 'contacts.json')
@@ -222,21 +223,41 @@ export async function POST(request: NextRequest) {
       createdAt: new Date().toLocaleString('de-DE')
     }
 
+    // Immer loggen, damit die Anfrage notfalls in den Runtime-Logs auffindbar ist
+    console.log('[contact]', JSON.stringify(newContact))
+
+    const blobSaved = await saveRecordToBlob('contacts', newContact)
+
     // E-Mail senden
     const emailResult = await sendContactEmail(newContact);
-    
-    contacts.unshift(newContact) // Neue Anfragen oben
-    await saveContacts(contacts)
+
+    // Datei-Speicherung funktioniert nur lokal (Vercel: read-only Filesystem) –
+    // ein Fehler hier darf den Erfolg von Blob/E-Mail nicht überschreiben
+    let fileSaved = false
+    try {
+      contacts.unshift(newContact) // Neue Anfragen oben
+      await saveContacts(contacts)
+      fileSaved = true
+    } catch (error) {
+      console.error('Error saving contacts file:', error)
+    }
 
     const isEmailSuccess = emailResult && typeof emailResult === 'object';
     const adminSent = isEmailSuccess && emailResult.admin;
     const customerSent = isEmailSuccess && emailResult.customer;
 
-    return NextResponse.json({ 
-      success: true, 
+    if (!blobSaved && !fileSaved && !adminSent) {
+      return NextResponse.json(
+        { error: 'Ihre Anfrage konnte nicht übermittelt werden. Bitte versuchen Sie es später erneut oder schreiben Sie an info@printzzdigital.de.' },
+        { status: 500 }
+      )
+    }
+
+    return NextResponse.json({
+      success: true,
       message: adminSent && customerSent
         ? 'Kontaktanfrage erfolgreich gespeichert. E-Mails an Admin und Kunde versendet!'
-        : adminSent 
+        : adminSent
           ? 'Kontaktanfrage gespeichert. Admin-E-Mail versendet, Kunden-E-Mail fehlgeschlagen.'
           : 'Kontaktanfrage gespeichert, aber E-Mail-Versand fehlgeschlagen.',
       contact: newContact,
