@@ -167,6 +167,7 @@ export default function WebsiteCheckSection({ infoLink = false }: WebsiteCheckSe
           system: result.system
             ? `${result.system.name} (${result.system.kindLabel})`
             : "",
+          categories: result.categories,
         }),
       });
       const data = await res.json();
